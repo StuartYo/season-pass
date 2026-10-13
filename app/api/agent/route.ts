@@ -1,5 +1,5 @@
-// One reasoning step of the simulated Alexa+ assistant. The browser (the MCP host) runs the tool calls.
-import { BudgetError, budgetStatus, DAILY_CAP_USD, MODEL, step } from "@/agent/agent";
+// Claude mode: one reasoning step of the simulated Alexa+ assistant. The browser (the MCP host) runs the tool calls.
+import { aiConfigured, API_KEY_ENV, BudgetError, budgetStatus, DAILY_CAP_USD, MODEL, step } from "@/agent/agent";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,7 +11,7 @@ function visitorOf(req: Request) {
 
 export async function GET() {
   const b = await budgetStatus();
-  return Response.json({ model: MODEL, capUsd: DAILY_CAP_USD, spentTodayUsd: b.usd, aiAvailable: Boolean(process.env.ANTHROPIC_API_KEY) && b.usd < DAILY_CAP_USD });
+  return Response.json({ model: MODEL, keyEnv: API_KEY_ENV, configured: aiConfigured(), capUsd: DAILY_CAP_USD, spentTodayUsd: b.usd, aiAvailable: aiConfigured() && b.usd < DAILY_CAP_USD });
 }
 
 export async function POST(req: Request) {
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
   } catch (e: any) {
     if (e instanceof BudgetError) return Response.json({ error: e.message, budget: true }, { status: 429 });
     const status = typeof e?.status === "number" ? 502 : 400;
-    console.error("[renewwise] agent error", e?.message);
+    console.error("[season-pass] agent error", e?.message);
     return Response.json({ error: status === 502 ? "The assistant service had a problem. Try again." : String(e?.message ?? e).slice(0, 200) }, { status });
   }
 }

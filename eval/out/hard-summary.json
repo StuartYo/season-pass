@@ -1,0 +1,34 @@
+[
+  {
+    "set": "normal (already run against the model)",
+    "households": 50,
+    "membersAvg": 2.6,
+    "showsAvg": 6.5,
+    "limit": "none/2/3",
+    "pairsAvg": 79,
+    "promptCharsAvg": 4788,
+    "plannerMedianMs": 98,
+    "plannerMaxMs": 3050,
+    "plannerOptimal": 50,
+    "plannerViolations": 0,
+    "plannerMissedAvg": 2,
+    "statusQuoMissedAvg": 28,
+    "statusQuoOverLimit": 15
+  },
+  {
+    "set": "hard (ready, not run against the model yet)",
+    "households": 50,
+    "membersAvg": 3.8,
+    "showsAvg": 12,
+    "limit": "1/2",
+    "pairsAvg": 179,
+    "promptCharsAvg": 6842,
+    "plannerMedianMs": 220,
+    "plannerMaxMs": 4295,
+    "plannerOptimal": 50,
+    "plannerViolations": 0,
+    "plannerMissedAvg": 36.9,
+    "statusQuoMissedAvg": 91,
+    "statusQuoOverLimit": 35
+  }
+]

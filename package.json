@@ -1,15 +1,16 @@
 {
-  "name": "renewwise",
-  "version": "0.1.0",
+  "name": "season-pass",
+  "version": "0.2.0",
   "private": true,
-  "description": "RenewWise: an Alexa+ MCP add-on that helps a household decide on subscription renewals together.",
+  "description": "Season Pass: an Alexa+ add-on (MCP server) that plans a household's streaming rotation month by month and re-plans instantly by voice.",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "eval:hard-preview": "tsx eval/hard-set.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.133.0",

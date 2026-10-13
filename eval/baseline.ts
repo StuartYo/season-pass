@@ -2,14 +2,22 @@
 // 50 fictional households. Each gets: the exact optimizer, a "keep what you have" status quo,
 // and a pure model (same Claude model, same data, same rules text, no tools). Every plan is scored by the same code.
 //
+// Uses AMAZON_ANTHROPIC_API_KEY (the key dedicated to this project) and refuses to start without it.
 // Run (PowerShell, key from the user environment, never printed):
-//   $env:ANTHROPIC_API_KEY=[Environment]::GetEnvironmentVariable('ANTHROPIC_API_KEY','User'); npx tsx eval/baseline.ts
+//   $env:AMAZON_ANTHROPIC_API_KEY=[Environment]::GetEnvironmentVariable('AMAZON_ANTHROPIC_API_KEY','User'); npx tsx eval/baseline.ts
+// Hard set (more people, more shows, a lower limit): add $env:EVAL_HARD='1'. Preview it first, no API calls: npx tsx eval/hard-set.ts
 import Anthropic from "@anthropic-ai/sdk";
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from "fs";
 import path from "path";
 import { generateSet } from "../src/rotation/generate";
 import { optimize } from "../src/rotation/optimize";
-import { Household, Plan, RULES_TEXT, addMonths, score, windows } from "../src/rotation/model";
+import { score, windows } from "../src/rotation/model";
+import { parsePlan, promptFor, statusQuo } from "./lib";
+
+if (!process.env.AMAZON_ANTHROPIC_API_KEY) {
+  console.error("AMAZON_ANTHROPIC_API_KEY is not set. This script calls the Claude API; it does nothing without the project key.");
+  process.exit(1);
+}
 
 const N = Number(process.env.EVAL_N ?? 50);
 const HARD = process.env.EVAL_HARD === "1";
@@ -25,43 +33,9 @@ mkdirSync(RAW, { recursive: true });
 const PRICE: Record<string, [number, number]> = { "claude-opus-5-5": [4, 20], "claude-sonnet-5-5": [2, 10], "claude-haiku-5-5": [0.1, 0.5] };
 let spent = 0;
 
-function statusQuo(h: Household): Plan {
-  const periods = [];
-  for (const s of h.services.filter((x) => !x.required && x.paidThrough)) {
-    let d = s.paidThrough!;
-    while (d <= h.end) { periods.push({ serviceId: s.id, start: d }); d = addMonths(d, 1); }
-  }
-  return { periods };
-}
+const client = new Anthropic({ apiKey: process.env.AMAZON_ANTHROPIC_API_KEY });
 
-export function promptFor(h: Household): string {
-  const data = { plan: { start: h.start, end: h.end }, maxConcurrent: h.maxConcurrent, services: h.services, members: h.members, titles: h.titles };
-  return `Plan this household's streaming subscriptions so everyone can watch what they follow in time, at the lowest cost.
-
-${RULES_TEXT}
-
-Household data (JSON):
-${JSON.stringify(data)}
-
-Think it through carefully, then answer with only a JSON object in this exact shape, listing every period to pay for (do not list required services):
-{"periods": [{"serviceId": "lumen", "start": "2026-11-05"}]}`;
-}
-
-function parsePlan(text: string): Plan | null {
-  const a = text.indexOf("{"), b = text.lastIndexOf("}");
-  if (a < 0 || b < a) return null;
-  try {
-    const j = JSON.parse(text.slice(a, b + 1));
-    if (!Array.isArray(j.periods)) return null;
-    return { periods: j.periods.map((p: any) => ({ serviceId: String(p.serviceId ?? p.service ?? ""), start: String(p.start ?? "") })) };
-  } catch {
-    return null;
-  }
-}
-
-const client = new Anthropic();
-
-async function pureModel(h: Household) {
+async function pureModel(h: ReturnType<typeof generateSet>[number]) {
   const file = path.join(RAW, `${h.id}.json`);
   if (existsSync(file)) return JSON.parse(readFileSync(file, "utf8"));
   if (spent >= BUDGET_USD) return { skipped: true };

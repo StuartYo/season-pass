@@ -17,12 +17,19 @@ export interface OptimizeResult {
   constraints: number;
 }
 
-export async function optimize(h: Household, opts: { timeLimitSec?: number } = {}): Promise<OptimizeResult> {
+/**
+ * `prefer`: periods of an earlier plan. Among plans that miss the same and cost exactly the same, the solver keeps
+ * as many of these as it can, so a small change in the household does not reshuffle unrelated services.
+ * Costs are scaled by 1000 and each new period adds 1, so this tie-break can never outweigh a single cent.
+ */
+export async function optimize(h: Household, opts: { timeLimitSec?: number; prefer?: Plan["periods"] } = {}): Promise<OptimizeResult> {
   const t0 = Date.now();
   const s0 = toDay(h.start), s1 = toDay(h.end);
   const optional = h.services.filter((s) => !s.required);
   // Missing one pair must always cost more than any possible spending.
-  const BIG = optional.reduce((a, s) => a + s.priceCents, 0) * 12 + 1;
+  const SCALE = 1000;
+  const BIG = (optional.reduce((a, s) => a + s.priceCents, 0) * 12 + 1) * SCALE;
+  const preferred = new Set((opts.prefer ?? []).map((p) => `${p.serviceId}|${p.start}`));
 
   type Cand = { v: string; sid: string; from: number; to: number; price: number };
   const cands: Cand[] = [];
@@ -63,7 +70,7 @@ export async function optimize(h: Household, opts: { timeLimitSec?: number } = {
     const m = merged.get(k);
     if (m) m.weight++; else merged.set(k, { sid: w.serviceId, from: w.from, to: w.to, weight: 1 });
   }
-  const objective: string[] = cands.map((c) => `${c.price} ${c.v}`);
+  const objective: string[] = cands.map((c) => `${c.price * SCALE + (preferred.has(`${c.sid}|${fromDay(c.from)}`) ? 0 : 1)} ${c.v}`);
   const misses: string[] = [];
   let i = 0;
   for (const w of merged.values()) {

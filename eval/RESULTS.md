@@ -24,3 +24,22 @@ Only 44 of 50 households got a model answer: the API workspace usage limit was r
 Reading it honestly: the model never broke a rule and matched the optimum in three out of four households. It does not reach the 95% bar set as the stop condition, but the gap is moderate, not dramatic. Its failures are the kind a family would notice: an episode someone follows becomes unwatchable in time, a plan that costs up to 21% more, or no answer at all. The planner is exact, instant and free, so the assistant can re-plan on every voice change ("I'm still watching that one") without a 30-second wait.
 
 Not yet run: the harder set (`EVAL_HARD=1`: 6 services, 3 to 5 people, 10 to 14 shows, limit 1 or 2) and the remaining 6 households, both blocked by the API usage limit until it is raised.
+
+## Hard set: ready, not yet run against the model (2026-10-14)
+
+`npx tsx eval/hard-set.ts` builds the harder households (same seeds the baseline uses with `EVAL_HARD=1`) and solves them with the planner only. No API calls. Output: `eval/out/hard-households.json`, `hard-planner.json`, `hard-summary.json`.
+
+| | Normal set (run above) | Hard set |
+|---|---|---|
+| People per household (avg) | 2.6 | 3.8 |
+| Followed shows per household (avg) | 6.5 | 12 |
+| Services | 4 to 6 | 6 |
+| Limit on services at once | none, 2 or 3 | 1 or 2 |
+| (episode, follower) pairs to cover (avg) | 79 | 179 |
+| Prompt size for the pure model (avg characters) | 4,788 | 6,842 |
+| Planner: optimal / rule violations | 50 / 0 | 50 / 0 |
+| Planner time, median (max, includes first WebAssembly load) | 98 ms (3.0 s) | 220 ms (4.3 s) |
+| Missed pairs the limit makes unavoidable (avg, planner) | 2 | 36.9 |
+| Status quo: missed pairs (avg) / households over their limit | 28 / 15 | 91 / 35 |
+
+In the hard set the household limit forces real trade-offs: even the exact plan has to drop about 37 pairs per household, so "which ones to drop, and still pay the least" is the whole problem. The baseline run is waiting for the project key (`AMAZON_ANTHROPIC_API_KEY`); command: `EVAL_HARD=1 npx tsx eval/baseline.ts`. At the normal set's cost of about US$0.18 per household, 50 hard households should cost roughly US$10 to 15 (longer prompts); `EVAL_BUDGET_USD` caps it.

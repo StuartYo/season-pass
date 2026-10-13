@@ -1,2 +1,2 @@
 import { defineConfig } from "vitest/config";
-export default defineConfig({ test: { environment: "node", include: ["tests/**/*.test.ts"], env: { RENEWWISE_STORE: "memory" } } });
+export default defineConfig({ test: { environment: "node", include: ["tests/**/*.test.ts"], env: { SEASONPASS_STORE: "memory" } } });

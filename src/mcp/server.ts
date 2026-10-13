@@ -1,172 +1,173 @@
-// The RenewWise MCP server: MCP spec 2025-11-25 over Streamable HTTP (stateless, JSON responses).
-// One tool per customer intent. Every result carries `speech` (voice-only safe) and a `card` (Echo Show style).
+// The Season Pass MCP server: MCP spec 2025-11-25 over Streamable HTTP (stateless, JSON responses).
+// One tool per household intent. Every result carries `speech` (safe to read aloud) and a `card` (Echo Show style).
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { LATEST_PROTOCOL_VERSION } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
-import * as rules from "../domain/rules";
-import { CallContext, HouseholdState, RuleError } from "../domain/types";
-import { reset, safeHouseholdId, withHousehold } from "../domain/store";
+import * as rules from "../season/rules";
+import { CallContext, RuleError, SeasonState } from "../season/types";
+import { reset, safeHouseholdId, withHousehold } from "../season/store";
 
 export const SPEC_VERSION = "2025-11-25";
 if (LATEST_PROTOCOL_VERSION !== SPEC_VERSION) {
   // Fail loudly if an SDK upgrade silently changes the negotiated spec version.
-  console.warn(`[renewwise] SDK latest protocol is ${LATEST_PROTOCOL_VERSION}, expected ${SPEC_VERSION}`);
+  console.warn(`[season-pass] SDK latest protocol is ${LATEST_PROTOCOL_VERSION}, expected ${SPEC_VERSION}`);
 }
 
+export const SERVER_NAME = "season-pass";
 /** Tools the simulator (the host) may call but the assistant may not. */
 export const HOST_ONLY_TOOLS = new Set(["demo_advance_clock", "demo_reset"]);
 
-const INSTRUCTIONS = `RenewWise helps a household decide, together, what to do before a subscription renews.
-Start a proactive moment with get_renewal_briefing. Money changes are two steps: propose_change returns a confirmation_id and a spoken summary; only after an adult with billing authority says yes in a later turn, call confirm_change. Never state a price, date or refund that did not come from a tool result. Each tool result has a "speech" field that is safe to read aloud.
+const INSTRUCTIONS = `Season Pass plans a household's streaming services month by month: each service is on only while someone in the family needs it, and the plan is the cheapest one that misses no followed episode it doesn't have to.
+Use get_household with briefing=true for the proactive morning moment. When someone says something that changes what the family watches ("I'm still watching that show", "grandma wants the cooking channel this month"), call record_preference: the code re-plans in about a tenth of a second and returns what changed.
+Money is two steps: propose_switch returns a confirmation_id and a spoken summary; only after an adult with billing authority says yes in a later turn, call confirm_switch. Never state a price, date or saving that did not come from a tool result. Each result has a "speech" field that is safe to read aloud.
 All household data is fictional demo data.`;
 
 type Ctx = () => CallContext;
+type Data = Record<string, unknown> & { speech: string };
 
-function ok(data: Record<string, unknown> & { speech: string }) {
+function ok(data: Data) {
   return { content: [{ type: "text" as const, text: data.speech }], structuredContent: data };
 }
 
 function fail(e: unknown) {
   if (e instanceof RuleError) {
-    const card: rules.Card = { kind: "blocked", title: "Not done", fields: [{ label: "Why", value: e.message }], tone: "warn", footnote: `Rule: ${e.code}` };
+    const card: rules.Card = { kind: "blocked", title: "Not done", fields: [{ label: "Why", value: e.message }], tone: "warn", footnote: `Refused by server rule: ${e.code}` };
     return { isError: true, content: [{ type: "text" as const, text: e.message }], structuredContent: { error: e.code, message: e.message, speech: e.message, card } };
   }
-  console.error("[renewwise] tool error", e);
-  return { isError: true, content: [{ type: "text" as const, text: "Something went wrong on the RenewWise side. Nothing was changed." }] };
+  console.error("[season-pass] tool error", e);
+  return { isError: true, content: [{ type: "text" as const, text: "Something went wrong on the Season Pass side. Nothing was changed." }] };
 }
 
-async function run(ctx: Ctx, fn: (s: HouseholdState, c: CallContext) => Record<string, unknown> & { speech: string }, write = true) {
+async function run(ctx: Ctx, fn: (s: SeasonState, c: CallContext) => Data | Promise<Data>, write = true) {
   const c = ctx();
   try {
-    const data = await withHousehold(c.householdId, (s) => fn(s, c), write);
-    return ok(data);
+    return ok(await withHousehold(c.householdId, (s) => fn(s, c), write));
   } catch (e) {
     return fail(e);
   }
 }
 
-const subArg = z.string().min(2).max(40).describe("Subscription id or name, for example \"streamvale\" or \"KinoBox\".");
+const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
 export function createServer(ctx: Ctx) {
   const server = new McpServer(
-    { name: "renewwise", title: "RenewWise", version: "0.1.0" },
+    { name: SERVER_NAME, title: "Season Pass", version: "0.2.0" },
     { instructions: INSTRUCTIONS, capabilities: { tools: {}, resources: {} } },
   );
 
-  server.registerTool("get_renewal_briefing", {
-    title: "Renewal briefing",
-    description: "Call when the household's morning briefing starts, when someone asks what renews soon, or when a scheduled reminder may be due. Returns renewals in the next days, charges that can still be refunded, reminders that are due today, and a code-computed suggestion for each.",
-    inputSchema: { within_days: z.number().int().min(1).max(31).optional().describe("Look-ahead window in days. Default 7.") },
-    annotations: { readOnlyHint: true, openWorldHint: false },
-  }, async ({ within_days }) => run(ctx, (s) => ({ ...rules.briefing(s, within_days ?? rules.BRIEFING_WINDOW_DAYS), household: s.householdName, dataNotice: s.dataNotice })));
+  server.registerTool("get_household", {
+    title: "Household and plan",
+    description: "Call at the start of a morning briefing (briefing=true) or when someone asks what the family pays for, who watches what, or what happens next. Returns members and who can approve charges, each service's status, followed shows, the current plan, pending confirmations, reminders and recent changes. With briefing=true it also returns the decisions due around the next billing day and a spoken opener.",
+    inputSchema: { briefing: z.boolean().optional().describe("True for the proactive morning moment.") },
+    annotations: { readOnlyHint: false, idempotentHint: true, openWorldHint: false },
+  }, async ({ briefing }) => run(ctx, (s) => rules.getHousehold(s, { briefing: briefing ?? false })));
 
-  server.registerTool("get_household_usage", {
-    title: "Who uses a subscription",
-    description: "Call when someone asks who actually uses a subscription, or before suggesting a change. Returns per-member hours from the (simulated) Fire TV or Echo history, cost per hour, upcoming events such as a season finale, refund eligibility and the code-computed suggestion.",
-    inputSchema: { subscription: subArg },
-    annotations: { readOnlyHint: true, openWorldHint: false },
-  }, async ({ subscription }) => run(ctx, (s) => rules.usageReport(s, subscription), false));
+  server.registerTool("plan_rotation", {
+    title: "Plan the rotation",
+    description: "Call when someone asks for the plan, or what it costs. Recomputes the cheapest month-by-month rotation through the end of the plan with an exact solver (fewest missed followed episodes first, then lowest cost, never more services at once than the household limit). Returns the calendar, the totals, the next actions and a spoken summary.",
+    inputSchema: {},
+    annotations: { readOnlyHint: false, idempotentHint: true, openWorldHint: false },
+  }, async () => run(ctx, (s) => rules.planRotation(s)));
 
-  server.registerTool("recall_household_memory", {
-    title: "What we decided before",
-    description: "Call when someone refers to an earlier conversation (\"what did we say about it\"), or before reopening a decision. Returns past decisions, opinions, open reminders and recent changes, optionally for one subscription.",
-    inputSchema: { subscription: subArg.optional() },
+  server.registerTool("explain_plan", {
+    title: "Why the plan looks like this",
+    description: "Call when someone asks why a service is on or off, or why it comes back on a date. Returns, for each period, which shows and which family members it is for, computed from the plan.",
+    inputSchema: { service: z.string().min(2).max(40).optional().describe("Service name or id, e.g. \"Lumen\". Omit for the whole plan.") },
     annotations: { readOnlyHint: true, openWorldHint: false },
-  }, async ({ subscription }) => run(ctx, (s) => rules.memory(s, subscription), false));
+  }, async ({ service }) => run(ctx, (s) => rules.explainPlan(s, service), false));
 
-  server.registerTool("record_vote", {
-    title: "Record what someone wants",
-    description: "Call when the person speaking says what they want for a subscription (keep, cancel, pause or downgrade). The vote is stored for the current speaker as identified by the device, never for someone else. Returns everyone's positions and the household policy's resolution, including a code-computed compromise when an adult wants to cut something a family member uses a lot.",
+  server.registerTool("record_preference", {
+    title: "Record what someone said",
+    description: "Call when a family member says something that changes what the household needs: they are still watching a show (follow_title), they gave up on one (drop_title), someone wants a service for a while (want_service), they can wait longer for new episodes (set_pace), or an adult changes how many services may be on at once (set_limit). The person is the current speaker as identified by the device; an adult may speak for another member with `member`. The plan is recomputed immediately and the result says what changed and what it costs.",
     inputSchema: {
-      subscription: subArg,
-      preference: z.enum(["keep", "cancel", "pause", "downgrade"]),
-      reason: z.string().max(200).describe("The speaker's reason in a few words."),
-    },
-    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
-  }, async ({ subscription, preference, reason }) => run(ctx, (s, c) => rules.recordVote(s, c, subscription, preference, reason)));
-
-  server.registerTool("propose_change", {
-    title: "Set up a change (step 1 of 2)",
-    description: "Call when the family has settled on cancelling, pausing, switching plan, or refunding a subscription. Nothing changes yet: code computes the exact amount, date and reversibility and returns a confirmation_id plus a summary to read aloud. Read the speech field, then wait for an adult to say yes.",
-    inputSchema: {
-      subscription: subArg,
-      action: z.enum(["cancel", "pause", "downgrade", "switch_plan", "refund_and_cancel"]),
-      to_plan: z.string().max(40).optional().describe("Plan id for downgrade or switch_plan, for example \"basic_ads\". If omitted for a downgrade, the code picks the cheapest plan that still fits the household."),
-      pause_months: z.number().int().min(1).max(12).optional().describe("Pause length in months, only if the provider offers it."),
+      kind: z.enum(["follow_title", "drop_title", "want_service", "set_pace", "set_limit"]),
+      title: z.string().min(2).max(60).optional().describe("Show name, for follow_title and drop_title."),
+      service: z.string().min(2).max(40).optional().describe("Service name or what people call it (\"the cooking channel\"), for want_service."),
+      member: z.string().min(2).max(30).optional().describe("Who it is for, if not the speaker, e.g. \"grandma\". Only adults can speak for others."),
+      start_by: date.optional().describe("For want_service: the latest day it should be on. Default: three days from today."),
+      days: z.number().int().min(1).max(60).optional().describe("For set_pace: watches new episodes within this many days."),
+      limit: z.number().int().min(1).max(6).nullable().optional().describe("For set_limit: services on at once, or null for no limit."),
+      utterance: z.string().max(200).optional().describe("What the person said, for the household's memory."),
     },
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-  }, async ({ subscription, action, to_plan, pause_months }) =>
-    run(ctx, (s, c) => rules.propose(s, c, { subscriptionId: subscription, action, toPlanId: to_plan, pauseMonths: pause_months })));
+  }, async (a) => run(ctx, (s, c) => rules.recordPreference(s, c, { kind: a.kind, title: a.title, service: a.service, member: a.member, startBy: a.start_by, days: a.days, limit: a.limit, utterance: a.utterance })));
 
-  server.registerTool("confirm_change", {
-    title: "Confirm a change (step 2 of 2)",
-    description: "Call only after an adult with billing authority clearly said yes to the summary from propose_change, in a turn after that summary. The server checks who is speaking, that it is a new turn, that the confirmation has not expired, and that nothing changed in between; it refuses otherwise. Safe to retry: a confirmed change is never applied twice.",
+  server.registerTool("propose_switch", {
+    title: "Set up the next switch (step 1 of 2)",
+    description: "Call when the family agrees to follow the plan. Nothing changes yet: code collects the plan's actions in the next days (turn a service off at its billing day, turn one on), computes every amount and date, and returns a confirmation_id plus a summary to read aloud. Read the speech field, then wait for an adult with billing authority to say yes.",
+    inputSchema: {
+      service: z.string().min(2).max(40).optional().describe("Only this service's action."),
+      within_days: z.number().int().min(1).max(31).optional().describe("Look-ahead in days. Default 10."),
+    },
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
+  }, async ({ service, within_days }) => run(ctx, (s, c) => rules.proposeSwitch(s, c, { service, withinDays: within_days })));
+
+  server.registerTool("confirm_switch", {
+    title: "Confirm the switch (step 2 of 2)",
+    description: "Call only after an adult with billing authority clearly said yes to the summary from propose_switch, in a turn after that summary. The server checks who is speaking (a teen's or child's yes is refused), that it is a new turn, that the confirmation has not expired, and that the plan did not change in between. Safe to retry: a confirmed switch is never applied twice.",
     inputSchema: { confirmation_id: z.string().min(3).max(40) },
     annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: true, openWorldHint: false },
-  }, async ({ confirmation_id }) => run(ctx, (s, c) => rules.confirm(s, c, confirmation_id)));
-
-  server.registerTool("undo_change", {
-    title: "Undo a change",
-    description: "Call when an adult asks to undo or reverse a recent change. Works until the change takes effect at the renewal date; refunds are final and cannot be undone.",
-    inputSchema: { change: z.string().min(2).max(40).describe("The change id from the receipt, or the subscription name to undo its latest change.") },
-    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
-  }, async ({ change }) => run(ctx, (s, c) => rules.undo(s, c, change)));
+  }, async ({ confirmation_id }) => run(ctx, (s, c) => rules.confirmSwitch(s, c, confirmation_id)));
 
   server.registerTool("schedule_reminder", {
     title: "Bring it up later",
-    description: "Call when the family wants to decide later, for example after a season finale or on a date. Use event_id for events listed by get_household_usage (the reminder fires the day after), or a date. The reminder shows up in the briefing when due.",
+    description: "Call when the family wants a reminder: on a date, or the morning before a service's next billing day or start (before_service). The reminder is spoken in the morning briefing when due.",
     inputSchema: {
-      subscription: subArg,
-      event_id: z.string().max(60).optional(),
-      date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe("YYYY-MM-DD on the household's calendar."),
+      date: date.optional().describe("YYYY-MM-DD on the household's calendar."),
+      before_service: z.string().min(2).max(40).optional().describe("Remind the day before this service's next billing day or start."),
       note: z.string().min(3).max(200).describe("What to bring up, in plain words."),
     },
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
-  }, async ({ subscription, event_id, date, note }) => run(ctx, (s, c) => rules.scheduleReminder(s, c, subscription, { eventId: event_id, date, note })));
+  }, async ({ date: d, before_service, note }) => run(ctx, (s, c) => rules.scheduleReminder(s, c, { date: d, beforeService: before_service, note })));
 
-  // Host-only controls for the demo. The simulator's agent never sees these.
+  server.registerTool("undo_switch", {
+    title: "Undo a switch",
+    description: "Call when an adult with billing authority asks to undo the latest confirmed switch. Works until the switch's first date; after that, plan a new switch instead.",
+    inputSchema: { change: z.string().min(3).max(40).optional().describe("Change id from the receipt. Default: the latest switch.") },
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  }, async ({ change }) => run(ctx, (s, c) => rules.undoSwitch(s, c, change)));
+
+  // Host-only controls for the demo. The simulator's conversation layer never sees these.
   server.registerTool("demo_advance_clock", {
     title: "Demo: move the household clock",
-    description: "Host-only demo control. Moves the simulated calendar forward and applies renewals, scheduled changes and reminders.",
-    inputSchema: { to_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) },
+    description: "Host-only demo control. Moves the simulated calendar forward and applies starts, renewals and lapses, then re-plans.",
+    inputSchema: { to_date: date },
     annotations: { readOnlyHint: false, openWorldHint: false },
-    _meta: { "renewwise/hostOnly": true },
-  }, async ({ to_date }) => run(ctx, (s, c) => { const r = rules.advanceClock(s, to_date, c.nowMs); return { ...r, speech: `It is now ${r.today}.` }; }));
+    _meta: { "seasonpass/hostOnly": true },
+  }, async ({ to_date }) => run(ctx, async (s, c) => { const r = await rules.advanceClock(s, to_date, c.nowMs); return { ...r, speech: `It is now ${r.today}.` }; }));
 
   server.registerTool("demo_reset", {
     title: "Demo: reset the household",
     description: "Host-only demo control. Restores the fictional household to its starting state.",
     inputSchema: {},
     annotations: { readOnlyHint: false, destructiveHint: true, openWorldHint: false },
-    _meta: { "renewwise/hostOnly": true },
+    _meta: { "seasonpass/hostOnly": true },
   }, async () => {
     try { const s = await reset(ctx().householdId); return ok({ today: s.today, speech: "Demo household reset." }); } catch (e) { return fail(e); }
   });
 
-  server.registerResource("household", "renewwise://household", {
+  server.registerResource("household", "seasonpass://household", {
     title: "Household overview",
-    description: "Members, subscriptions with status, the simulated date, open reminders and the change ledger. For the device screen.",
+    description: "Members, services, shows, the current plan with its calendar, pending confirmations, reminders and the change ledger. For the device screen.",
     mimeType: "application/json",
   }, async (uri) => {
-    const s = await withHousehold(ctx().householdId, (st) => { rules.refreshDue(st); return st; }, false);
-    const view = {
-      householdName: s.householdName, today: s.today, dataNotice: s.dataNotice, members: s.members,
-      subscriptions: s.subscriptions.map((x) => ({ id: x.id, name: x.name, category: x.category, status: x.status, plan: rules.currentPlan(x), nextRenewal: x.nextRenewal, scheduled: x.scheduled ?? null, pausedUntil: x.pausedUntil ?? null, usageSource: x.usageSource })),
-      reminders: s.reminders, ledger: s.ledger.slice(-20), votes: s.votes,
-    };
+    const view = await withHousehold(ctx().householdId, async (st) => {
+      const v = await rules.getHousehold(st);
+      return { ...v, card: undefined, speech: undefined };
+    }, true);
     return { contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify(view) }] };
   });
 
   return server;
 }
 
-/** Reads the host-supplied context. In Alexa+ these come from account linking and voice recognition. */
+/** Reads the host-supplied context. In Alexa+ these would come from account linking and voice recognition. */
 export function contextFromHeaders(h: Headers): CallContext {
-  const speaker = (h.get("x-renewwise-speaker") ?? "").toLowerCase().trim();
-  const turn = Number(h.get("x-renewwise-turn") ?? "0");
+  const speaker = (h.get("x-seasonpass-speaker") ?? "").toLowerCase().trim();
+  const turn = Number(h.get("x-seasonpass-turn") ?? "0");
   return {
-    householdId: safeHouseholdId(h.get("x-renewwise-household")),
+    householdId: safeHouseholdId(h.get("x-seasonpass-household")),
     speakerId: /^[a-z]{2,20}$/.test(speaker) ? speaker : null,
     turn: Number.isFinite(turn) && turn >= 0 ? Math.floor(turn) : 0,
     nowMs: Date.now(),
@@ -176,7 +177,7 @@ export function contextFromHeaders(h: Headers): CallContext {
 export const CORS_HEADERS: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID, X-RenewWise-Household, X-RenewWise-Speaker, X-RenewWise-Turn",
+  "Access-Control-Allow-Headers": "Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID, X-SeasonPass-Household, X-SeasonPass-Speaker, X-SeasonPass-Turn",
   "Access-Control-Expose-Headers": "Mcp-Session-Id, Mcp-Protocol-Version",
 };
 

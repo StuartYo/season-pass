@@ -38,9 +38,9 @@ export class McpHost {
 
   private fetcher = async (url: string | URL, init?: RequestInit): Promise<Response> => {
     const headers = new Headers(init?.headers);
-    headers.set("x-renewwise-household", this.ctx.household);
-    headers.set("x-renewwise-speaker", this.ctx.speaker ?? "");
-    headers.set("x-renewwise-turn", String(this.ctx.turn));
+    headers.set("x-seasonpass-household", this.ctx.household);
+    headers.set("x-seasonpass-speaker", this.ctx.speaker ?? "");
+    headers.set("x-seasonpass-turn", String(this.ctx.turn));
     const t0 = performance.now();
     const res = await fetch(url, { ...init, headers });
     let request: unknown = null;
@@ -67,7 +67,7 @@ export class McpHost {
 
   async connect() {
     if (this.client) return this.client;
-    const client = new Client({ name: "alexa-plus-simulator", title: "Alexa+ simulator (RenewWise demo)", version: "0.1.0" });
+    const client = new Client({ name: "alexa-plus-simulator", title: "Alexa+ simulator (Season Pass demo)", version: "0.2.0" });
     const transport = new StreamableHTTPClientTransport(new URL(this.endpoint, window.location.href), { fetch: this.fetcher });
     await client.connect(transport);
     this.client = client;
@@ -86,7 +86,7 @@ export class McpHost {
 
   async household() {
     const c = await this.connect();
-    const r = await c.readResource({ uri: "renewwise://household" });
+    const r = await c.readResource({ uri: "seasonpass://household" });
     const first = r.contents[0] as { text?: string };
     return JSON.parse(first.text ?? "{}");
   }

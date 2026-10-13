@@ -70,3 +70,40 @@ describe("plan scorer", () => {
     expect(sc.violations.map((v) => v.rule).sort()).toEqual(["bad_date", "double_paid", "outside_plan", "unknown_service"]);
   });
 });
+
+describe("requests and stable re-plans", () => {
+  it("a 'request' needs the service on at least one day in its window", async () => {
+    const h = tiny(3);
+    h.titles = [{ id: "r", name: "req", serviceId: "orbit", kind: "request", followers: ["dana"], episodes: [{ n: 1, release: "2027-01-05" }], availableUntil: "2027-01-07" }];
+    h.services.forEach((s) => (s.paidThrough = null));
+    const o = await optimize(h);
+    expect(o.plan.periods).toHaveLength(1);
+    expect(o.plan.periods[0].serviceId).toBe("orbit");
+    expect(o.plan.periods[0].start >= "2027-01-01" && o.plan.periods[0].start <= "2027-01-07").toBe(true);
+    expect(score(h, o.plan).missed).toBe(0);
+  });
+
+  it("keeps preferred periods when they cost the same, and never pays a cent more for it", async () => {
+    for (const h of generateSet(4, 11)) {
+      const a = await optimize(h);
+      const shifted = a.plan.periods.map((p) => ({ ...p, start: addDays(p.start, 1) }));
+      const b = await optimize(h, { prefer: shifted });
+      const sa = score(h, a.plan), sb = score(h, b.plan);
+      expect([sb.missed, sb.costCents]).toEqual([sa.missed, sa.costCents]);
+      const c = await optimize(h, { prefer: a.plan.periods });
+      expect(c.plan.periods.map((p) => p.serviceId + p.start).sort()).toEqual(a.plan.periods.map((p) => p.serviceId + p.start).sort());
+    }
+  }, 60_000);
+});
+
+describe("hard set generator", () => {
+  it("makes bigger, tighter households than the normal set", () => {
+    const hard = generateSet(20, 1, true), normal = generateSet(20, 1, false);
+    const avg = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+    expect(avg(hard.map((h) => h.members.length))).toBeGreaterThan(avg(normal.map((h) => h.members.length)));
+    expect(avg(hard.map((h) => h.titles.length))).toBeGreaterThan(avg(normal.map((h) => h.titles.length)));
+    expect(hard.every((h) => h.maxConcurrent !== null && h.maxConcurrent <= 2)).toBe(true);
+    expect(hard.every((h) => h.services.length === 6)).toBe(true);
+    expect(hard[0].id).toBe("hard-01");
+  });
+});

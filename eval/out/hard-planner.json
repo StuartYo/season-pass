@@ -1,0 +1,1152 @@
+[
+ {
+  "id": "hard-01",
+  "members": 3,
+  "services": 6,
+  "titles": 12,
+  "cap": 1,
+  "pairs": 226,
+  "promptChars": 7250,
+  "status": "Optimal",
+  "ms": 237,
+  "variables": 1188,
+  "constraints": 1363,
+  "planner": {
+   "cost": 6295,
+   "missed": 81,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 23982,
+   "missed": 93,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-02",
+  "members": 3,
+  "services": 6,
+  "titles": 13,
+  "cap": 2,
+  "pairs": 122,
+  "promptChars": 6298,
+  "status": "Optimal",
+  "ms": 280,
+  "variables": 915,
+  "constraints": 1091,
+  "planner": {
+   "cost": 18834,
+   "missed": 2,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 20982,
+   "missed": 76,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-03",
+  "members": 5,
+  "services": 6,
+  "titles": 14,
+  "cap": 1,
+  "pairs": 192,
+  "promptChars": 7408,
+  "status": "Optimal",
+  "ms": 307,
+  "variables": 1197,
+  "constraints": 1372,
+  "planner": {
+   "cost": 4196,
+   "missed": 80,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 14988,
+   "missed": 123,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-04",
+  "members": 5,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 191,
+  "promptChars": 6689,
+  "status": "Optimal",
+  "ms": 726,
+  "variables": 1200,
+  "constraints": 1375,
+  "planner": {
+   "cost": 12240,
+   "missed": 27,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 17988,
+   "missed": 97,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-05",
+  "members": 3,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 239,
+  "promptChars": 7573,
+  "status": "Optimal",
+  "ms": 214,
+  "variables": 1188,
+  "constraints": 1363,
+  "planner": {
+   "cost": 12990,
+   "missed": 54,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 10188,
+   "missed": 171,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-06",
+  "members": 4,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 210,
+  "promptChars": 6828,
+  "status": "Optimal",
+  "ms": 248,
+  "variables": 1165,
+  "constraints": 1340,
+  "planner": {
+   "cost": 10841,
+   "missed": 23,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 35676,
+   "missed": 117,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-07",
+  "members": 5,
+  "services": 6,
+  "titles": 11,
+  "cap": 1,
+  "pairs": 165,
+  "promptChars": 6571,
+  "status": "Optimal",
+  "ms": 184,
+  "variables": 925,
+  "constraints": 1101,
+  "planner": {
+   "cost": 10890,
+   "missed": 52,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 35970,
+   "missed": 24,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-08",
+  "members": 3,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 116,
+  "promptChars": 5462,
+  "status": "Optimal",
+  "ms": 186,
+  "variables": 995,
+  "constraints": 1171,
+  "planner": {
+   "cost": 18684,
+   "missed": 7,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 14088,
+   "missed": 108,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-09",
+  "members": 5,
+  "services": 6,
+  "titles": 10,
+  "cap": 1,
+  "pairs": 168,
+  "promptChars": 6461,
+  "status": "Optimal",
+  "ms": 162,
+  "variables": 891,
+  "constraints": 1067,
+  "planner": {
+   "cost": 9890,
+   "missed": 27,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 38670,
+   "missed": 32,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-10",
+  "members": 3,
+  "services": 6,
+  "titles": 12,
+  "cap": 1,
+  "pairs": 181,
+  "promptChars": 6908,
+  "status": "Optimal",
+  "ms": 220,
+  "variables": 1119,
+  "constraints": 1294,
+  "planner": {
+   "cost": 5495,
+   "missed": 50,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 17388,
+   "missed": 103,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-11",
+  "members": 3,
+  "services": 6,
+  "titles": 14,
+  "cap": 1,
+  "pairs": 204,
+  "promptChars": 7546,
+  "status": "Optimal",
+  "ms": 241,
+  "variables": 1023,
+  "constraints": 1199,
+  "planner": {
+   "cost": 11989,
+   "missed": 61,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 10188,
+   "missed": 146,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-12",
+  "members": 3,
+  "services": 6,
+  "titles": 12,
+  "cap": 1,
+  "pairs": 216,
+  "promptChars": 7194,
+  "status": "Optimal",
+  "ms": 328,
+  "variables": 1175,
+  "constraints": 1350,
+  "planner": {
+   "cost": 3696,
+   "missed": 96,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 15588,
+   "missed": 180,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-13",
+  "members": 3,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 208,
+  "promptChars": 7449,
+  "status": "Optimal",
+  "ms": 435,
+  "variables": 1211,
+  "constraints": 1386,
+  "planner": {
+   "cost": 11642,
+   "missed": 23,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 24882,
+   "missed": 107,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-14",
+  "members": 3,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 237,
+  "promptChars": 7759,
+  "status": "Optimal",
+  "ms": 167,
+  "variables": 1021,
+  "constraints": 1197,
+  "planner": {
+   "cost": 17335,
+   "missed": 20,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 22182,
+   "missed": 78,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-15",
+  "members": 4,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 119,
+  "promptChars": 5740,
+  "status": "Optimal",
+  "ms": 271,
+  "variables": 1121,
+  "constraints": 1296,
+  "planner": {
+   "cost": 9242,
+   "missed": 20,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 17382,
+   "missed": 44,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-16",
+  "members": 5,
+  "services": 6,
+  "titles": 12,
+  "cap": 2,
+  "pairs": 257,
+  "promptChars": 7629,
+  "status": "Optimal",
+  "ms": 4295,
+  "variables": 1296,
+  "constraints": 1471,
+  "planner": {
+   "cost": 10790,
+   "missed": 63,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 13788,
+   "missed": 240,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-17",
+  "members": 4,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 260,
+  "promptChars": 8040,
+  "status": "Optimal",
+  "ms": 235,
+  "variables": 1263,
+  "constraints": 1438,
+  "planner": {
+   "cost": 8792,
+   "missed": 60,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29376,
+   "missed": 57,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-18",
+  "members": 3,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 177,
+  "promptChars": 6283,
+  "status": "Optimal",
+  "ms": 3517,
+  "variables": 1200,
+  "constraints": 1375,
+  "planner": {
+   "cost": 12940,
+   "missed": 15,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 11988,
+   "missed": 156,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-19",
+  "members": 5,
+  "services": 6,
+  "titles": 14,
+  "cap": 1,
+  "pairs": 247,
+  "promptChars": 7790,
+  "status": "Optimal",
+  "ms": 260,
+  "variables": 999,
+  "constraints": 1175,
+  "planner": {
+   "cost": 10839,
+   "missed": 74,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 83,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-20",
+  "members": 3,
+  "services": 6,
+  "titles": 12,
+  "cap": 2,
+  "pairs": 185,
+  "promptChars": 6682,
+  "status": "Optimal",
+  "ms": 187,
+  "variables": 1189,
+  "constraints": 1364,
+  "planner": {
+   "cost": 6994,
+   "missed": 35,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 16782,
+   "missed": 80,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-21",
+  "members": 3,
+  "services": 6,
+  "titles": 13,
+  "cap": 2,
+  "pairs": 197,
+  "promptChars": 7279,
+  "status": "Optimal",
+  "ms": 139,
+  "variables": 978,
+  "constraints": 1154,
+  "planner": {
+   "cost": 14287,
+   "missed": 15,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 33276,
+   "missed": 97,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-22",
+  "members": 4,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 109,
+  "promptChars": 6131,
+  "status": "Optimal",
+  "ms": 141,
+  "variables": 907,
+  "constraints": 1083,
+  "planner": {
+   "cost": 15986,
+   "missed": 7,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 50,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-23",
+  "members": 4,
+  "services": 6,
+  "titles": 13,
+  "cap": 1,
+  "pairs": 116,
+  "promptChars": 6449,
+  "status": "Optimal",
+  "ms": 607,
+  "variables": 1145,
+  "constraints": 1320,
+  "planner": {
+   "cost": 3296,
+   "missed": 60,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 23982,
+   "missed": 31,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-24",
+  "members": 3,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 110,
+  "promptChars": 6155,
+  "status": "Optimal",
+  "ms": 108,
+  "variables": 917,
+  "constraints": 1093,
+  "planner": {
+   "cost": 11887,
+   "missed": 3,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 26976,
+   "missed": 56,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-25",
+  "members": 5,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 115,
+  "promptChars": 5856,
+  "status": "Optimal",
+  "ms": 102,
+  "variables": 959,
+  "constraints": 1135,
+  "planner": {
+   "cost": 13487,
+   "missed": 0,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 13188,
+   "missed": 82,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-26",
+  "members": 4,
+  "services": 6,
+  "titles": 10,
+  "cap": 1,
+  "pairs": 144,
+  "promptChars": 6120,
+  "status": "Optimal",
+  "ms": 143,
+  "variables": 882,
+  "constraints": 1058,
+  "planner": {
+   "cost": 9540,
+   "missed": 18,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 30576,
+   "missed": 88,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-27",
+  "members": 3,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 166,
+  "promptChars": 6752,
+  "status": "Optimal",
+  "ms": 354,
+  "variables": 977,
+  "constraints": 1153,
+  "planner": {
+   "cost": 18634,
+   "missed": 23,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 69,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-28",
+  "members": 4,
+  "services": 6,
+  "titles": 12,
+  "cap": 2,
+  "pairs": 156,
+  "promptChars": 6634,
+  "status": "Optimal",
+  "ms": 308,
+  "variables": 1125,
+  "constraints": 1300,
+  "planner": {
+   "cost": 9893,
+   "missed": 61,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 32076,
+   "missed": 45,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-29",
+  "members": 3,
+  "services": 6,
+  "titles": 13,
+  "cap": 2,
+  "pairs": 158,
+  "promptChars": 7241,
+  "status": "Optimal",
+  "ms": 199,
+  "variables": 1139,
+  "constraints": 1314,
+  "planner": {
+   "cost": 11890,
+   "missed": 9,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 23082,
+   "missed": 68,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-30",
+  "members": 4,
+  "services": 6,
+  "titles": 13,
+  "cap": 1,
+  "pairs": 199,
+  "promptChars": 6842,
+  "status": "Optimal",
+  "ms": 193,
+  "variables": 1121,
+  "constraints": 1296,
+  "planner": {
+   "cost": 9344,
+   "missed": 57,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 24882,
+   "missed": 83,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-31",
+  "members": 3,
+  "services": 6,
+  "titles": 12,
+  "cap": 1,
+  "pairs": 184,
+  "promptChars": 7110,
+  "status": "Optimal",
+  "ms": 269,
+  "variables": 1110,
+  "constraints": 1285,
+  "planner": {
+   "cost": 5395,
+   "missed": 61,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 31476,
+   "missed": 35,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-32",
+  "members": 3,
+  "services": 6,
+  "titles": 14,
+  "cap": 1,
+  "pairs": 225,
+  "promptChars": 7632,
+  "status": "Optimal",
+  "ms": 407,
+  "variables": 1164,
+  "constraints": 1339,
+  "planner": {
+   "cost": 4595,
+   "missed": 99,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 21282,
+   "missed": 132,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-33",
+  "members": 5,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 178,
+  "promptChars": 6461,
+  "status": "Optimal",
+  "ms": 138,
+  "variables": 964,
+  "constraints": 1140,
+  "planner": {
+   "cost": 15786,
+   "missed": 3,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 26076,
+   "missed": 61,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-34",
+  "members": 5,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 203,
+  "promptChars": 6281,
+  "status": "Optimal",
+  "ms": 932,
+  "variables": 1152,
+  "constraints": 1327,
+  "planner": {
+   "cost": 10841,
+   "missed": 39,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 11388,
+   "missed": 155,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-35",
+  "members": 4,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 185,
+  "promptChars": 6382,
+  "status": "Optimal",
+  "ms": 211,
+  "variables": 1158,
+  "constraints": 1333,
+  "planner": {
+   "cost": 10792,
+   "missed": 34,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 27282,
+   "missed": 81,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-36",
+  "members": 3,
+  "services": 6,
+  "titles": 13,
+  "cap": 2,
+  "pairs": 160,
+  "promptChars": 6882,
+  "status": "Optimal",
+  "ms": 235,
+  "variables": 1118,
+  "constraints": 1293,
+  "planner": {
+   "cost": 13990,
+   "missed": 17,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 11988,
+   "missed": 106,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-37",
+  "members": 5,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 138,
+  "promptChars": 5959,
+  "status": "Optimal",
+  "ms": 134,
+  "variables": 949,
+  "constraints": 1125,
+  "planner": {
+   "cost": 16886,
+   "missed": 2,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29376,
+   "missed": 48,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-38",
+  "members": 3,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 189,
+  "promptChars": 6092,
+  "status": "Optimal",
+  "ms": 148,
+  "variables": 1079,
+  "constraints": 1254,
+  "planner": {
+   "cost": 10642,
+   "missed": 43,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 22182,
+   "missed": 93,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-39",
+  "members": 4,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 197,
+  "promptChars": 7650,
+  "status": "Optimal",
+  "ms": 1886,
+  "variables": 1122,
+  "constraints": 1297,
+  "planner": {
+   "cost": 13541,
+   "missed": 16,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 20982,
+   "missed": 149,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-40",
+  "members": 5,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 202,
+  "promptChars": 7750,
+  "status": "Optimal",
+  "ms": 421,
+  "variables": 1061,
+  "constraints": 1237,
+  "planner": {
+   "cost": 17434,
+   "missed": 44,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 21282,
+   "missed": 141,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-41",
+  "members": 4,
+  "services": 6,
+  "titles": 11,
+  "cap": 1,
+  "pairs": 125,
+  "promptChars": 6169,
+  "status": "Optimal",
+  "ms": 167,
+  "variables": 1112,
+  "constraints": 1287,
+  "planner": {
+   "cost": 7545,
+   "missed": 36,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 20982,
+   "missed": 123,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-42",
+  "members": 4,
+  "services": 6,
+  "titles": 13,
+  "cap": 1,
+  "pairs": 178,
+  "promptChars": 6982,
+  "status": "Optimal",
+  "ms": 334,
+  "variables": 1164,
+  "constraints": 1339,
+  "planner": {
+   "cost": 6245,
+   "missed": 88,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29976,
+   "missed": 82,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-43",
+  "members": 3,
+  "services": 6,
+  "titles": 12,
+  "cap": 2,
+  "pairs": 172,
+  "promptChars": 7002,
+  "status": "Optimal",
+  "ms": 143,
+  "variables": 1125,
+  "constraints": 1300,
+  "planner": {
+   "cost": 6344,
+   "missed": 36,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 26076,
+   "missed": 2,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-44",
+  "members": 4,
+  "services": 6,
+  "titles": 14,
+  "cap": 1,
+  "pairs": 228,
+  "promptChars": 7583,
+  "status": "Optimal",
+  "ms": 225,
+  "variables": 1008,
+  "constraints": 1184,
+  "planner": {
+   "cost": 9890,
+   "missed": 116,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 19482,
+   "missed": 144,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-45",
+  "members": 4,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 167,
+  "promptChars": 6843,
+  "status": "Optimal",
+  "ms": 161,
+  "variables": 959,
+  "constraints": 1135,
+  "planner": {
+   "cost": 14786,
+   "missed": 19,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 57,
+   "violations": 0
+  }
+ },
+ {
+  "id": "hard-46",
+  "members": 4,
+  "services": 6,
+  "titles": 13,
+  "cap": 2,
+  "pairs": 179,
+  "promptChars": 7091,
+  "status": "Optimal",
+  "ms": 148,
+  "variables": 1129,
+  "constraints": 1304,
+  "planner": {
+   "cost": 12540,
+   "missed": 20,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 27576,
+   "missed": 103,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-47",
+  "members": 5,
+  "services": 6,
+  "titles": 11,
+  "cap": 2,
+  "pairs": 194,
+  "promptChars": 6904,
+  "status": "Optimal",
+  "ms": 176,
+  "variables": 1146,
+  "constraints": 1321,
+  "planner": {
+   "cost": 9391,
+   "missed": 6,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 31776,
+   "missed": 66,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-48",
+  "members": 4,
+  "services": 6,
+  "titles": 10,
+  "cap": 2,
+  "pairs": 108,
+  "promptChars": 5702,
+  "status": "Optimal",
+  "ms": 120,
+  "variables": 1028,
+  "constraints": 1203,
+  "planner": {
+   "cost": 9293,
+   "missed": 11,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 31176,
+   "missed": 25,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-49",
+  "members": 3,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 179,
+  "promptChars": 6984,
+  "status": "Optimal",
+  "ms": 249,
+  "variables": 1058,
+  "constraints": 1233,
+  "planner": {
+   "cost": 9593,
+   "missed": 15,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 28476,
+   "missed": 109,
+   "violations": 1
+  }
+ },
+ {
+  "id": "hard-50",
+  "members": 5,
+  "services": 6,
+  "titles": 14,
+  "cap": 2,
+  "pairs": 192,
+  "promptChars": 7632,
+  "status": "Optimal",
+  "ms": 168,
+  "variables": 934,
+  "constraints": 1110,
+  "planner": {
+   "cost": 15786,
+   "missed": 19,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29376,
+   "missed": 53,
+   "violations": 1
+  }
+ }
+]

@@ -3,6 +3,7 @@ import { handleMcpRequest } from "@/mcp/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 30;
 
 export const POST = (req: Request) => handleMcpRequest(req);
 export const GET = (req: Request) => handleMcpRequest(req);

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "headers": [
+    { "source": "/api/mcp", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/mcp", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+  ]
+}

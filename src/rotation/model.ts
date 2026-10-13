@@ -22,7 +22,8 @@ export interface Title {
   id: string;
   name: string;
   serviceId: string;
-  kind: "weekly" | "drop" | "leaving";
+  /** "request": a household member asked for this service; it must be on for at least one day from `episodes[0].release` to `availableUntil`. */
+  kind: "weekly" | "drop" | "leaving" | "request";
   followers: string[];
   /** Episode release dates. For "leaving" titles: one entry, the date it is already available from. */
   episodes: { n: number; release: string }[];
@@ -92,7 +93,7 @@ export function windows(h: Household): Window[] {
       for (const m of t.followers) {
         const mem = h.members.find((x) => x.id === m)!;
         const from = Math.max(s0, toDay(e.release));
-        const to = Math.min(s1, t.kind === "leaving" ? toDay(t.availableUntil!) : toDay(e.release) + mem.watchWithinDays);
+        const to = Math.min(s1, t.kind === "leaving" || t.kind === "request" ? toDay(t.availableUntil!) : toDay(e.release) + mem.watchWithinDays);
         if (from <= to) out.push({ titleId: t.id, serviceId: t.serviceId, episode: e.n, memberId: m, from, to });
       }
     }

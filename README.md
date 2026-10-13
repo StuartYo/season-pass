@@ -19,7 +19,15 @@ On 50 fictional households (`eval/RESULTS.md`), the same plan was made three way
 
 The model is good: it never broke a rule and it matched the optimum three times out of four. But a family notices the fourth: a followed episode that becomes unwatchable, a plan up to 21% more expensive, or no answer. And 33 seconds is too slow to re-plan on every sentence someone says in the kitchen. The planner is an exact mixed-integer program (HiGHS, WebAssembly, runs inside the MCP server), cross-checked against brute force in the tests.
 
-A harder set (more people, more shows, at most 1 or 2 services at once) is built and solved by the planner; the pure-model run is waiting for the project's API key. See `eval/RESULTS.md`.
+On a harder set (3 to 5 people, 10 to 14 shows, at most 1 or 2 services at once) the gap opens up. The budget covered 16 households:
+
+| Hard set, 16 households | Season Pass planner | Pure model (same setting) |
+|---|---|---|
+| Matches the optimum | **16 / 16** | 5 / 16 (**31%**) |
+| No answer (ran out of tokens) | 0 | 4 |
+| Households that miss episodes they didn't have to | 0 | **6** |
+| Time per plan (median) | **0.2 s** | 249 s |
+| Cost per plan | **free** | US$0.50 |
 
 ## What it looks like
 
@@ -41,14 +49,16 @@ Requires Node 20 or later.
 
 ```bash
 npm ci
-npm test          # 33 tests: planner vs brute force, money rules, MCP over HTTP, the scripted demo
+npm test          # 35 tests: planner vs brute force, money rules, MCP over HTTP, the scripted demo
 npm run build
 npm start         # http://localhost:3000, MCP endpoint at /mcp (alias of /api/mcp)
 ```
 
 Development: `npm run dev`, or on Windows `scripts/dev.ps1`, which picks up `AMAZON_ANTHROPIC_API_KEY` from the user environment if it exists.
 
-No key is needed. Without one, the simulator runs in **rules mode**: a deterministic intent parser turns each sentence into MCP tool calls and reads back the tool's own spoken text. With `AMAZON_ANTHROPIC_API_KEY` set on the server, **Claude mode** becomes available: Claude picks the tools, the browser still runs them over MCP. The MCP server, the money rules and the refusals are identical in both modes. Settings are listed in `.env.example`.
+No key is needed. Without one, the simulator runs in **rules mode**: a deterministic intent parser turns each sentence into MCP tool calls and reads back the tool's own spoken text. With `AMAZON_ANTHROPIC_API_KEY` set on the server, **Claude mode** becomes available: Claude (Opus 5.5, low effort) picks the tools, the browser still runs them over MCP. The MCP server, the money rules and the refusals are identical in both modes. Settings are listed in `.env.example`.
+
+Claude mode has been run on the full 8-step script (`eval/claude-demo.ts`, 2026-10-14): 16 API calls, about US$0.16 per run, 3 to 10 seconds per turn. Claude picked the same tools as rules mode at every step; when Leah (15) said yes, Claude called `confirm_switch` and the **server** refused it (`not_authorized`); Marcus's yes went through. The public demo caps Claude mode (per browser per day, per day, per month; see `.env.example`). When a cap is reached the simulator says so and finishes in rules mode.
 
 Talk to the MCP server directly:
 
@@ -113,15 +123,16 @@ The planner decides, for each optional service and each day, whether a one-month
 - **Fictional data.** Release dates, prices and viewing are invented. Real use needs a schedule source and the household's actual billing dates.
 - **Switches are simulated.** No real service is turned on or off. In production this would go through the services' own subscription management (for channels billed through an Amazon account, that is where it would plug in).
 - **Watching is modelled simply.** An episode counts as watchable if the service is on for at least one day between its release and the follower's "watch within" days. Binge pace, profiles and downloads are not modelled.
-- **Rules mode is narrow.** It understands the demo's kinds of sentences and replies with help otherwise. Claude mode is built but not yet run in this repository (it needs the project key).
+- **Rules mode is narrow.** It understands the demo's kinds of sentences and replies with help otherwise. Claude mode understands free speech but is slower (3 to 10 seconds a turn) and capped on the public demo.
+- **Demo caps are per server instance.** Without Upstash Redis the spend counters live in the instance's `/tmp`, so a cold start resets them; the Anthropic workspace's own monthly limit is the hard backstop.
 - **Speaker identity is a header.** Alexa+ does not document how an add-on learns who is speaking (`FRICTION_LOG.md`), so the simulator stands in for voice recognition.
-- **The baseline used one model setting** (Claude Opus, medium effort, no tools) and 44 of 50 households answered before an API limit. The hard-set comparison has not been run yet.
+- **The baseline used one model setting** (Claude Opus, medium effort, no tools). Normal set: 44 of 50 households before an API limit. Hard set: 16 of 50, the most a US$9 budget covered. A different effort or a model with tools might do better; the comparison is against the model alone.
 - **Serverless storage.** Without Upstash Redis, Vercel keeps households in `/tmp`, which is not shared between instances.
 - The browser console shows two "405" lines per page load: the SDK client probes an optional stream that this stateless server correctly declines.
 
-## Deploy (not deployed yet)
+## Deploy
 
-`vercel.json` and the Next.js config are ready: the simulator is the page at `/`, the MCP endpoint is `/mcp`. HiGHS is kept as an external server package so its WebAssembly file ships with the function. Set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` for durable households, and `AMAZON_ANTHROPIC_API_KEY` only if Claude mode should be on.
+Live at https://season-pass-two.vercel.app (Vercel). The simulator is the page at `/`, the MCP endpoint is `/mcp`. HiGHS is kept as an external server package so its WebAssembly file ships with the function. Set `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` for durable households, and `AMAZON_ANTHROPIC_API_KEY` only if Claude mode should be on.
 
 ## Built on
 
@@ -134,7 +145,7 @@ Started on 2026-10-13 from RenewWise (an earlier idea in this same repository: a
 - `src/mcp/server.ts`: the MCP server; `app/api/mcp/route.ts`: the endpoint
 - `src/conversation/`: engine interface, rules engine, Claude engine, the scripted demo
 - `src/ui/`: the simulator, the MCP host, the calendar
-- `eval/`: baseline against the pure model (`baseline.ts`), hard-set preview (`hard-set.ts`), results
+- `eval/`: baseline against the pure model (`baseline.ts`), hard-set preview (`hard-set.ts`), Claude mode on the demo script (`claude-demo.ts`), results
 - `tests/`: Vitest
 
 MIT License. See `LICENSE`.

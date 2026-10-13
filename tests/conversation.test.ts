@@ -5,6 +5,7 @@ import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/
 import { handleMcpRequest } from "../src/mcp/server";
 import { parseIntent, parseDate } from "../src/conversation/intents";
 import { RulesEngine } from "../src/conversation/rulesEngine";
+import { ClaudeEngine } from "../src/conversation/claudeEngine";
 import { DEMO_SCRIPT } from "../src/conversation/script";
 import type { ToolRunner, World } from "../src/conversation/types";
 
@@ -102,4 +103,37 @@ describe("rules engine plays the demo script against the MCP server", () => {
     for (const o of out) expect(o.speech).not.toMatch(/[$%|*#<>{}[\]]/);
     await h.client.close();
   }, 60_000);
+});
+
+describe("Claude mode falls back to rules mode when the demo's AI caps are reached", () => {
+  it("answers the turn with the rules engine, through the same MCP tools, and stays in rules mode", async () => {
+    const h = await host("conv-capped");
+    await h.tools.call("demo_reset", {});
+    let posts = 0;
+    const capped = async () => { posts++; return new Response(JSON.stringify({ error: "The demo's AI budget for today is used up.", budget: true }), { status: 429 }); };
+    const engine = new ClaudeEngine("/api/agent", capped as any);
+    h.who.turn = 1;
+    const world = await h.world();
+    const first = await engine.handle({ type: "event", event: "morning", today: world.today }, h.tools, world);
+    expect(first.fellBackToRules).toBe(true);
+    expect(first.notice).toMatch(/budget/);
+    expect(first.results.map((r) => r.name)).toEqual(["get_household"]);
+    h.who.turn = 2; h.who.speaker = "marcus";
+    const second = await engine.handle({ type: "utterance", speakerId: "marcus", speakerName: "Marcus", text: "Hold on, I'm still watching that show.", source: "scripted" }, h.tools, await h.world());
+    expect(second.fellBackToRules).toBe(true);
+    expect(posts).toBe(1);
+    await h.client.close();
+  }, 30_000);
+});
+
+describe("public demo caps", () => {
+  it("blocks on the monthly, daily and per-visitor limits", async () => {
+    const { capReason, DAILY_CAP_USD, MONTHLY_CAP_USD } = await import("../src/agent/agent");
+    const base = { day: "2026-10-14", usd: 0, steps: {}, visitorUsd: {}, month: "2026-10", monthUsd: 0 };
+    expect(capReason(base, "a")).toBeNull();
+    expect(capReason({ ...base, monthUsd: MONTHLY_CAP_USD }, "a")).toMatch(/month/);
+    expect(capReason({ ...base, usd: DAILY_CAP_USD }, "a")).toMatch(/today/);
+    expect(capReason({ ...base, visitorUsd: { a: 10 } }, "a")).toMatch(/this browser/);
+    expect(capReason({ ...base, steps: { a: 1000 } }, "b")).toBeNull();
+  });
 });

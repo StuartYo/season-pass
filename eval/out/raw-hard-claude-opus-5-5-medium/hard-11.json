@@ -1,0 +1,24 @@
+{
+  "household": "hard-11",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 148866,
+  "usage": {
+    "input_tokens": 3700,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 15096,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 13740
+    }
+  },
+  "costUsd": 0.31672,
+  "text": "Rules 1, 3 and 6 allow only one non-required service at a time, so the schedule is a single chain of one-month periods. This plan misses 66 (episode, follower) pairs and costs $87.94. I did not prove that no plan misses fewer. I compared about a dozen arrangements by hand, and this one missed the fewest.\n\n**The plan, in order**\n\n| Period | Service | What it covers |\n|---|---|---|\n| Nov 1 – Nov 16 | Tidewell (already paid, free) | Nothing needed. No other service can run while it is on. |\n| Nov 16 – Dec 16 | Marquee | Most of The Paper Tide and The Copper Lantern, and all of The Distant Meridian. |\n| Dec 17 – Jan 17 | Lumen | All 21 pairs of The Quiet Atlas (all three followers can watch on Jan 11–12), plus Amber Kingdom episode 1. |\n| Jan 17 – Feb 17 | Tidewell | Jun's live episodes of Copper Atlas and Velvet Harbor from Jan 19 to Feb 16. Rosa catches up on 17 earlier and current episodes. |\n| Feb 17 – Mar 17 | Lumen | The Amber Kingdom episodes 6–10 and most of The Salt Tide. |\n| Mar 17 – Apr 17 | Kestrel+ | All 30 pairs of The Quiet Archive (it drops Mar 23, and Jun's window is Mar 23–24). |\n\nPebble Kids is required, so its titles are always available and it is not listed.\n\n**What gets missed (66 pairs)**\n\n- **Nov 1–15, while Tidewell blocks everything else:**\n  - Jun misses The Copper Lantern episodes 1–2 and The Paper Tide episode 1.\n  - Wen misses Copper Lantern episode 1.\n  - Jun misses Copper Atlas episode 1 (Dec 10), which falls inside the Marquee month.\n- **Rest of Marquee after Dec 16:** 13 pairs (Paper Tide episodes 7–11 and Copper Lantern episode 7).\n- **Kestrel+ before March:** Distant Garden (film) and The Hollow Ferry are lost (21 pairs). Covering them would have cost more elsewhere.\n- **Tidewell outside its month:**\n  - Episodes before Jan 17: 2 Jun pairs, plus 4 more where neither Jun nor Rosa saw them in time.\n  - Velvet Harbor episode 11 (Feb 23) for both Jun and Rosa.\n- **Lumen gaps:**\n  - The Quiet Atlas for Jun is fine; the other losses are Amber Kingdom episodes 2–5, 11 and 12 for Wen.\n  - The Salt Tide episodes 1–2 and episode 3 for Wen.\n\n**Main trade-off**\n\nBetween Dec 16 and the Kestrel+ month there is room for exactly three one-month periods. Lumen, then Tidewell, then Lumen covered the most pairs of the arrangements I tried. The alternatives were:\n- Putting Tidewell first instead of Lumen gave fewer.\n- Extending Marquee for a second month gave fewer.\n- Using Kestrel+ earlier gave fewer.\n\n**Cost:** Marquee $13.99 + Lumen $15.49 × 2 + Tidewell $8.99 + Kestrel+ $17.99 = **$71.95**, plus the required Pebble Kids renewals of $7.99 × 2 = $15.98, for **$87.94** in total.\n\n{\"periods\": [{\"serviceId\": \"marquee\", \"start\": \"2026-11-16\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-12-17\"}, {\"serviceId\": \"tidewell\", \"start\": \"2027-01-17\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-02-17\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-03-17\"}]}"
+}

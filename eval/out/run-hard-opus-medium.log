@@ -1,0 +1,72 @@
+hard-01 opt $62.95 miss 81 | model $60.95 miss 82 viol 0 | spent $0.34
+hard-03 opt $41.96 miss 80 | model $41.96 miss 80 viol 0 | spent $0.89
+hard-05 opt $129.90 miss 54 | model $129.90 miss 63 viol 0 | spent $1.52
+hard-02 opt $188.34 miss 2 | model {"parsed":false,"costUsd":0.65172,"ms":308611,"stop":"max_tokens"} | spent $2.17
+hard-04 opt $122.40 miss 27 | model {"parsed":false,"costUsd":0.65282,"ms":326959,"stop":"max_tokens"} | spent $2.82
+hard-07 opt $108.90 miss 52 | model $108.90 miss 52 viol 0 | spent $3.27
+hard-06 opt $108.41 miss 23 | model $108.41 miss 23 viol 0 | spent $3.88
+hard-09 opt $98.90 miss 27 | model $98.90 miss 28 viol 0 | spent $4.22
+hard-10 opt $54.95 miss 50 | model $54.95 miss 50 viol 0 | spent $4.60
+hard-08 opt $186.84 miss 7 | model $193.34 miss 7 viol 0 | spent $5.16
+hard-12 opt $36.96 miss 96 | model $44.95 miss 96 viol 0 | spent $5.39
+hard-11 opt $119.89 miss 61 | model $119.89 miss 63 viol 0 | spent $5.71
+hard-17 opt $87.92 miss 60 | model {"skipped":true} | spent $5.71
+hard-18 opt $129.40 miss 15 | model {"skipped":true} | spent $5.71
+hard-19 opt $108.39 miss 74 | model {"skipped":true} | spent $5.71
+hard-20 opt $69.94 miss 35 | model {"skipped":true} | spent $5.71
+hard-21 opt $142.87 miss 15 | model {"skipped":true} | spent $5.71
+hard-22 opt $159.86 miss 7 | model {"skipped":true} | spent $5.71
+hard-23 opt $32.96 miss 60 | model {"skipped":true} | spent $5.71
+hard-24 opt $118.87 miss 3 | model {"skipped":true} | spent $5.71
+hard-25 opt $134.87 miss 0 | model {"skipped":true} | spent $5.71
+hard-26 opt $95.40 miss 18 | model {"skipped":true} | spent $5.71
+hard-27 opt $186.34 miss 23 | model {"skipped":true} | spent $5.71
+hard-28 opt $98.93 miss 61 | model {"skipped":true} | spent $5.71
+hard-29 opt $118.90 miss 9 | model {"skipped":true} | spent $5.71
+hard-30 opt $93.44 miss 57 | model {"skipped":true} | spent $5.71
+hard-31 opt $53.95 miss 61 | model {"skipped":true} | spent $5.71
+hard-32 opt $45.95 miss 99 | model {"skipped":true} | spent $5.71
+hard-33 opt $157.86 miss 3 | model {"skipped":true} | spent $5.71
+hard-34 opt $108.41 miss 39 | model {"skipped":true} | spent $5.71
+hard-35 opt $107.92 miss 34 | model {"skipped":true} | spent $5.71
+hard-36 opt $139.90 miss 17 | model {"skipped":true} | spent $5.71
+hard-37 opt $168.86 miss 2 | model {"skipped":true} | spent $5.71
+hard-38 opt $106.42 miss 43 | model {"skipped":true} | spent $5.71
+hard-39 opt $135.41 miss 16 | model {"skipped":true} | spent $5.71
+hard-40 opt $174.34 miss 44 | model {"skipped":true} | spent $5.71
+hard-41 opt $75.45 miss 36 | model {"skipped":true} | spent $5.71
+hard-42 opt $62.45 miss 88 | model {"skipped":true} | spent $5.71
+hard-43 opt $63.44 miss 36 | model {"skipped":true} | spent $5.71
+hard-44 opt $98.90 miss 116 | model {"skipped":true} | spent $5.71
+hard-45 opt $147.86 miss 19 | model {"skipped":true} | spent $5.71
+hard-46 opt $125.40 miss 20 | model {"skipped":true} | spent $5.71
+hard-47 opt $93.91 miss 6 | model {"skipped":true} | spent $5.71
+hard-48 opt $92.93 miss 11 | model {"skipped":true} | spent $5.71
+hard-49 opt $95.93 miss 15 | model {"skipped":true} | spent $5.71
+hard-50 opt $157.86 miss 19 | model {"skipped":true} | spent $5.71
+hard-15 opt $92.42 miss 20 | model $83.92 miss 24 viol 0 | spent $6.01
+hard-13 opt $116.42 miss 23 | model {"parsed":false,"costUsd":0.654528,"ms":298849,"stop":"max_tokens"} | spent $6.66
+hard-14 opt $173.35 miss 20 | model $187.34 miss 25 viol 0 | spent $7.30
+hard-16 opt $107.90 miss 63 | model {"parsed":false,"costUsd":0.654972,"ms":306854,"stop":"max_tokens"} | spent $7.95
+{
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "households": 50,
+  "modelScored": 12,
+  "modelUnparseable": 4,
+  "modelNearOptimal": 5,
+  "modelWithViolations": 0,
+  "modelMissedMoreThanOptimal": 6,
+  "modelCostOver5pct": 2,
+  "totals": {
+    "optimalCostUsd": 1215.43,
+    "modelCostUsd": 1233.41,
+    "statusQuoCostUsd": 11426.52,
+    "optimalMissed": 571,
+    "modelMissed": 593,
+    "statusQuoMissed": 4549,
+    "modelViolations": 0,
+    "optimalViolations": 0
+  },
+  "apiSpendUsd": 7.95
+}

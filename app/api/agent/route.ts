@@ -1,5 +1,5 @@
 // Claude mode: one reasoning step of the simulated Alexa+ assistant. The browser (the MCP host) runs the tool calls.
-import { aiConfigured, API_KEY_ENV, BudgetError, budgetStatus, DAILY_CAP_USD, MODEL, step } from "@/agent/agent";
+import { aiConfigured, API_KEY_ENV, BudgetError, budgetStatus, capReason, DAILY_CAP_USD, MODEL, step } from "@/agent/agent";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -9,9 +9,10 @@ function visitorOf(req: Request) {
   return (req.headers.get("x-forwarded-for") ?? "local").split(",")[0].trim().slice(0, 64);
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   const b = await budgetStatus();
-  return Response.json({ model: MODEL, keyEnv: API_KEY_ENV, configured: aiConfigured(), capUsd: DAILY_CAP_USD, spentTodayUsd: b.usd, aiAvailable: aiConfigured() && b.usd < DAILY_CAP_USD });
+  const capped = capReason(b, visitorOf(req));
+  return Response.json({ model: MODEL, keyEnv: API_KEY_ENV, configured: aiConfigured(), capUsd: DAILY_CAP_USD, spentTodayUsd: b.usd, aiAvailable: aiConfigured() && !capped, cappedReason: capped });
 }
 
 export async function POST(req: Request) {

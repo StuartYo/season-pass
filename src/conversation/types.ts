@@ -38,6 +38,10 @@ export interface EngineOutput {
   results: ToolResult[];
   /** Set when the engine could not run (e.g. Claude mode without a key). */
   error?: string;
+  /** Claude mode only: this turn was answered by the rules engine because the demo's AI caps were reached. */
+  fellBackToRules?: boolean;
+  /** A one-line system note to show (e.g. why the fallback happened). */
+  notice?: string;
 }
 
 export interface ConversationEngine {

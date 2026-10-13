@@ -1,0 +1,24 @@
+{
+  "household": "hard-14",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 284089,
+  "usage": {
+    "input_tokens": 3779,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 30969,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 29689
+    }
+  },
+  "costUsd": 0.634496,
+  "text": "The plan below misses 25 of the 220 (episode, follower) pairs that need planning and costs $133.89. The 2-service limit makes some misses unavoidable. I built it by hand, so it is not proven to be the minimum, but the main alternatives I tried missed more.\n\n**Bottlenecks**\n- **November:** Northline (*Hollow Orchard*, 30 pairs) and Kestrel+ (*Velvet Kingdom* and *Northern Circuit*, 23 pairs) both need access while Orbit already uses one of the two slots until Nov 9. Covering both means Orbit can't return before Dec 2. That costs 6 pairs from *The Quiet Archive* (episodes 1–3), far fewer than dropping either of the others.\n- **Orbit restart:** Restarting Orbit on Dec 6 loses Leah's 1-day window for *Copper Lantern* episode 1. In exchange, two periods (Dec 6 to Feb 5) also catch episode 10 for all three followers. That beats restarting on Dec 2 and needing a third period.\n- **January:** Orbit (*Distant Archive*, *Quiet Archive*, *Copper Lantern*) must keep one slot all month. For the other slot, Northline's *The Paper Signal* (12 pairs) is worth more than Kestrel+'s January episodes of *The Hollow Ferry*. Marquee runs Dec 13 to Jan 12 so it catches *Crooked Garden* episodes 1–3. Northline then starts Jan 13, which is still inside Leah's window.\n- **February–March:** Marquee is placed first because Priya's 14-day windows reach back to late January. Kestrel+ follows from Feb 13 and catches the rest of *The Hollow Ferry* and all of *The Paper Garden*. Lumen only fits from Mar 6 and catches 2 of 6 *Silver Circuit* episodes. A final Marquee period from Mar 13 covers the remaining March episodes.\n\n**Pairs missed (25)**\n- **Orbit:** 7 in total.\n  - *Quiet Archive* episode 1 for everyone, episode 2 for Marcus and Leah, and episode 3 for Leah.\n  - *Copper Lantern* episode 1 for Leah.\n- **Kestrel+ (*The Hollow Ferry*):** 11 in total.\n  - All of the Jan 5, 12, 19 and 26 episodes.\n  - The Feb 2 episode for Marcus and Leah.\n  - The Feb 9 episode for Leah.\n- **Marquee (*Crooked Garden*):** 3 in total. The Jan 18 episode for Priya and Marcus, and the Jan 25 episode for Marcus.\n- **Lumen:** 4. The Feb 4, 11, 18 and 25 episodes of *The Silver Circuit*.\n\n**Limit check:** I checked every day of the plan, and no day has more than 2 non-required services active. No service's periods overlap each other or the already-paid access.\n\n```json\n{\"periods\": [{\"serviceId\": \"northline\", \"start\": \"2026-11-02\"}, {\"serviceId\": \"kestrel\", \"start\": \"2026-11-10\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-12-06\"}, {\"serviceId\": \"marquee\", \"start\": \"2026-12-13\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-06\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-13\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-02-06\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-02-13\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-03-06\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-03-13\"}]}\n```"
+}

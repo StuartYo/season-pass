@@ -1,6 +1,7 @@
 // "claude" conversation mode: Claude decides what to say and which MCP tool to call. The browser stays the MCP
 // host: each tool_use is run against the MCP server over Streamable HTTP and the result goes back to Claude.
 // The server route (/api/agent) only talks to Claude and needs AMAZON_ANTHROPIC_API_KEY. Not used until that exists.
+import { RulesEngine } from "./rulesEngine";
 import type { ConversationEngine, EngineInput, EngineOutput, ToolResult, ToolRunner, World } from "./types";
 
 const escAttr = (s: string) => s.replace(/[<>&"]/g, " ");
@@ -15,22 +16,36 @@ export function turnBlock(input: EngineInput, world: World): string {
 export class ClaudeEngine implements ConversationEngine {
   readonly mode = "claude" as const;
   private messages: any[] = [];
+  /** Used for a turn when the public demo's AI caps are reached (the route answers 429 with budget=true). */
+  private fallback = new RulesEngine();
+  /** True once a cap was hit; later turns go straight to rules mode. */
+  capped = false;
 
-  constructor(private endpoint = "/api/agent") {}
+  constructor(private endpoint = "/api/agent", private post: typeof fetch = (...a) => fetch(...a)) {}
 
   reset() {
     this.messages = [];
+    this.fallback.reset();
   }
 
   async handle(input: EngineInput, tools: ToolRunner, world: World): Promise<EngineOutput> {
     const results: ToolResult[] = [];
+    if (this.capped) return { ...(await this.fallback.handle(input, tools, world)), fellBackToRules: true };
     if (this.messages.length > 90) this.messages = [];
+    const start = this.messages.length;
     this.messages.push({ role: "user", content: [{ type: "text", text: turnBlock(input, world) }] });
     for (let i = 0; i < 8; i++) {
-      const res = await fetch(this.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: this.messages }) });
+      const res = await this.post(this.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: this.messages }) });
       const data = await res.json().catch(() => ({ error: "bad response" }));
       if (!res.ok) {
-        this.messages.pop();
+        if (data.budget && i === 0) {
+          // Cap reached before anything ran this turn: answer this turn (and the rest) in rules mode.
+          this.messages.length = start;
+          this.capped = true;
+          const out = await this.fallback.handle(input, tools, world);
+          return { ...out, fellBackToRules: true, notice: data.error };
+        }
+        this.messages.length = start; // drop the whole failed turn so the history stays valid
         return { speech: "", results, error: data.error ?? "The assistant is unavailable." };
       }
       this.messages.push({ role: "assistant", content: data.content });
@@ -45,6 +60,7 @@ export class ClaudeEngine implements ConversationEngine {
       }
       this.messages.push({ role: "user", content: blocks });
     }
+    this.messages.length = start;
     return { speech: "Sorry, that took too many steps. Nothing else was changed.", results };
   }
 }

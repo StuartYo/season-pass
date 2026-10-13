@@ -32,13 +32,31 @@ mkdirSync(RAW, { recursive: true });
 
 const PRICE: Record<string, [number, number]> = { "claude-opus-5-5": [4, 20], "claude-sonnet-5-5": [2, 10], "claude-haiku-5-5": [0.1, 0.5] };
 let spent = 0;
+// Budget guard: every call in flight is assumed to cost its worst case (full prompt + 32k output tokens) until it
+// returns, so concurrent calls cannot push the total past EVAL_BUDGET_USD. A workspace usage-limit error stops new calls.
+const WORST_CASE_USD = (12000 * 4 + 32000 * 20) / 1e6;
+let reserved = 0;
+let stopped = "";
 
 const client = new Anthropic({ apiKey: process.env.AMAZON_ANTHROPIC_API_KEY });
 
 async function pureModel(h: ReturnType<typeof generateSet>[number]) {
   const file = path.join(RAW, `${h.id}.json`);
   if (existsSync(file)) return JSON.parse(readFileSync(file, "utf8"));
-  if (spent >= BUDGET_USD) return { skipped: true };
+  if (stopped || spent + reserved + WORST_CASE_USD > BUDGET_USD) return { skipped: true, reason: stopped || "budget" };
+  reserved += WORST_CASE_USD;
+  try {
+    return await callModel(h, file);
+  } catch (e: any) {
+    const m = String(e?.message ?? e);
+    if (/usage limit|credit balance|spend limit/i.test(m)) stopped = "workspace usage limit";
+    throw e;
+  } finally {
+    reserved -= WORST_CASE_USD;
+  }
+}
+
+async function callModel(h: ReturnType<typeof generateSet>[number], file: string) {
   const t0 = Date.now();
   const stream = client.messages.stream({
     model: MODEL,
@@ -51,7 +69,8 @@ async function pureModel(h: ReturnType<typeof generateSet>[number]) {
   const p = PRICE[MODEL] ?? PRICE["claude-opus-5-5"];
   const cost = (msg.usage.input_tokens * p[0] + msg.usage.output_tokens * p[1]) / 1e6;
   spent += cost;
-  const rec = { household: h.id, model: msg.model, effort: EFFORT, stop: msg.stop_reason, ms: Date.now() - t0, usage: msg.usage, costUsd: cost, text };
+  const ms = Date.now() - t0;
+  const rec = { household: h.id, model: msg.model, effort: EFFORT, stop: msg.stop_reason, ms, usage: msg.usage, costUsd: cost, text };
   writeFileSync(file, JSON.stringify(rec, null, 2));
   return rec;
 }
@@ -75,7 +94,7 @@ async function pool<T, R>(items: T[], n: number, fn: (t: T) => Promise<R>): Prom
       const r = await pureModel(h);
       if (!r.skipped) {
         const plan = parsePlan(r.text);
-        model = plan ? { ...score(h, plan), parsed: true, costUsd: r.costUsd, outputTokens: r.usage.output_tokens } : { parsed: false, costUsd: r.costUsd };
+        model = plan ? { ...score(h, plan), parsed: true, costUsd: r.costUsd, ms: r.ms, outputTokens: r.usage.output_tokens } : { parsed: false, costUsd: r.costUsd, ms: r.ms, stop: r.stop };
       }
     } catch (e: any) {
       model = { error: String(e?.message ?? e).slice(0, 200) };
@@ -84,7 +103,7 @@ async function pool<T, R>(items: T[], n: number, fn: (t: T) => Promise<R>): Prom
       id: h.id, services: h.services.length, titles: h.titles.length, members: h.members.length, cap: h.maxConcurrent, pairs: windows(h).length,
       optStatus: opt.status, optMs: opt.ms, opt: { cost: so.costCents, missed: so.missed, violations: so.violations.length },
       statusQuo: { cost: sq.costCents, missed: sq.missed, violations: sq.violations.length },
-      model: model.parsed ? { cost: model.costCents, missed: model.missed, violations: model.violations.length, rules: model.violations.map((v: any) => v.rule), apiUsd: model.costUsd } : model,
+      model: model.parsed ? { cost: model.costCents, missed: model.missed, violations: model.violations.length, rules: model.violations.map((v: any) => v.rule), apiUsd: model.costUsd, ms: model.ms } : model,
     };
     console.log(`${h.id} opt $${(so.costCents / 100).toFixed(2)} miss ${so.missed} | model ${model.parsed ? `$${(model.costCents / 100).toFixed(2)} miss ${model.missed} viol ${model.violations.length}` : JSON.stringify(model).slice(0, 80)} | spent $${spent.toFixed(2)}`);
     return row;

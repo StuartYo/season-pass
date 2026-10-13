@@ -28,7 +28,7 @@ type Screen = {
   solverMs: number | null;
   highlight: string | null;
 };
-type AgentStatus = { configured: boolean; keyEnv: string; model: string; aiAvailable: boolean };
+type AgentStatus = { configured: boolean; keyEnv: string; model: string; aiAvailable: boolean; cappedReason?: string | null };
 
 // When several tools run in one turn, keep the card that matters most on screen.
 const CARD_RANK: Record<string, number> = { blocked: 7, confirm: 6, receipt: 5, plan: 4, reminder: 3, explain: 2, briefing: 1, household: 0 };
@@ -181,8 +181,14 @@ export default function Simulator() {
       const world: World = (await refreshHouse()) ?? house;
       const out = await engineRef.current.handle(inp, runner, world);
       if (out.error) { add({ who: "System", text: out.error, kind: "system" }); return; }
+      if (out.fellBackToRules) {
+        add({ who: "System", text: (out.notice ?? "Claude mode is capped for now.") + " Switched to rules mode; the MCP tools and rules are unchanged.", kind: "system" });
+        engineRef.current = new RulesEngine();
+        setMode("rules");
+        setAgent((a) => (a ? { ...a, aiAvailable: false } : a));
+      }
       show(out.results);
-      add({ who: "Alexa", text: out.speech, kind: "alexa", tag: engineRef.current.mode === "rules" ? "Rules mode" : "Claude mode" });
+      add({ who: "Alexa", text: out.speech, kind: "alexa", tag: out.fellBackToRules || engineRef.current.mode === "rules" ? "Rules mode" : "Claude mode" });
       await refreshHouse();
       busyRef.current = false;
       setBusy(false);
@@ -341,7 +347,7 @@ export default function Simulator() {
           <span className={"badge " + (initEx ? "ok" : "")} title="Negotiated in the initialize response">MCP {hostRef.current?.protocolVersion ?? "connecting"} · Streamable HTTP</span>
           <div className="modes" role="radiogroup" aria-label="Conversation layer">
             <button role="radio" aria-checked={mode === "rules"} className={mode === "rules" ? "on" : ""} onClick={() => switchMode("rules")}>Rules mode</button>
-            <button role="radio" aria-checked={mode === "claude"} className={mode === "claude" ? "on" : ""} disabled={!agent?.configured} onClick={() => switchMode("claude")} title={agent?.configured ? `Claude (${agent.model})` : `Needs ${agent?.keyEnv ?? "AMAZON_ANTHROPIC_API_KEY"} on the server`}>Claude mode</button>
+            <button role="radio" aria-checked={mode === "claude"} className={mode === "claude" ? "on" : ""} disabled={!agent?.aiAvailable} onClick={() => switchMode("claude")} title={agent?.aiAvailable ? `Claude (${agent.model})` : agent?.configured ? (agent.cappedReason ?? "Claude mode is capped for now") : `Needs ${agent?.keyEnv ?? "AMAZON_ANTHROPIC_API_KEY"} on the server`}>Claude mode</button>
           </div>
         </div>
       </header>

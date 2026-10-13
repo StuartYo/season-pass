@@ -1,0 +1,24 @@
+{
+  "household": "hard-01",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 159480,
+  "usage": {
+    "input_tokens": 3514,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 16509,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 15220
+    }
+  },
+  "costUsd": 0.344236,
+  "text": "Best plan found: 82 of 226 (episode, follower) pairs missed, at a cost of $60.95. This was found by comparing a handful of month-by-month service sequences, not by checking every possibility, so a cheaper or better plan is unlikely but not ruled out.\n\n**Constraints that shape the plan**\n- On 1 Nov, Kestrel+, Pebble Kids and Marquee are all already paid, which is over the limit of 1. Until 21 Nov at least one prepaid service is always active, so no new period can start before 22 Nov.\n- From 22 Nov to about 22 Apr there is room for exactly five back-to-back one-month periods, with only one day of slack.\n- Tidewell must have access on a day between 16 and 23 Feb. Otherwise Kofi and Sami miss all of The Silver Meridian, which drops on 16 Feb (18 pairs).\n\n**The plan**\n\n| Period | Service | What it catches |\n|---|---|---|\n| 22 Nov – 22 Dec | Marquee | Most of The Hollow Tide, The Distant Ferry, and the early weeks of The Paper Archive |\n| 22 Dec – 22 Jan | Marquee | Marquee's busiest stretch, about 7–10 new pairs per week |\n| 22 Jan – 22 Feb | Northline | The Northern Lantern and The Amber Kingdom (28 pairs) |\n| 22 Feb – 22 Mar | Tidewell | The Silver Meridian and The Crooked Ferry (all 33 pairs) |\n| 22 Mar – 22 Apr | Northline | The last episodes of The Amber Kingdom and The Northern Lantern (11 pairs) |\n\n**Alternatives I compared**\n\n| Option | Pairs missed |\n|---|---|\n| This plan | 82 |\n| A third Marquee month instead of Northline in Jan–Feb | 84 |\n| Tidewell in Jan–Feb, then two Northline months | 96 |\n| Kestrel+ in Jan–Feb instead of Northline | Worse (Kestrel+ catches 10 pairs there, Northline catches 28) |\n| Kestrel+ in Dec–Jan instead of the second Marquee month | Far worse (that month is Marquee's peak) |\n\n**What is still missed (82 pairs)**\n\n| Title | Missed | Why |\n|---|---|---|\n| The Salt Meridian (Kestrel+) | 18 | Leaving Marquee in Dec–Jan costs more |\n| The Amber Atlas (Lumen) | 6 | No room in the schedule |\n| Distant Circuit (Northline) | 1 | No room in the schedule |\n| The Paper Archive (Marquee) | 18 | Late episodes, after Marquee ends |\n| The Salt Signal (Marquee) | 18 | Late episodes, after Marquee ends |\n| The Distant Ferry (Marquee) | 2 | Late episodes, after Marquee ends |\n| The Hollow Tide | 5 | Early episodes, before any new period is allowed |\n| The Northern Lantern / The Amber Kingdom | 14 | Late Feb to mid March, while Tidewell is on |\n\n**Cost:** 2 × $13.99 (Marquee) + 2 × $11.99 (Northline) + $8.99 (Tidewell) = $60.95.\n\nShifting every start date one day later gives the same result and cost.\n\n```json\n{\"periods\": [{\"serviceId\": \"marquee\", \"start\": \"2026-11-22\"}, {\"serviceId\": \"marquee\", \"start\": \"2026-12-22\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-22\"}, {\"serviceId\": \"tidewell\", \"start\": \"2027-02-22\"}, {\"serviceId\": \"northline\", \"start\": \"2027-03-22\"}]}\n```"
+}

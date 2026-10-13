@@ -1,0 +1,1224 @@
+[
+ {
+  "id": "hard-01",
+  "services": 6,
+  "titles": 12,
+  "members": 3,
+  "cap": 1,
+  "pairs": 226,
+  "optStatus": "Optimal",
+  "optMs": 2288,
+  "opt": {
+   "cost": 6295,
+   "missed": 81,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 23982,
+   "missed": 93,
+   "violations": 1
+  },
+  "model": {
+   "cost": 6095,
+   "missed": 82,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.344236,
+   "ms": 159480
+  }
+ },
+ {
+  "id": "hard-02",
+  "services": 6,
+  "titles": 13,
+  "members": 3,
+  "cap": 2,
+  "pairs": 122,
+  "optStatus": "Optimal",
+  "optMs": 3150,
+  "opt": {
+   "cost": 18834,
+   "missed": 2,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 20982,
+   "missed": 76,
+   "violations": 0
+  },
+  "model": {
+   "parsed": false,
+   "costUsd": 0.65172,
+   "ms": 308611,
+   "stop": "max_tokens"
+  }
+ },
+ {
+  "id": "hard-03",
+  "services": 6,
+  "titles": 14,
+  "members": 5,
+  "cap": 1,
+  "pairs": 192,
+  "optStatus": "Optimal",
+  "optMs": 4012,
+  "opt": {
+   "cost": 4196,
+   "missed": 80,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 14988,
+   "missed": 123,
+   "violations": 1
+  },
+  "model": {
+   "cost": 4196,
+   "missed": 80,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.544568,
+   "ms": 242535
+  }
+ },
+ {
+  "id": "hard-04",
+  "services": 6,
+  "titles": 10,
+  "members": 5,
+  "cap": 2,
+  "pairs": 191,
+  "optStatus": "Optimal",
+  "optMs": 5357,
+  "opt": {
+   "cost": 12240,
+   "missed": 27,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 17988,
+   "missed": 97,
+   "violations": 0
+  },
+  "model": {
+   "parsed": false,
+   "costUsd": 0.65282,
+   "ms": 326959,
+   "stop": "max_tokens"
+  }
+ },
+ {
+  "id": "hard-05",
+  "services": 6,
+  "titles": 14,
+  "members": 3,
+  "cap": 2,
+  "pairs": 239,
+  "optStatus": "Optimal",
+  "optMs": 5432,
+  "opt": {
+   "cost": 12990,
+   "missed": 54,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 10188,
+   "missed": 171,
+   "violations": 0
+  },
+  "model": {
+   "cost": 12990,
+   "missed": 63,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.628208,
+   "ms": 292264
+  }
+ },
+ {
+  "id": "hard-06",
+  "services": 6,
+  "titles": 11,
+  "members": 4,
+  "cap": 2,
+  "pairs": 210,
+  "optStatus": "Optimal",
+  "optMs": 975,
+  "opt": {
+   "cost": 10841,
+   "missed": 23,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 35676,
+   "missed": 117,
+   "violations": 1
+  },
+  "model": {
+   "cost": 10841,
+   "missed": 23,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.609568,
+   "ms": 297160
+  }
+ },
+ {
+  "id": "hard-07",
+  "services": 6,
+  "titles": 11,
+  "members": 5,
+  "cap": 1,
+  "pairs": 165,
+  "optStatus": "Optimal",
+  "optMs": 2451,
+  "opt": {
+   "cost": 10890,
+   "missed": 52,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 35970,
+   "missed": 24,
+   "violations": 1
+  },
+  "model": {
+   "cost": 10890,
+   "missed": 52,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.444652,
+   "ms": 201766
+  }
+ },
+ {
+  "id": "hard-08",
+  "services": 6,
+  "titles": 11,
+  "members": 3,
+  "cap": 2,
+  "pairs": 116,
+  "optStatus": "Optimal",
+  "optMs": 218,
+  "opt": {
+   "cost": 18684,
+   "missed": 7,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 14088,
+   "missed": 108,
+   "violations": 0
+  },
+  "model": {
+   "cost": 19334,
+   "missed": 7,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.552756,
+   "ms": 255448
+  }
+ },
+ {
+  "id": "hard-09",
+  "services": 6,
+  "titles": 10,
+  "members": 5,
+  "cap": 1,
+  "pairs": 168,
+  "optStatus": "Optimal",
+  "optMs": 622,
+  "opt": {
+   "cost": 9890,
+   "missed": 27,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 38670,
+   "missed": 32,
+   "violations": 1
+  },
+  "model": {
+   "cost": 9890,
+   "missed": 28,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.34462,
+   "ms": 161676
+  }
+ },
+ {
+  "id": "hard-10",
+  "services": 6,
+  "titles": 12,
+  "members": 3,
+  "cap": 1,
+  "pairs": 181,
+  "optStatus": "Optimal",
+  "optMs": 794,
+  "opt": {
+   "cost": 5495,
+   "missed": 50,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 17388,
+   "missed": 103,
+   "violations": 1
+  },
+  "model": {
+   "cost": 5495,
+   "missed": 50,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.381992,
+   "ms": 173364
+  }
+ },
+ {
+  "id": "hard-11",
+  "services": 6,
+  "titles": 14,
+  "members": 3,
+  "cap": 1,
+  "pairs": 204,
+  "optStatus": "Optimal",
+  "optMs": 909,
+  "opt": {
+   "cost": 11989,
+   "missed": 61,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 10188,
+   "missed": 146,
+   "violations": 0
+  },
+  "model": {
+   "cost": 11989,
+   "missed": 63,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.31672,
+   "ms": 148866
+  }
+ },
+ {
+  "id": "hard-12",
+  "services": 6,
+  "titles": 12,
+  "members": 3,
+  "cap": 1,
+  "pairs": 216,
+  "optStatus": "Optimal",
+  "optMs": 1289,
+  "opt": {
+   "cost": 3696,
+   "missed": 96,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 15588,
+   "missed": 180,
+   "violations": 1
+  },
+  "model": {
+   "cost": 4495,
+   "missed": 96,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.235876,
+   "ms": 104068
+  }
+ },
+ {
+  "id": "hard-13",
+  "services": 6,
+  "titles": 14,
+  "members": 3,
+  "cap": 2,
+  "pairs": 208,
+  "optStatus": "Optimal",
+  "optMs": 500,
+  "opt": {
+   "cost": 11642,
+   "missed": 23,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 24882,
+   "missed": 107,
+   "violations": 1
+  },
+  "model": {
+   "parsed": false,
+   "costUsd": 0.654528,
+   "ms": 298849,
+   "stop": "max_tokens"
+  }
+ },
+ {
+  "id": "hard-14",
+  "services": 6,
+  "titles": 14,
+  "members": 3,
+  "cap": 2,
+  "pairs": 237,
+  "optStatus": "Optimal",
+  "optMs": 191,
+  "opt": {
+   "cost": 17335,
+   "missed": 20,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 22182,
+   "missed": 78,
+   "violations": 0
+  },
+  "model": {
+   "cost": 18734,
+   "missed": 25,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.634496,
+   "ms": 284089
+  }
+ },
+ {
+  "id": "hard-15",
+  "services": 6,
+  "titles": 10,
+  "members": 4,
+  "cap": 2,
+  "pairs": 119,
+  "optStatus": "Optimal",
+  "optMs": 1037,
+  "opt": {
+   "cost": 9242,
+   "missed": 20,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 17382,
+   "missed": 44,
+   "violations": 1
+  },
+  "model": {
+   "cost": 8392,
+   "missed": 24,
+   "violations": 0,
+   "rules": [],
+   "apiUsd": 0.300032,
+   "ms": 137306
+  }
+ },
+ {
+  "id": "hard-16",
+  "services": 6,
+  "titles": 12,
+  "members": 5,
+  "cap": 2,
+  "pairs": 257,
+  "optStatus": "Optimal",
+  "optMs": 15446,
+  "opt": {
+   "cost": 10790,
+   "missed": 63,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 13788,
+   "missed": 240,
+   "violations": 0
+  },
+  "model": {
+   "parsed": false,
+   "costUsd": 0.654972,
+   "ms": 306854,
+   "stop": "max_tokens"
+  }
+ },
+ {
+  "id": "hard-17",
+  "services": 6,
+  "titles": 14,
+  "members": 4,
+  "cap": 2,
+  "pairs": 260,
+  "optStatus": "Optimal",
+  "optMs": 276,
+  "opt": {
+   "cost": 8792,
+   "missed": 60,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29376,
+   "missed": 57,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-18",
+  "services": 6,
+  "titles": 10,
+  "members": 3,
+  "cap": 2,
+  "pairs": 177,
+  "optStatus": "Optimal",
+  "optMs": 3756,
+  "opt": {
+   "cost": 12940,
+   "missed": 15,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 11988,
+   "missed": 156,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-19",
+  "services": 6,
+  "titles": 14,
+  "members": 5,
+  "cap": 1,
+  "pairs": 247,
+  "optStatus": "Optimal",
+  "optMs": 289,
+  "opt": {
+   "cost": 10839,
+   "missed": 74,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 83,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-20",
+  "services": 6,
+  "titles": 12,
+  "members": 3,
+  "cap": 2,
+  "pairs": 185,
+  "optStatus": "Optimal",
+  "optMs": 237,
+  "opt": {
+   "cost": 6994,
+   "missed": 35,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 16782,
+   "missed": 80,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-21",
+  "services": 6,
+  "titles": 13,
+  "members": 3,
+  "cap": 2,
+  "pairs": 197,
+  "optStatus": "Optimal",
+  "optMs": 163,
+  "opt": {
+   "cost": 14287,
+   "missed": 15,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 33276,
+   "missed": 97,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-22",
+  "services": 6,
+  "titles": 11,
+  "members": 4,
+  "cap": 2,
+  "pairs": 109,
+  "optStatus": "Optimal",
+  "optMs": 147,
+  "opt": {
+   "cost": 15986,
+   "missed": 7,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 50,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-23",
+  "services": 6,
+  "titles": 13,
+  "members": 4,
+  "cap": 1,
+  "pairs": 116,
+  "optStatus": "Optimal",
+  "optMs": 640,
+  "opt": {
+   "cost": 3296,
+   "missed": 60,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 23982,
+   "missed": 31,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-24",
+  "services": 6,
+  "titles": 10,
+  "members": 3,
+  "cap": 2,
+  "pairs": 110,
+  "optStatus": "Optimal",
+  "optMs": 112,
+  "opt": {
+   "cost": 11887,
+   "missed": 3,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 26976,
+   "missed": 56,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-25",
+  "services": 6,
+  "titles": 10,
+  "members": 5,
+  "cap": 2,
+  "pairs": 115,
+  "optStatus": "Optimal",
+  "optMs": 102,
+  "opt": {
+   "cost": 13487,
+   "missed": 0,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 13188,
+   "missed": 82,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-26",
+  "services": 6,
+  "titles": 10,
+  "members": 4,
+  "cap": 1,
+  "pairs": 144,
+  "optStatus": "Optimal",
+  "optMs": 147,
+  "opt": {
+   "cost": 9540,
+   "missed": 18,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 30576,
+   "missed": 88,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-27",
+  "services": 6,
+  "titles": 11,
+  "members": 3,
+  "cap": 2,
+  "pairs": 166,
+  "optStatus": "Optimal",
+  "optMs": 363,
+  "opt": {
+   "cost": 18634,
+   "missed": 23,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 69,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-28",
+  "services": 6,
+  "titles": 12,
+  "members": 4,
+  "cap": 2,
+  "pairs": 156,
+  "optStatus": "Optimal",
+  "optMs": 324,
+  "opt": {
+   "cost": 9893,
+   "missed": 61,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 32076,
+   "missed": 45,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-29",
+  "services": 6,
+  "titles": 13,
+  "members": 3,
+  "cap": 2,
+  "pairs": 158,
+  "optStatus": "Optimal",
+  "optMs": 202,
+  "opt": {
+   "cost": 11890,
+   "missed": 9,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 23082,
+   "missed": 68,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-30",
+  "services": 6,
+  "titles": 13,
+  "members": 4,
+  "cap": 1,
+  "pairs": 199,
+  "optStatus": "Optimal",
+  "optMs": 201,
+  "opt": {
+   "cost": 9344,
+   "missed": 57,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 24882,
+   "missed": 83,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-31",
+  "services": 6,
+  "titles": 12,
+  "members": 3,
+  "cap": 1,
+  "pairs": 184,
+  "optStatus": "Optimal",
+  "optMs": 270,
+  "opt": {
+   "cost": 5395,
+   "missed": 61,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 31476,
+   "missed": 35,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-32",
+  "services": 6,
+  "titles": 14,
+  "members": 3,
+  "cap": 1,
+  "pairs": 225,
+  "optStatus": "Optimal",
+  "optMs": 421,
+  "opt": {
+   "cost": 4595,
+   "missed": 99,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 21282,
+   "missed": 132,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-33",
+  "services": 6,
+  "titles": 10,
+  "members": 5,
+  "cap": 2,
+  "pairs": 178,
+  "optStatus": "Optimal",
+  "optMs": 138,
+  "opt": {
+   "cost": 15786,
+   "missed": 3,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 26076,
+   "missed": 61,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-34",
+  "services": 6,
+  "titles": 10,
+  "members": 5,
+  "cap": 2,
+  "pairs": 203,
+  "optStatus": "Optimal",
+  "optMs": 976,
+  "opt": {
+   "cost": 10841,
+   "missed": 39,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 11388,
+   "missed": 155,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-35",
+  "services": 6,
+  "titles": 10,
+  "members": 4,
+  "cap": 2,
+  "pairs": 185,
+  "optStatus": "Optimal",
+  "optMs": 217,
+  "opt": {
+   "cost": 10792,
+   "missed": 34,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 27282,
+   "missed": 81,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-36",
+  "services": 6,
+  "titles": 13,
+  "members": 3,
+  "cap": 2,
+  "pairs": 160,
+  "optStatus": "Optimal",
+  "optMs": 254,
+  "opt": {
+   "cost": 13990,
+   "missed": 17,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 11988,
+   "missed": 106,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-37",
+  "services": 6,
+  "titles": 11,
+  "members": 5,
+  "cap": 2,
+  "pairs": 138,
+  "optStatus": "Optimal",
+  "optMs": 139,
+  "opt": {
+   "cost": 16886,
+   "missed": 2,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29376,
+   "missed": 48,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-38",
+  "services": 6,
+  "titles": 10,
+  "members": 3,
+  "cap": 2,
+  "pairs": 189,
+  "optStatus": "Optimal",
+  "optMs": 150,
+  "opt": {
+   "cost": 10642,
+   "missed": 43,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 22182,
+   "missed": 93,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-39",
+  "services": 6,
+  "titles": 14,
+  "members": 4,
+  "cap": 2,
+  "pairs": 197,
+  "optStatus": "Optimal",
+  "optMs": 1961,
+  "opt": {
+   "cost": 13541,
+   "missed": 16,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 20982,
+   "missed": 149,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-40",
+  "services": 6,
+  "titles": 14,
+  "members": 5,
+  "cap": 2,
+  "pairs": 202,
+  "optStatus": "Optimal",
+  "optMs": 426,
+  "opt": {
+   "cost": 17434,
+   "missed": 44,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 21282,
+   "missed": 141,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-41",
+  "services": 6,
+  "titles": 11,
+  "members": 4,
+  "cap": 1,
+  "pairs": 125,
+  "optStatus": "Optimal",
+  "optMs": 172,
+  "opt": {
+   "cost": 7545,
+   "missed": 36,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 20982,
+   "missed": 123,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-42",
+  "services": 6,
+  "titles": 13,
+  "members": 4,
+  "cap": 1,
+  "pairs": 178,
+  "optStatus": "Optimal",
+  "optMs": 355,
+  "opt": {
+   "cost": 6245,
+   "missed": 88,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29976,
+   "missed": 82,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-43",
+  "services": 6,
+  "titles": 12,
+  "members": 3,
+  "cap": 2,
+  "pairs": 172,
+  "optStatus": "Optimal",
+  "optMs": 141,
+  "opt": {
+   "cost": 6344,
+   "missed": 36,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 26076,
+   "missed": 2,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-44",
+  "services": 6,
+  "titles": 14,
+  "members": 4,
+  "cap": 1,
+  "pairs": 228,
+  "optStatus": "Optimal",
+  "optMs": 238,
+  "opt": {
+   "cost": 9890,
+   "missed": 116,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 19482,
+   "missed": 144,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-45",
+  "services": 6,
+  "titles": 11,
+  "members": 4,
+  "cap": 2,
+  "pairs": 167,
+  "optStatus": "Optimal",
+  "optMs": 161,
+  "opt": {
+   "cost": 14786,
+   "missed": 19,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 18582,
+   "missed": 57,
+   "violations": 0
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-46",
+  "services": 6,
+  "titles": 13,
+  "members": 4,
+  "cap": 2,
+  "pairs": 179,
+  "optStatus": "Optimal",
+  "optMs": 157,
+  "opt": {
+   "cost": 12540,
+   "missed": 20,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 27576,
+   "missed": 103,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-47",
+  "services": 6,
+  "titles": 11,
+  "members": 5,
+  "cap": 2,
+  "pairs": 194,
+  "optStatus": "Optimal",
+  "optMs": 177,
+  "opt": {
+   "cost": 9391,
+   "missed": 6,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 31776,
+   "missed": 66,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-48",
+  "services": 6,
+  "titles": 10,
+  "members": 4,
+  "cap": 2,
+  "pairs": 108,
+  "optStatus": "Optimal",
+  "optMs": 125,
+  "opt": {
+   "cost": 9293,
+   "missed": 11,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 31176,
+   "missed": 25,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-49",
+  "services": 6,
+  "titles": 14,
+  "members": 3,
+  "cap": 2,
+  "pairs": 179,
+  "optStatus": "Optimal",
+  "optMs": 258,
+  "opt": {
+   "cost": 9593,
+   "missed": 15,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 28476,
+   "missed": 109,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ },
+ {
+  "id": "hard-50",
+  "services": 6,
+  "titles": 14,
+  "members": 5,
+  "cap": 2,
+  "pairs": 192,
+  "optStatus": "Optimal",
+  "optMs": 176,
+  "opt": {
+   "cost": 15786,
+   "missed": 19,
+   "violations": 0
+  },
+  "statusQuo": {
+   "cost": 29376,
+   "missed": 53,
+   "violations": 1
+  },
+  "model": {
+   "skipped": true
+  }
+ }
+]

@@ -23,9 +23,9 @@ Only 44 of 50 households got a model answer: the API workspace usage limit was r
 
 Reading it honestly: the model never broke a rule and matched the optimum in three out of four households. It does not reach the 95% bar set as the stop condition, but the gap is moderate, not dramatic. Its failures are the kind a family would notice: an episode someone follows becomes unwatchable in time, a plan that costs up to 21% more, or no answer at all. The planner is exact, instant and free, so the assistant can re-plan on every voice change ("I'm still watching that one") without a 30-second wait.
 
-Not yet run: the harder set (`EVAL_HARD=1`: 6 services, 3 to 5 people, 10 to 14 shows, limit 1 or 2) and the remaining 6 households, both blocked by the API usage limit until it is raised.
+Not run: the remaining 6 households of the normal set (API usage limit). The harder set was run on 2026-10-14, see below.
 
-## Hard set: ready, not yet run against the model (2026-10-14)
+## Hard set: built and solved by the planner (2026-10-14)
 
 `npx tsx eval/hard-set.ts` builds the harder households (same seeds the baseline uses with `EVAL_HARD=1`) and solves them with the planner only. No API calls. Output: `eval/out/hard-households.json`, `hard-planner.json`, `hard-summary.json`.
 
@@ -42,4 +42,23 @@ Not yet run: the harder set (`EVAL_HARD=1`: 6 services, 3 to 5 people, 10 to 14 
 | Missed pairs the limit makes unavoidable (avg, planner) | 2 | 36.9 |
 | Status quo: missed pairs (avg) / households over their limit | 28 / 15 | 91 / 35 |
 
-In the hard set the household limit forces real trade-offs: even the exact plan has to drop about 37 pairs per household, so "which ones to drop, and still pay the least" is the whole problem. The baseline run is waiting for the project key (`AMAZON_ANTHROPIC_API_KEY`); command: `EVAL_HARD=1 npx tsx eval/baseline.ts`. At the normal set's cost of about US$0.18 per household, 50 hard households should cost roughly US$10 to 15 (longer prompts); `EVAL_BUDGET_USD` caps it.
+In the hard set the household limit forces real trade-offs: even the exact plan has to drop about 37 pairs per household, so "which ones to drop, and still pay the least" is the whole problem. The pure-model run on this set is below.
+
+## Hard set: planner vs. pure model (run 2026-10-14)
+
+Same model setting as the normal set (`claude-opus-5-5`, effort medium, adaptive thinking, 32,000 output tokens, no tools), command `EVAL_HARD=1 EVAL_BUDGET_USD=9 npx tsx eval/baseline.ts`. The run had a hard budget of US$9: every call in flight is counted at its worst case until it returns, so the total can't pass it. **It stopped after 16 of 50 households** (hard-01 to hard-16) at US$7.95. Answers cost far more here than in the normal set (US$0.50 per household, against US$0.18), so these 16 are what the budget bought. The other 34 households were solved by the planner only.
+
+| 16 hard households | Planner | Pure model |
+|---|---|---|
+| Usable plan | 16 / 16 | 12 / 16 (4 ran out of 32k tokens with no answer) |
+| Rule violations | 0 | 0 |
+| Matches the optimum (no extra misses, cost within 5%) | 16 / 16 | **5 / 16 (31%)** |
+| Missed more (episode, follower) pairs than necessary | 0 | 6 households (1 to 9 extra pairs each) |
+| Spent more than 5% over the optimum | 0 | 2 households (+8%, +22%) |
+| Totals, the 12 both answered | $1,215.43, 571 missed pairs | $1,233.41 (+1.5%), 593 missed pairs (+22) |
+| Time per household | median 0.2 s, max 4.3 s (`hard-summary.json`) | median 249 s, max 327 s |
+| API cost per household | $0 | $0.50 |
+
+Two households show the trade-off the model gets wrong: in hard-01 and hard-15 it found a cheaper plan by dropping episodes someone follows (the scorer counts fewest misses first, then cost, and so does the brief). On the normal set the model matched the optimum 75% of the time; with a tight limit and three to five people it matches 31%, takes about four minutes, and gives no answer a quarter of the time. The planner's answer is exact in a fraction of a second.
+
+Raw outputs: `eval/out/raw-hard-claude-opus-5-5-medium/`, per household `eval/out/hard-results-claude-opus-5-5-medium.json`, totals `eval/out/hard-summary-claude-opus-5-5-medium.json`.

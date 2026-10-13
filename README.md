@@ -13,9 +13,9 @@ On 50 fictional households (`eval/RESULTS.md`), the same plan was made three way
 | | Season Pass planner | Pure model (Claude Opus, no tools) |
 |---|---|---|
 | Matches the optimum | **50 / 50** | 33 / 44 answered (**75%**) |
-| Households that miss episodes they didn't have to | 0 | **5** |
+| Households with avoidable misses (episode, viewer pairs) | 0 | **5** |
 | Time per plan (median) | **0.1 s** | 33 s |
-| Cost per plan | **free** (local solver) | US$0.18 |
+| Cost per plan | **no API cost** (local solver) | US$0.18 |
 
 The model is good: it never broke a rule and it matched the optimum three times out of four. But a family notices the fourth: a followed episode that becomes unwatchable, a plan up to 21% more expensive, or no answer. And 33 seconds is too slow to re-plan on every sentence someone says in the kitchen. The planner is an exact mixed-integer program (HiGHS, WebAssembly, runs inside the MCP server), cross-checked against brute force in the tests.
 
@@ -25,9 +25,9 @@ On a harder set (3 to 5 people, 10 to 14 shows, at most 1 or 2 services at once)
 |---|---|---|
 | Matches the optimum | **16 / 16** | 5 / 16 (**31%**) |
 | No answer (ran out of tokens) | 0 | 4 |
-| Households that miss episodes they didn't have to | 0 | **6** |
+| Households with avoidable misses (episode, viewer pairs) | 0 | **6** |
 | Time per plan (median) | **0.2 s** | 249 s |
-| Cost per plan | **free** | US$0.50 |
+| Cost per plan | **no API cost** | US$0.50 |
 
 ## What it looks like
 
@@ -58,7 +58,7 @@ Development: `npm run dev`, or on Windows `scripts/dev.ps1`, which picks up `AMA
 
 No key is needed. Without one, the simulator runs in **rules mode**: a deterministic intent parser turns each sentence into MCP tool calls and reads back the tool's own spoken text. With `AMAZON_ANTHROPIC_API_KEY` set on the server, **Claude mode** becomes available: Claude (Opus 5.5, low effort) picks the tools, the browser still runs them over MCP. The MCP server, the money rules and the refusals are identical in both modes. Settings are listed in `.env.example`.
 
-Claude mode has been run on the full 8-step script (`eval/claude-demo.ts`, 2026-10-14): 16 API calls, about US$0.16 per run, 3 to 10 seconds per turn. Claude picked the same tools as rules mode at every step; when Leah (15) said yes, Claude called `confirm_switch` and the **server** refused it (`not_authorized`); Marcus's yes went through. The public demo caps Claude mode (per browser per day, per day, per month; see `.env.example`). When a cap is reached the simulator says so and finishes in rules mode.
+Claude mode has been run on the full 8-step script (`eval/claude-demo.ts`, 2026-10-14): 16 API calls, about US$0.16 per run, 3 to 10 seconds per turn. The run recorded for the demo video, with the reminder morning added, is in `eval/out/claude-mode-video-run-2026-10-14.json` (18 calls, US$0.19). Claude picked the same tools as rules mode at every step; when Leah (15) said yes, Claude called `confirm_switch` and the **server** refused it (`not_authorized`); Marcus's yes went through. The public demo caps Claude mode (per browser per day, per day, per month; see `.env.example`). When a cap is reached the simulator says so and finishes in rules mode.
 
 Talk to the MCP server directly:
 
@@ -111,8 +111,8 @@ The planner decides, for each optional service and each day, whether a one-month
 | Alexa+ capability | In Season Pass | In this demo |
 |---|---|---|
 | Remote MCP add-on | The MCP server above, spec 2025-11-25 over Streamable HTTP | Same server; the simulator is the host |
-| Proactive moment | Morning briefing before a billing day (`get_household`, `briefing=true`) and due reminders | A "morning routine" event button and script step |
-| Several people, one device | Each preference is recorded for the recognised speaker; only billing adults confirm | "Who is speaking" picker sends the speaker header |
+| Proactive moment | Morning briefing before a billing day (`get_household`, `briefing=true`) and due reminders | Simulated: a "morning routine" button stands in for the trigger (no documented add-on entry point, `FRICTION_LOG.md` row 7) |
+| Several people, one device | Each preference is recorded for the recognised speaker; only billing adults confirm | Simulated: a "who is speaking" picker sends the speaker in a header (no documented way to learn the speaker, `FRICTION_LOG.md` row 4) |
 | Voice-first replies | Every result has a symbol-free `speech` field | Spoken with the browser's speech synthesis; voice-only toggle |
 | Screen | Cards plus the rotation calendar with the re-plan animation | Echo Show style screen |
 | Memory across conversations | Preferences, reminders, switches and the ledger live server-side per household | Household tab; the demo clock moves days and applies charges |

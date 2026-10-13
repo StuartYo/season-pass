@@ -1,304 +1,304 @@
 {
- "T0": 1791919606.738,
+ "T0": 1791920992.119,
  "ev": [
   {
    "k": "mode",
-   "t": 1791919610.098
+   "t": 1791920995.555
   },
   {
    "k": "s1",
-   "tMove": 1791919612.607,
-   "tClick": 1791919613.452,
-   "tResult": 1791919618.118,
-   "wait": 4.67
+   "tMove": 1791920998.064,
+   "tClick": 1791920998.967,
+   "tResult": 1791921005.852,
+   "wait": 6.88
   },
   {
    "k": "s2",
-   "tMove": 1791919627.126,
-   "tClick": 1791919627.97,
-   "tResult": 1791919633.957,
-   "wait": 5.99
+   "tMove": 1791921014.866,
+   "tClick": 1791921015.768,
+   "tResult": 1791921022.022,
+   "wait": 6.25
   },
   {
    "k": "s3",
-   "tMove": 1791919642.969,
-   "tClick": 1791919643.825,
-   "tResult": 1791919648.54,
-   "wait": 4.71
+   "tMove": 1791921031.038,
+   "tClick": 1791921031.954,
+   "tResult": 1791921036.578,
+   "wait": 4.62
   },
   {
    "k": "s4",
-   "tMove": 1791919657.54,
-   "tClick": 1791919658.407,
-   "tResult": 1791919662.911,
-   "wait": 4.5
+   "tMove": 1791921045.579,
+   "tClick": 1791921046.498,
+   "tResult": 1791921049.937,
+   "wait": 3.44
   },
   {
    "k": "s5",
-   "tMove": 1791919671.917,
-   "tClick": 1791919672.803,
-   "tResult": 1791919677.144,
-   "wait": 4.34
+   "tMove": 1791921058.949,
+   "tClick": 1791921059.867,
+   "tResult": 1791921063.989,
+   "wait": 4.12
   },
   {
    "k": "s6",
-   "tMove": 1791919686.147,
-   "tClick": 1791919686.99,
-   "tResult": 1791919690.573,
-   "wait": 3.58
+   "tMove": 1791921072.996,
+   "tClick": 1791921073.907,
+   "tResult": 1791921078.57,
+   "wait": 4.66
   },
   {
    "k": "undo",
-   "tMove": 1791919699.577,
-   "tClick": 1791919700.448,
-   "tResult": 1791919700.852,
-   "wait": 0.4
+   "tMove": 1791921087.571,
+   "tClick": 1791921088.495,
+   "tResult": 1791921088.908,
+   "wait": 0.41
   },
   {
    "k": "s7",
-   "tMove": 1791919709.863,
-   "tClick": 1791919710.706,
-   "tResult": 1791919714.371,
-   "wait": 3.66
+   "tMove": 1791921097.919,
+   "tClick": 1791921098.81,
+   "tResult": 1791921102.789,
+   "wait": 3.98
   },
   {
    "k": "s8",
-   "tMove": 1791919723.385,
-   "tClick": 1791919724.221,
-   "tResult": 1791919729.01,
-   "wait": 4.79
+   "tMove": 1791921111.795,
+   "tClick": 1791921112.718,
+   "tResult": 1791921116.981,
+   "wait": 4.26
   },
   {
    "k": "clock",
-   "tMove": 1791919738.943,
-   "tClick": 1791919739.796,
-   "tResult": 1791919740.202,
+   "tMove": 1791921126.918,
+   "tClick": 1791921126.946,
+   "tResult": 1791921127.36,
    "wait": 0.41
   },
   {
    "k": "morning2",
-   "tMove": 1791919749.205,
-   "tClick": 1791919750.049,
-   "tResult": 1791919756.129,
-   "wait": 6.08
+   "tMove": 1791921136.368,
+   "tClick": 1791921136.389,
+   "tResult": 1791921141.974,
+   "wait": 5.59
   }
  ],
  "agent": [
   {
-   "t": 1791919615.858,
+   "t": 1791921003.026,
    "status": 200,
-   "cost": 0.016781,
+   "cost": 0.0021794,
    "tools": [
     "get_household {\"briefing\":true}"
    ],
    "text": ""
   },
   {
-   "t": 1791919618.082,
+   "t": 1791921005.79,
    "status": 200,
-   "cost": 0.0201244,
+   "cost": 0.0198844,
    "tools": [],
-   "text": "Good morning. Lumen renews Thursday for 15 dollars and 49 cents, but the plan lets it lapse. Leah's Harbor Lights finishes Wednesday, and nobody is following Quiet Orchard. That keeps the whole plan through April at 96 dollars and 90 cents, and nobody misses an episode of their shows. Should I set it up?"
+   "text": "Good morning. Lumen renews Thursday for 15 dollars and 49 cents, and the plan lets it go after Harbor Lights wraps up Wednesday, since nobody is following Quiet Orchard. That keeps the plan through April at 96 dollars and 90 cents, with every followed episode on time. Should I set it up?"
   },
   {
-   "t": 1791919630.785,
+   "t": 1791921019.108,
    "status": 200,
-   "cost": 0.0064034,
+   "cost": 0.0065033999999999995,
    "tools": [
     "record_preference {\"kind\":\"follow_title\",\"title\":\"Quiet Orchard\",\"utterance\":\"Hold on, I'm still watching that show.\"}"
    ],
    "text": ""
   },
   {
-   "t": 1791919633.899,
+   "t": 1791921021.968,
    "status": 200,
-   "cost": 0.0221704,
+   "cost": 0.022403,
    "tools": [],
-   "text": "Got it, Marcus, I've added you as a Quiet Orchard viewer. Lumen still goes off Thursday, then comes back on November 26 so you can watch episodes 6 to 10 within your 30 days. That adds 15 dollars and 49 cents through April, and nobody misses an episode. Should I set it up?"
+   "text": "Got it, Marcus, I've added Quiet Orchard to your shows. Lumen still goes off Thursday, then comes back on from November 26 to December 26 so you can catch episodes 6 to 10. That adds 15 dollars and 49 cents through April, and every followed episode still arrives on time. Should I set that up?"
   },
   {
-   "t": 1791919645.951,
+   "t": 1791921034.228,
    "status": 200,
-   "cost": 0.005855399999999999,
+   "cost": 0.0059044,
    "tools": [
     "record_preference {\"kind\":\"want_service\",\"member\":\"grandma\",\"service\":\"the cooking channel\",\"utterance\":\"Grandma wants the cooking channel this month.\"}"
    ],
    "text": ""
   },
   {
-   "t": 1791919648.509,
+   "t": 1791921036.545,
    "status": 200,
-   "cost": 0.023309200000000002,
+   "cost": 0.0230702,
    "tools": [],
-   "text": "I've got it, Dana. Tidewell, the cooking channel, comes back on for Rosa from November 5 to December 5. To make room, Lumen's return for Marcus moves to December 5. That adds 8 dollars and 99 cents, so the plan through April is 121 dollars and 38 cents, and nobody misses an episode. Should I set it up?"
+   "text": "Okay, Dana, Tidewell comes back on for Rosa this Thursday, November 5, through December 5. To make room, Lumen now comes back December 5 for Marcus. That adds 8 dollars and 99 cents through April, and every followed episode still arrives on time. Shall I set up Thursday's changes?"
   },
   {
-   "t": 1791919659.863,
+   "t": 1791921047.774,
    "status": 200,
-   "cost": 0.004241,
+   "cost": 0.004182,
    "tools": [
     "propose_switch {}"
    ],
    "text": ""
   },
   {
-   "t": 1791919662.855,
+   "t": 1791921049.883,
    "status": 200,
-   "cost": 0.0083456,
+   "cost": 0.0078542,
    "tools": [],
-   "text": "Here's what will happen, Dana. On Thursday, Lumen won't renew, so you won't be charged its 15 dollars and 49 cents, and Tidewell comes on for Rosa at 8 dollars and 99 cents. Nothing is charged today. Dana or Marcus, do you want me to confirm?"
+   "text": "Dana, here's the change: on Thursday, Lumen goes off instead of renewing for 15 dollars and 49 cents, and Tidewell comes on for 8 dollars and 99 cents. Nothing is charged today. Do you want to confirm?"
   },
   {
-   "t": 1791919674.578,
+   "t": 1791921061.536,
    "status": 200,
-   "cost": 0.005102,
+   "cost": 0.0049602000000000005,
    "tools": [
-    "confirm_switch {\"confirmation_id\":\"cf_3gzgn\"}"
+    "confirm_switch {\"confirmation_id\":\"cf_3f78g\"}"
    ],
    "text": ""
   },
   {
-   "t": 1791919677.086,
+   "t": 1791921063.956,
    "status": 200,
-   "cost": 0.005753,
+   "cost": 0.0057014,
    "tools": [],
-   "text": "Thanks, Leah, but only Dana or Marcus can approve charges, so nothing's changed yet. Dana or Marcus, should I confirm Lumen going off and Tidewell coming on Thursday?"
+   "text": "Thanks, Leah, but I can't take your yes for charges, so I haven't changed anything. Dana or Marcus, do you want to confirm Lumen going off and Tidewell coming on Thursday?"
   },
   {
-   "t": 1791919688.594,
+   "t": 1791921076.067,
    "status": 200,
-   "cost": 0.004922800000000001,
+   "cost": 0.004886,
    "tools": [
-    "confirm_switch {\"confirmation_id\":\"cf_3gzgn\"}"
+    "confirm_switch {\"confirmation_id\":\"cf_3f78g\"}"
    ],
    "text": ""
   },
   {
-   "t": 1791919690.549,
+   "t": 1791921078.512,
    "status": 200,
-   "cost": 0.0083532,
+   "cost": 0.009126,
    "tools": [],
-   "text": "All set, Marcus. On Thursday, Lumen goes off instead of renewing for 15 dollars and 49 cents, and Tidewell comes on for Rosa at 8 dollars and 99 cents. You can undo this any time before Thursday."
+   "text": "Done, Marcus. On Thursday Lumen goes off instead of renewing for 15 dollars and 49 cents, and Tidewell comes on for Rosa for 8 dollars and 99 cents. You can undo it until Thursday."
   },
   {
-   "t": 1791919712.644,
+   "t": 1791921100.793,
    "status": 200,
-   "cost": 0.0060786,
+   "cost": 0.006110600000000001,
    "tools": [
-    "schedule_reminder {\"before_service\":\"Orbit\",\"note\":\"Orbit starts tomorrow for The Copper Meridian, for Dana and Marcus.\"}"
+    "schedule_reminder {\"before_service\":\"Orbit\",\"note\":\"Orbit comes back on tomorrow for The Copper Meridian.\"}"
    ],
    "text": ""
   },
   {
-   "t": 1791919714.343,
+   "t": 1791921102.767,
    "status": 200,
-   "cost": 0.006057600000000001,
+   "cost": 0.0059576,
    "tools": [],
-   "text": "Okay, Dana. I'll remind you on the morning of Tuesday, November 24, the day before Orbit comes back on for The Copper Meridian."
+   "text": "You got it, Dana. I'll remind you on the morning of Tuesday, November 24 that Orbit comes back on the next day for The Copper Meridian."
   },
   {
-   "t": 1791919726.426,
+   "t": 1791921114.219,
    "status": 200,
-   "cost": 0.004875,
+   "cost": 0.0048752000000000005,
    "tools": [
     "explain_plan {\"service\":\"Orbit\"}"
    ],
    "text": ""
   },
   {
-   "t": 1791919728.956,
+   "t": 1791921116.947,
    "status": 200,
-   "cost": 0.008331,
+   "cost": 0.0085664,
    "tools": [],
-   "text": "Leah, nobody needs Orbit until then. It comes on November 25 so your parents can catch The Copper Meridian episodes 1 to 7. It's back on January 12 for the final episode, and that's also when you can watch all of Glass Kingdom."
+   "text": "Orbit comes back on November 25 so Dana and Marcus can watch The Copper Meridian, episodes 1 to 7, and they can still catch up from when it starts. Then it's on again from January 12, Leah, so you'll have all of Glass Kingdom when it drops. Is that timing okay for you?"
   },
   {
-   "t": 1791919751.855,
+   "t": 1791921138.098,
    "status": 200,
-   "cost": 0.005341,
+   "cost": 0.0053964,
    "tools": [
     "get_household {\"briefing\":true}"
    ],
    "text": ""
   },
   {
-   "t": 1791919756.074,
+   "t": 1791921141.939,
    "status": 200,
-   "cost": 0.0308136,
+   "cost": 0.029836400000000003,
    "tools": [],
-   "text": "Good morning. This is Dana's reminder about Orbit, but the plan changed: the November switch was undone, so Lumen renewed and Rosa's cooking channel never came on. Orbit now waits until December 5, which means Dana and Marcus would miss 2 Copper Meridian episodes. Dana or Marcus, should I look for a way to fit Orbit in sooner?"
+   "text": "Good morning. Heads up: Orbit isn't coming on tomorrow after all, because the November 2 switch was undone, so Lumen renewed and Tidewell never came on for Rosa. The plan now starts Orbit on December 5, and Dana and Marcus would miss 2 Copper Meridian episodes. Do you want me to work out a new plan?"
   }
  ],
  "mcp": [
   {
-   "t": 1791919604.358,
+   "t": 1791920989.771,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"demo_reset\",\"arguments\":{}},\"jsonrpc\":\"2.0\",\"id\":4}",
    "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Demo household reset.\"}],\"structuredContent\":{\"today\":\"2026-11-02\",\"speech\":\"Demo household reset.\"}},\"jsonrpc\":\"2.0\",\"id\":4}"
   },
   {
-   "t": 1791919615.883,
+   "t": 1791921003.048,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"get_household\",\"arguments\":{\"briefing\":true}},\"jsonrpc\":\"2.0\",\"id\":7}",
    "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Good morning. Lumen renews Thursday for 15 dollars and 49 cents. The plan lets it go: Harbor Lights ends Wednesday and nobody is following Quiet Orchard. That keeps the plan through April at 96 dollars and 90 cents, every followed episode in time. Should I set it up?\"}],\"structuredContent\":{\"household\":\"The Rivera household\",\"today\":\"2026-11-02\",\"dataNotice\":\"Demo data. Every service, show and family member is fictional.\",\"limit\":2,\"members\":[{\"id\":\"dana\",\"name\":\"Dana\",\"aliases\":[\"mom\",\"mum\"],\"role\":\"adult\",\"age\":42,\"canApproveCharges\":true,\"watchesWithinDays\":14},{\"id\":\"marcus\",\"name\":\"Marcus\",\"aliases\":[\"dad\"],\"role\":\"adult\",\"age\":44,\"canApproveCharges\":true,\"watchesWithinDays\":30},{\"id\":\"rosa\",\"name\":\"Rosa\",\"aliases\":[\"grandma\",\"grandmother\",\"abuela\",\"nana\"],\"role\":\"adult\",\"age\":71,\"canApproveCharges\":false,\"watchesWithinDays\":7},{\"id\":\"leah\",\"name\":\"Leah\",\"aliases\":[],\"role\":\"teen\",\"age\":15,\"canApproveCharges\":false,\"watchesWithinDays\":2},{\"id\":\"theo\",\"name\":\"Theo\",\"aliases\":[],\"role\":\"child\",\"age\":8,\"canApproveCharges\":false,\"watchesWithinDays\":3}],\"services\":[{\"id\":\"lumen\",\"name\":\"Lumen\",\"tags\":[\"drama\"],\"price\":\"$15.49\",\"status\":\"on, renews Nov 5\",\"paidThrough\":\"2026-11-05\",\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"orbit\",\"name\":\"Orbit\",\"tags\":[\"sci-fi\",\"science fiction\"],\"price\":\"$10.99\",\"status\":\"off\",\"paidThrough\":null,\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"kestrel\",\"name\":\"K"
   },
   {
-   "t": 1791919630.945,
+   "t": 1791921019.229,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"record_preference\",\"arguments\":{\"kind\":\"follow_title\",\"title\":\"Quiet Orchard\",\"utterance\":\"Hold on, I'm still watching that show.\"}},\"jsonrpc\":\"2.0\",\"id\":10}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Got it, Marcus is still watching Quiet Orchard. Lumen goes off Thursday, then comes back November 26 to December 26. That adds 15 dollars and 49 cents through April. Every followed episode is still in time.\"}],\"structuredContent\":{\"preference\":{\"id\":\"p_1yxee\",\"date\":\"2026-11-02\",\"turn\":2,\"speakerId\":\"marcus\",\"forMemberId\":\"marcus\",\"kind\":\"follow_title\",\"text\":\"Marcus is watching Quiet Orchard (\\\"Hold on, I'm still watching that show.\\\")\",\"source\":\"voice\",\"titleId\":\"quiet-orchard\"},\"replan\":{\"solverMs\":125,\"costBeforeCents\":9690,\"costAfterCents\":11239,\"deltaCents\":1549,\"missedBefore\":0,\"missedAfter\":0,\"changes\":[{\"serviceId\":\"lumen\",\"name\":\"Lumen\",\"before\":[],\"after\":[\"2026-11-26\"]}]},\"plan\":{\"version\":2,\"from\":\"2026-11-02\",\"through\":\"2027-04-30\",\"periods\":[{\"serviceId\":\"orbit\",\"start\":\"2026-11-25\"},{\"serviceId\":\"lumen\",\"start\":\"2026-11-26\"},{\"serviceId\":\"kestrel\",\"start\":\"2027-01-04\"},{\"serviceId\":\"orbit\",\"start\":\"2027-01-12\"},{\"serviceId\":\"tidewell\",\"start\":\"2027-03-11\"}],\"cost\":\"$112.39\",\"costCents\":11239,\"keepAllOnCents\":36870,\"savesVsKeepingAllOnCents\":25631,\"followedEpisodes\":75,\"missedEpisodes\":0,\"missedByTitle\":{},\"solver\":{\"name\":\"HiGHS mixed-integer program (exact)\",\"ms\":125,\"status\":\"Optimal\"},\"cause\":\"Marcus is watching Quiet Orchard (\\\"Hold on, I'm still watching that show.\\\")\"},\"calendar\":{\"start\":\"2026-11-02\",\"end\":\"2027-04-30\",\"totalDays\":180,\"months\":[{\"key\":\"2026-11\",\"label\":\"Nov\",\"offset\":0,\"days\":29},{\"key\":\"2026"
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Got it, Marcus is still watching Quiet Orchard. Lumen goes off Thursday, then comes back November 26 to December 26. That adds 15 dollars and 49 cents through April. Every followed episode is still in time.\"}],\"structuredContent\":{\"preference\":{\"id\":\"p_163z5\",\"date\":\"2026-11-02\",\"turn\":2,\"speakerId\":\"marcus\",\"forMemberId\":\"marcus\",\"kind\":\"follow_title\",\"text\":\"Marcus is watching Quiet Orchard (\\\"Hold on, I'm still watching that show.\\\")\",\"source\":\"voice\",\"titleId\":\"quiet-orchard\"},\"replan\":{\"solverMs\":95,\"costBeforeCents\":9690,\"costAfterCents\":11239,\"deltaCents\":1549,\"missedBefore\":0,\"missedAfter\":0,\"changes\":[{\"serviceId\":\"lumen\",\"name\":\"Lumen\",\"before\":[],\"after\":[\"2026-11-26\"]}]},\"plan\":{\"version\":2,\"from\":\"2026-11-02\",\"through\":\"2027-04-30\",\"periods\":[{\"serviceId\":\"orbit\",\"start\":\"2026-11-25\"},{\"serviceId\":\"lumen\",\"start\":\"2026-11-26\"},{\"serviceId\":\"kestrel\",\"start\":\"2027-01-04\"},{\"serviceId\":\"orbit\",\"start\":\"2027-01-12\"},{\"serviceId\":\"tidewell\",\"start\":\"2027-03-11\"}],\"cost\":\"$112.39\",\"costCents\":11239,\"keepAllOnCents\":36870,\"savesVsKeepingAllOnCents\":25631,\"followedEpisodes\":75,\"missedEpisodes\":0,\"missedByTitle\":{},\"solver\":{\"name\":\"HiGHS mixed-integer program (exact)\",\"ms\":95,\"status\":\"Optimal\"},\"cause\":\"Marcus is watching Quiet Orchard (\\\"Hold on, I'm still watching that show.\\\")\"},\"calendar\":{\"start\":\"2026-11-02\",\"end\":\"2027-04-30\",\"totalDays\":180,\"months\":[{\"key\":\"2026-11\",\"label\":\"Nov\",\"offset\":0,\"days\":29},{\"key\":\"2026-1"
   },
   {
-   "t": 1791919646.098,
+   "t": 1791921034.373,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"record_preference\",\"arguments\":{\"kind\":\"want_service\",\"member\":\"grandma\",\"service\":\"the cooking channel\",\"utterance\":\"Grandma wants the cooking channel this month.\"}},\"jsonrpc\":\"2.0\",\"id\":13}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Okay, Tidewell for Rosa. Tidewell comes on November 5 to December 5, and again March 11. Lumen shifts to make room. That adds 8 dollars and 99 cents through April. Every followed episode is still in time.\"}],\"structuredContent\":{\"preference\":{\"id\":\"p_2uta1\",\"date\":\"2026-11-02\",\"turn\":3,\"speakerId\":\"dana\",\"forMemberId\":\"rosa\",\"kind\":\"want_service\",\"text\":\"Rosa wants Tidewell, starting by Nov 5 (\\\"Grandma wants the cooking channel this month.\\\")\",\"source\":\"voice\",\"serviceId\":\"tidewell\",\"startBy\":\"2026-11-05\"},\"replan\":{\"solverMs\":119,\"costBeforeCents\":11239,\"costAfterCents\":12138,\"deltaCents\":899,\"missedBefore\":0,\"missedAfter\":0,\"changes\":[{\"serviceId\":\"tidewell\",\"name\":\"Tidewell\",\"before\":[\"2027-03-11\"],\"after\":[\"2026-11-05\",\"2027-03-11\"]},{\"serviceId\":\"lumen\",\"name\":\"Lumen\",\"before\":[\"2026-11-26\"],\"after\":[\"2026-12-05\"]}]},\"plan\":{\"version\":3,\"from\":\"2026-11-02\",\"through\":\"2027-04-30\",\"periods\":[{\"serviceId\":\"tidewell\",\"start\":\"2026-11-05\"},{\"serviceId\":\"orbit\",\"start\":\"2026-11-25\"},{\"serviceId\":\"lumen\",\"start\":\"2026-12-05\"},{\"serviceId\":\"kestrel\",\"start\":\"2027-01-04\"},{\"serviceId\":\"orbit\",\"start\":\"2027-01-12\"},{\"serviceId\":\"tidewell\",\"start\":\"2027-03-11\"}],\"cost\":\"$121.38\",\"costCents\":12138,\"keepAllOnCents\":36870,\"savesVsKeepingAllOnCents\":24732,\"followedEpisodes\":76,\"missedEpisodes\":0,\"missedByTitle\":{},\"solver\":{\"name\":\"HiGHS mixed-integer program (exact)\",\"ms\":119,\"status\":\"Optimal\"},\"cause\":\"Rosa wants Tidewell, starting by No"
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Okay, Tidewell for Rosa. Tidewell comes on November 5 to December 5, and again March 11. Lumen shifts to make room. That adds 8 dollars and 99 cents through April. Every followed episode is still in time.\"}],\"structuredContent\":{\"preference\":{\"id\":\"p_2chxl\",\"date\":\"2026-11-02\",\"turn\":3,\"speakerId\":\"dana\",\"forMemberId\":\"rosa\",\"kind\":\"want_service\",\"text\":\"Rosa wants Tidewell, starting by Nov 5 (\\\"Grandma wants the cooking channel this month.\\\")\",\"source\":\"voice\",\"serviceId\":\"tidewell\",\"startBy\":\"2026-11-05\"},\"replan\":{\"solverMs\":106,\"costBeforeCents\":11239,\"costAfterCents\":12138,\"deltaCents\":899,\"missedBefore\":0,\"missedAfter\":0,\"changes\":[{\"serviceId\":\"tidewell\",\"name\":\"Tidewell\",\"before\":[\"2027-03-11\"],\"after\":[\"2026-11-05\",\"2027-03-11\"]},{\"serviceId\":\"lumen\",\"name\":\"Lumen\",\"before\":[\"2026-11-26\"],\"after\":[\"2026-12-05\"]}]},\"plan\":{\"version\":3,\"from\":\"2026-11-02\",\"through\":\"2027-04-30\",\"periods\":[{\"serviceId\":\"tidewell\",\"start\":\"2026-11-05\"},{\"serviceId\":\"orbit\",\"start\":\"2026-11-25\"},{\"serviceId\":\"lumen\",\"start\":\"2026-12-05\"},{\"serviceId\":\"kestrel\",\"start\":\"2027-01-04\"},{\"serviceId\":\"orbit\",\"start\":\"2027-01-12\"},{\"serviceId\":\"tidewell\",\"start\":\"2027-03-11\"}],\"cost\":\"$121.38\",\"costCents\":12138,\"keepAllOnCents\":36870,\"savesVsKeepingAllOnCents\":24732,\"followedEpisodes\":76,\"missedEpisodes\":0,\"missedByTitle\":{},\"solver\":{\"name\":\"HiGHS mixed-integer program (exact)\",\"ms\":106,\"status\":\"Optimal\"},\"cause\":\"Rosa wants Tidewell, starting by No"
   },
   {
-   "t": 1791919659.907,
+   "t": 1791921047.806,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"propose_switch\",\"arguments\":{}},\"jsonrpc\":\"2.0\",\"id\":16}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"To confirm: Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. Nothing is charged today. Dana or Marcus, say yes to confirm.\"}],\"structuredContent\":{\"confirmationId\":\"cf_3gzgn\",\"actions\":[{\"serviceId\":\"lumen\",\"kind\":\"turn_off\",\"date\":\"2026-11-05\",\"amountCents\":1549,\"alreadySet\":false,\"why\":\"Harbor Lights ends Wednesday. It comes back on Dec 5 for Quiet Orchard episodes 6 to 10 for Marcus.\"},{\"serviceId\":\"tidewell\",\"kind\":\"turn_on\",\"date\":\"2026-11-05\",\"amountCents\":899,\"alreadySet\":false,\"why\":\"For Rosa's request.\"}],\"chargeCents\":899,\"avoidedCents\":1549,\"needsApprovalFrom\":[\"Dana\",\"Marcus\"],\"card\":{\"kind\":\"confirm\",\"title\":\"Lumen off Nov 5, Tidewell on Nov 5?\",\"fields\":[{\"label\":\"Will be charged\",\"value\":\"$8.99 on Nov 5\"},{\"label\":\"Not charged\",\"value\":\"$15.49 on Nov 5\"}],\"action\":{\"label\":\"Confirm\",\"utterance\":\"Yes, confirm.\",\"tool\":{\"name\":\"confirm_switch\",\"arguments\":{\"confirmation_id\":\"cf_3gzgn\"}}},\"tone\":\"neutral\",\"footnote\":\"Needs Dana or Marcus to say yes. Expires in 10 minutes.\"},\"speech\":\"To confirm: Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. Nothing is charged today. Dana or Marcus, say yes to confirm.\"}},\"jsonrpc\":\"2.0\",\"id\":16}"
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"To confirm: Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. Nothing is charged today. Dana or Marcus, say yes to confirm.\"}],\"structuredContent\":{\"confirmationId\":\"cf_3f78g\",\"actions\":[{\"serviceId\":\"lumen\",\"kind\":\"turn_off\",\"date\":\"2026-11-05\",\"amountCents\":1549,\"alreadySet\":false,\"why\":\"Harbor Lights ends Wednesday. It comes back on Dec 5 for Quiet Orchard episodes 6 to 10 for Marcus.\"},{\"serviceId\":\"tidewell\",\"kind\":\"turn_on\",\"date\":\"2026-11-05\",\"amountCents\":899,\"alreadySet\":false,\"why\":\"For Rosa's request.\"}],\"chargeCents\":899,\"avoidedCents\":1549,\"needsApprovalFrom\":[\"Dana\",\"Marcus\"],\"card\":{\"kind\":\"confirm\",\"title\":\"Lumen off Nov 5, Tidewell on Nov 5?\",\"fields\":[{\"label\":\"Will be charged\",\"value\":\"$8.99 on Nov 5\"},{\"label\":\"Not charged\",\"value\":\"$15.49 on Nov 5\"}],\"action\":{\"label\":\"Confirm\",\"utterance\":\"Yes, confirm.\",\"tool\":{\"name\":\"confirm_switch\",\"arguments\":{\"confirmation_id\":\"cf_3f78g\"}}},\"tone\":\"neutral\",\"footnote\":\"Needs Dana or Marcus to say yes. Expires in 10 minutes.\"},\"speech\":\"To confirm: Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. Nothing is charged today. Dana or Marcus, say yes to confirm.\"}},\"jsonrpc\":\"2.0\",\"id\":16}"
   },
   {
-   "t": 1791919674.604,
-   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"confirm_switch\",\"arguments\":{\"confirmation_id\":\"cf_3gzgn\"}},\"jsonrpc\":\"2.0\",\"id\":19}",
+   "t": 1791921061.566,
+   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"confirm_switch\",\"arguments\":{\"confirmation_id\":\"cf_3f78g\"}},\"jsonrpc\":\"2.0\",\"id\":19}",
    "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Leah is 15, so that yes can't approve charges. Dana or Marcus needs to say yes.\"}],\"structuredContent\":{\"error\":\"not_authorized\",\"message\":\"Leah is 15, so that yes can't approve charges. Dana or Marcus needs to say yes.\",\"speech\":\"Leah is 15, so that yes can't approve charges. Dana or Marcus needs to say yes.\",\"card\":{\"kind\":\"blocked\",\"title\":\"Not done\",\"fields\":[{\"label\":\"Why\",\"value\":\"Leah is 15, so that yes can't approve charges. Dana or Marcus needs to say yes.\"}],\"tone\":\"warn\",\"footnote\":\"Refused by server rule: not_authorized\"}},\"isError\":true},\"jsonrpc\":\"2.0\",\"id\":19}"
   },
   {
-   "t": 1791919688.623,
-   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"confirm_switch\",\"arguments\":{\"confirmation_id\":\"cf_3gzgn\"}},\"jsonrpc\":\"2.0\",\"id\":22}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Done, Marcus. Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. You can undo it until Thursday.\"}],\"structuredContent\":{\"alreadyConfirmed\":false,\"change\":{\"id\":\"cf_3gzgn\",\"date\":\"2026-11-02\",\"atMs\":1791919688599,\"kind\":\"switch\",\"by\":\"marcus\",\"serviceIds\":[\"lumen\",\"tidewell\"],\"actions\":[{\"serviceId\":\"lumen\",\"kind\":\"turn_off\",\"date\":\"2026-11-05\",\"amountCents\":1549,\"alreadySet\":false,\"why\":\"Harbor Lights ends Wednesday. It comes back on Dec 5 for Quiet Orchard episodes 6 to 10 for Marcus.\"},{\"serviceId\":\"tidewell\",\"kind\":\"turn_on\",\"date\":\"2026-11-05\",\"amountCents\":899,\"alreadySet\":false,\"why\":\"For Rosa's request.\"}],\"amountCents\":0,\"detail\":\"Lumen off Nov 5, Tidewell on Nov 5\",\"undoBefore\":\"2026-11-05\",\"before\":[{\"serviceId\":\"lumen\",\"autoRenew\":true,\"scheduledStart\":null},{\"serviceId\":\"tidewell\",\"autoRenew\":true,\"scheduledStart\":null}]},\"card\":{\"kind\":\"receipt\",\"title\":\"Set: Lumen off Nov 5, Tidewell on Nov 5\",\"fields\":[{\"label\":\"Charges ahead\",\"value\":\"$8.99\"},{\"label\":\"Charges avoided\",\"value\":\"$15.49\"}],\"action\":{\"label\":\"Undo\",\"utterance\":\"Undo that.\",\"tool\":{\"name\":\"undo_switch\",\"arguments\":{\"change\":\"cf_3gzgn\"}}},\"tone\":\"good\",\"footnote\":\"Confirmed by Marcus. Change cf_3gzgn, undo until Nov 5.\"},\"speech\":\"Done, Marcus. Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. Y"
+   "t": 1791921076.089,
+   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"confirm_switch\",\"arguments\":{\"confirmation_id\":\"cf_3f78g\"}},\"jsonrpc\":\"2.0\",\"id\":22}",
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Done, Marcus. Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. You can undo it until Thursday.\"}],\"structuredContent\":{\"alreadyConfirmed\":false,\"change\":{\"id\":\"cf_3f78g\",\"date\":\"2026-11-02\",\"atMs\":1791921076072,\"kind\":\"switch\",\"by\":\"marcus\",\"serviceIds\":[\"lumen\",\"tidewell\"],\"actions\":[{\"serviceId\":\"lumen\",\"kind\":\"turn_off\",\"date\":\"2026-11-05\",\"amountCents\":1549,\"alreadySet\":false,\"why\":\"Harbor Lights ends Wednesday. It comes back on Dec 5 for Quiet Orchard episodes 6 to 10 for Marcus.\"},{\"serviceId\":\"tidewell\",\"kind\":\"turn_on\",\"date\":\"2026-11-05\",\"amountCents\":899,\"alreadySet\":false,\"why\":\"For Rosa's request.\"}],\"amountCents\":0,\"detail\":\"Lumen off Nov 5, Tidewell on Nov 5\",\"undoBefore\":\"2026-11-05\",\"before\":[{\"serviceId\":\"lumen\",\"autoRenew\":true,\"scheduledStart\":null},{\"serviceId\":\"tidewell\",\"autoRenew\":true,\"scheduledStart\":null}]},\"card\":{\"kind\":\"receipt\",\"title\":\"Set: Lumen off Nov 5, Tidewell on Nov 5\",\"fields\":[{\"label\":\"Charges ahead\",\"value\":\"$8.99\"},{\"label\":\"Charges avoided\",\"value\":\"$15.49\"}],\"action\":{\"label\":\"Undo\",\"utterance\":\"Undo that.\",\"tool\":{\"name\":\"undo_switch\",\"arguments\":{\"change\":\"cf_3f78g\"}}},\"tone\":\"good\",\"footnote\":\"Confirmed by Marcus. Change cf_3f78g, undo until Nov 5.\"},\"speech\":\"Done, Marcus. Lumen goes off Thursday instead of renewing for 15 dollars and 49 cents and Tidewell comes on Thursday for 8 dollars and 99 cents. Y"
   },
   {
-   "t": 1791919700.503,
-   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"undo_switch\",\"arguments\":{\"change\":\"cf_3gzgn\"}},\"jsonrpc\":\"2.0\",\"id\":24}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Undone. Lumen and Tidewell are back the way they were.\"}],\"structuredContent\":{\"undone\":\"cf_3gzgn\",\"card\":{\"kind\":\"receipt\",\"title\":\"Undone: Lumen off Nov 5, Tidewell on Nov 5\",\"fields\":[{\"label\":\"Charges ahead\",\"value\":\"$8.99\"},{\"label\":\"Charges avoided\",\"value\":\"$15.49\"}],\"tone\":\"good\",\"footnote\":\"Confirmed by Marcus. Change cf_3gzgn.\"},\"speech\":\"Undone. Lumen and Tidewell are back the way they were.\"}},\"jsonrpc\":\"2.0\",\"id\":24}"
+   "t": 1791921088.452,
+   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"undo_switch\",\"arguments\":{\"change\":\"cf_3f78g\"}},\"jsonrpc\":\"2.0\",\"id\":24}",
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Undone. Lumen and Tidewell are back the way they were.\"}],\"structuredContent\":{\"undone\":\"cf_3f78g\",\"card\":{\"kind\":\"receipt\",\"title\":\"Undone: Lumen off Nov 5, Tidewell on Nov 5\",\"fields\":[{\"label\":\"Charges ahead\",\"value\":\"$8.99\"},{\"label\":\"Charges avoided\",\"value\":\"$15.49\"}],\"tone\":\"good\",\"footnote\":\"Confirmed by Marcus. Change cf_3f78g.\"},\"speech\":\"Undone. Lumen and Tidewell are back the way they were.\"}},\"jsonrpc\":\"2.0\",\"id\":24}"
   },
   {
-   "t": 1791919712.674,
-   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"schedule_reminder\",\"arguments\":{\"before_service\":\"Orbit\",\"note\":\"Orbit starts tomorrow for The Copper Meridian, for Dana and Marcus.\"}},\"jsonrpc\":\"2.0\",\"id\":27}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Okay. I'll bring it up on the morning of Tuesday, November 24.\"}],\"structuredContent\":{\"reminder\":{\"id\":\"r_5ocd9\",\"dueDate\":\"2026-11-24\",\"note\":\"Orbit starts tomorrow for The Copper Meridian, for Dana and Marcus.\",\"createdBy\":\"dana\",\"serviceId\":\"orbit\",\"status\":\"scheduled\"},\"card\":{\"kind\":\"reminder\",\"title\":\"Reminder: Nov 24\",\"fields\":[{\"label\":\"Morning of\",\"value\":\"Tuesday, November 24\"},{\"label\":\"About\",\"value\":\"Orbit starts tomorrow for The Copper Meridian, for Dana and Marcus.\"}],\"tone\":\"good\"},\"speech\":\"Okay. I'll bring it up on the morning of Tuesday, November 24.\"}},\"jsonrpc\":\"2.0\",\"id\":27}"
+   "t": 1791921100.815,
+   "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"schedule_reminder\",\"arguments\":{\"before_service\":\"Orbit\",\"note\":\"Orbit comes back on tomorrow for The Copper Meridian.\"}},\"jsonrpc\":\"2.0\",\"id\":27}",
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Okay. I'll bring it up on the morning of Tuesday, November 24.\"}],\"structuredContent\":{\"reminder\":{\"id\":\"r_5rhd8\",\"dueDate\":\"2026-11-24\",\"note\":\"Orbit comes back on tomorrow for The Copper Meridian.\",\"createdBy\":\"dana\",\"serviceId\":\"orbit\",\"status\":\"scheduled\"},\"card\":{\"kind\":\"reminder\",\"title\":\"Reminder: Nov 24\",\"fields\":[{\"label\":\"Morning of\",\"value\":\"Tuesday, November 24\"},{\"label\":\"About\",\"value\":\"Orbit comes back on tomorrow for The Copper Meridian.\"}],\"tone\":\"good\"},\"speech\":\"Okay. I'll bring it up on the morning of Tuesday, November 24.\"}},\"jsonrpc\":\"2.0\",\"id\":27}"
   },
   {
-   "t": 1791919726.454,
+   "t": 1791921114.243,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"explain_plan\",\"arguments\":{\"service\":\"Orbit\"}},\"jsonrpc\":\"2.0\",\"id\":30}",
    "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Orbit is on November 25 for The Copper Meridian episodes 1 to 7 for Dana and Marcus. Then on January 12 for The Copper Meridian episode 8 for Dana and Marcus and Glass Kingdom all episodes for Leah. Off the rest of the time.\"}],\"structuredContent\":{\"service\":\"Orbit\",\"periods\":[{\"from\":\"2026-11-25\",\"to\":\"2026-12-25\",\"kind\":\"plan\",\"chargeCents\":1099,\"forWhat\":\"The Copper Meridian episodes 1 to 7 for Dana and Marcus\"},{\"from\":\"2027-01-12\",\"to\":\"2027-02-12\",\"kind\":\"plan\",\"chargeCents\":1099,\"forWhat\":\"The Copper Meridian episode 8 for Dana and Marcus and Glass Kingdom all episodes for Leah\"}],\"missed\":0,\"speech\":\"Orbit is on November 25 for The Copper Meridian episodes 1 to 7 for Dana and Marcus. Then on January 12 for The Copper Meridian episode 8 for Dana and Marcus and Glass Kingdom all episodes for Leah. Off the rest of the time.\",\"card\":{\"kind\":\"explain\",\"title\":\"Why Orbit is on when it is\",\"fields\":[{\"label\":\"On\",\"value\":\"Nov 25 to Dec 25, Jan 12 to Feb 12\"},{\"label\":\"For\",\"value\":\"The Copper Meridian episodes 1 to 7 for Dana and Marcus\"}],\"tone\":\"neutral\"}}},\"jsonrpc\":\"2.0\",\"id\":30}"
   },
   {
-   "t": 1791919739.923,
+   "t": 1791921127.061,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"demo_advance_clock\",\"arguments\":{\"to_date\":\"2026-11-24\"}},\"jsonrpc\":\"2.0\",\"id\":32}",
    "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"It is now 2026-11-24.\"}],\"structuredContent\":{\"today\":\"2026-11-24\",\"events\":[\"2026-11-05: Lumen renewed, $15.49\",\"2026-11-14: Pebble Kids renewed, $7.99\",\"2026-11-20: Kestrel+ renewed, $17.99\"],\"speech\":\"It is now 2026-11-24.\"}},\"jsonrpc\":\"2.0\",\"id\":32}"
   },
   {
-   "t": 1791919751.888,
+   "t": 1791921138.131,
    "req": "{\"method\":\"tools/call\",\"params\":{\"name\":\"get_household\",\"arguments\":{\"briefing\":true}},\"jsonrpc\":\"2.0\",\"id\":35}",
-   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"You asked me to remind you: Orbit starts tomorrow for The Copper Meridian, for Dana and Marcus.\"}],\"structuredContent\":{\"household\":\"The Rivera household\",\"today\":\"2026-11-24\",\"dataNotice\":\"Demo data. Every service, show and family member is fictional.\",\"limit\":2,\"members\":[{\"id\":\"dana\",\"name\":\"Dana\",\"aliases\":[\"mom\",\"mum\"],\"role\":\"adult\",\"age\":42,\"canApproveCharges\":true,\"watchesWithinDays\":14},{\"id\":\"marcus\",\"name\":\"Marcus\",\"aliases\":[\"dad\"],\"role\":\"adult\",\"age\":44,\"canApproveCharges\":true,\"watchesWithinDays\":30},{\"id\":\"rosa\",\"name\":\"Rosa\",\"aliases\":[\"grandma\",\"grandmother\",\"abuela\",\"nana\"],\"role\":\"adult\",\"age\":71,\"canApproveCharges\":false,\"watchesWithinDays\":7},{\"id\":\"leah\",\"name\":\"Leah\",\"aliases\":[],\"role\":\"teen\",\"age\":15,\"canApproveCharges\":false,\"watchesWithinDays\":2},{\"id\":\"theo\",\"name\":\"Theo\",\"aliases\":[],\"role\":\"child\",\"age\":8,\"canApproveCharges\":false,\"watchesWithinDays\":3}],\"services\":[{\"id\":\"lumen\",\"name\":\"Lumen\",\"tags\":[\"drama\"],\"price\":\"$15.49\",\"status\":\"on, renews Dec 5\",\"paidThrough\":\"2026-12-05\",\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"orbit\",\"name\":\"Orbit\",\"tags\":[\"sci-fi\",\"science fiction\"],\"price\":\"$10.99\",\"status\":\"off\",\"paidThrough\":null,\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"kestrel\",\"name\":\"Kestrel+\",\"tags\":[\"movies\",\"films\"],\"price\":\"$17.99\",\"status\":\"on, renews Dec 20\",\"paidThrough\":\"2026-12-20\",\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\""
+   "res": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"You asked me to remind you: Orbit comes back on tomorrow for The Copper Meridian.\"}],\"structuredContent\":{\"household\":\"The Rivera household\",\"today\":\"2026-11-24\",\"dataNotice\":\"Demo data. Every service, show and family member is fictional.\",\"limit\":2,\"members\":[{\"id\":\"dana\",\"name\":\"Dana\",\"aliases\":[\"mom\",\"mum\"],\"role\":\"adult\",\"age\":42,\"canApproveCharges\":true,\"watchesWithinDays\":14},{\"id\":\"marcus\",\"name\":\"Marcus\",\"aliases\":[\"dad\"],\"role\":\"adult\",\"age\":44,\"canApproveCharges\":true,\"watchesWithinDays\":30},{\"id\":\"rosa\",\"name\":\"Rosa\",\"aliases\":[\"grandma\",\"grandmother\",\"abuela\",\"nana\"],\"role\":\"adult\",\"age\":71,\"canApproveCharges\":false,\"watchesWithinDays\":7},{\"id\":\"leah\",\"name\":\"Leah\",\"aliases\":[],\"role\":\"teen\",\"age\":15,\"canApproveCharges\":false,\"watchesWithinDays\":2},{\"id\":\"theo\",\"name\":\"Theo\",\"aliases\":[],\"role\":\"child\",\"age\":8,\"canApproveCharges\":false,\"watchesWithinDays\":3}],\"services\":[{\"id\":\"lumen\",\"name\":\"Lumen\",\"tags\":[\"drama\"],\"price\":\"$15.49\",\"status\":\"on, renews Dec 5\",\"paidThrough\":\"2026-12-05\",\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"orbit\",\"name\":\"Orbit\",\"tags\":[\"sci-fi\",\"science fiction\"],\"price\":\"$10.99\",\"status\":\"off\",\"paidThrough\":null,\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"kestrel\",\"name\":\"Kestrel+\",\"tags\":[\"movies\",\"films\"],\"price\":\"$17.99\",\"status\":\"on, renews Dec 20\",\"paidThrough\":\"2026-12-20\",\"autoRenew\":true,\"scheduledStart\":null,\"required\":false},{\"id\":\"tidewell\",\"nam"
   }
  ],
- "usd": 0.19285819999999998,
+ "usd": 0.1773972,
  "calls": 18,
  "house": {
   "model": "claude-opus-5-5",
   "keyEnv": "AMAZON_ANTHROPIC_API_KEY",
   "configured": true,
   "capUsd": 1.5,
-  "spentTodayUsd": 0.500159,
+  "spentTodayUsd": 0.836171,
   "aiAvailable": true,
   "cappedReason": null
  }

@@ -1,0 +1,24 @@
+{
+  "household": "hh-30",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 26035,
+  "usage": {
+    "input_tokens": 2274,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2818,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 1609
+    }
+  },
+  "costUsd": 0.065456,
+  "text": "Rule 6 does not apply because `maxConcurrent` is null. So each service can be planned on its own. Every listed episode can be watched in time by every follower, so no (episode, follower) pairs are missed. The plan has 10 periods costing $133.82 in total.\n\nAda's 1-day window is the tightest limit for every title she follows. Each of her episodes needs access on its release day or the day after.\n\n**Marquee ($13.99 a month, already paid through 2026-11-07)**\n- The film (t1) needs access on some day from 2026-12-30 through 2027-01-31.\n- The Quiet Meridian (t4) is followed by Ines only, so each episode needs access within 14 days of release. The first window is Jan 13–27 and the last is Feb 24–Mar 10.\n- The Hollow Signal (t5) needs access on Mar 13 or 14 for Ada.\n- One period cannot cover both a day by Jan 31 and Mar 13, so two periods are needed.\n- **Jan 27** gives access Jan 27 to Feb 26. That day is inside the film's window and inside every t4 window.\n- **Mar 13** covers The Hollow Signal.\n\n**Lumen ($15.49, already paid through 2026-11-13)**\n- All of The Northern Meridian (t2) drops Dec 11, so Ada needs access on Dec 11 or 12.\n- **Dec 11** covers it with one period.\n\n**Northline ($11.99)**\n- Ada's windows for The Hollow Meridian (t3) run from Feb 6–7 to Mar 13–14. That is longer than a month, so two periods are needed.\n- **Feb 7** gives access Feb 7 to Mar 6, which covers episodes 1–5. Episode 5's window is Mar 6–7.\n- **Mar 13** covers episode 6.\n\n**Orbit ($10.99)**\n- Ada's windows for The Paper Atlas (t6) run from Nov 4–5 to Dec 16–17, so two periods are needed.\n- **Nov 5** gives access Nov 5 to Dec 4, which covers episodes 1–5. Episode 5's window is Dec 2–3.\n- **Dec 9** covers episode 6 (Dec 9–10) and episode 7 (Dec 16–17).\n\n**Kestrel+ ($17.99)**\n- Ada's windows for The Quiet Kingdom (t7) run from Jan 6–7 to Mar 24–25, which needs three periods.\n- **Jan 7** gives access Jan 7 to Feb 6, which covers episodes 1–5.\n- **Feb 11** gives access Feb 11 to Mar 10, which covers episodes 6–10.\n- **Mar 17** covers episodes 11 and 12.\n\n**Pebble Kids** is required and renews automatically, so it is not listed.\n\n```json\n{\"periods\": [{\"serviceId\": \"marquee\", \"start\": \"2027-01-27\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-03-13\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-12-11\"}, {\"serviceId\": \"northline\", \"start\": \"2027-02-07\"}, {\"serviceId\": \"northline\", \"start\": \"2027-03-13\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-11-05\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-12-09\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-01-07\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-02-11\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-03-17\"}]}\n```"
+}

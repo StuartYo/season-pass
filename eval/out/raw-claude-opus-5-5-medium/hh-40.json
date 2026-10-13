@@ -1,0 +1,24 @@
+{
+  "household": "hh-40",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 272021,
+  "usage": {
+    "input_tokens": 1806,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 25955,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 24897
+    }
+  },
+  "costUsd": 0.526324,
+  "text": "Lowest-cost plan I found: 6 periods at $94.94 total, missing 4 of the 42 (episode, Wen) pairs. I don't think zero misses is possible, and I believe 4 is the minimum, but that is not exhaustively proven.\n\n**Why some misses are unavoidable**\n\nAll three services Wen follows release episodes from mid-December to late February, but only 2 can be active at once. Tidewell isn't needed.\n\n- Kestrel+ must be on by Dec 30 to catch episode 1 (window Dec 23–30).\n- A Kestrel+ month that starts by Dec 30 holds one slot for about 31 days.\n- During that month, Marquee and Lumen must share the other slot. Each can be off only about 10–13 days without missing an episode.\n- So in late December and January, some service must be off long enough to miss episodes.\n- Every month-long block of one service forces the other two to share, and the gap lengths end up nearly fixed. With the best date alignment, I found no arrangement below 4 misses.\n\n**The plan**\n\n| Service | Paid period | Episodes missed |\n|---|---|---|\n| Marquee | Nov 28 – Dec 27 | — |\n| Lumen | Dec 17 – Jan 16 | — |\n| Kestrel+ | Dec 28 – Jan 27 | — |\n| Marquee | Jan 17 – Feb 16 | — |\n| Lumen | Jan 28 – Feb 27 | — |\n| Kestrel+ | Feb 17 – Mar 16 | — |\n\nGaps between periods cause these misses:\n- **Marquee**, off Dec 28 – Jan 16: misses The Crooked Tide episodes 3 and 4 (Dec 29 and Jan 5).\n- **Lumen**, off Jan 17 – Jan 27: misses The Paper Ferry episode 6 (Jan 17).\n- **Kestrel+**, off Jan 28 – Feb 16: misses The Salt Meridian episode 7 (Feb 3).\n\n**Checks**\n- **Never more than 2 at once:** In late November only Marquee is active, because the already-paid access has ended by Nov 28. After that, exactly two services are active each day.\n- **No double payment:** Every period starts after that service's paid-through date, and periods of the same service don't overlap.\n- **Dates:** All starts fall inside Nov 1 – Apr 30. None falls on the 29th–31st, so every end date is well defined.\n- **Cost:** Each service needs at least 2 months to cover its release span, so 6 periods is the minimum. That gives 2 × ($17.99 + $13.99 + $15.49) = **$94.94**.\n\n```json\n{\"periods\": [{\"serviceId\": \"marquee\", \"start\": \"2026-11-28\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-12-17\"}, {\"serviceId\": \"kestrel\", \"start\": \"2026-12-28\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-01-17\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-01-28\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-02-17\"}]}\n```"
+}

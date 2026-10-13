@@ -1,0 +1,22 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "households": 50,
+  "modelScored": 41,
+  "modelUnparseable": 3,
+  "modelNearOptimal": 33,
+  "modelWithViolations": 0,
+  "modelMissedMoreThanOptimal": 5,
+  "modelCostOver5pct": 3,
+  "totals": {
+    "optimalCostUsd": 3802.32,
+    "modelCostUsd": 3806.32,
+    "statusQuoCostUsd": 11109.12,
+    "optimalMissed": 57,
+    "modelMissed": 64,
+    "statusQuoMissed": 1402,
+    "modelViolations": 0,
+    "optimalViolations": 0
+  },
+  "apiSpendUsd": 7.78
+}

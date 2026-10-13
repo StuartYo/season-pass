@@ -1,0 +1,24 @@
+{
+  "household": "hh-22",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 26701,
+  "usage": {
+    "input_tokens": 2540,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2926,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 1716
+    }
+  },
+  "costUsd": 0.06868,
+  "text": "Each service can be planned on its own, because there is no limit on concurrent services. This plan misses no (episode, follower) pairs and costs $139.83.\n\n**Tidewell (no paid access)**\n- \"Distant Garden\" can be watched from 11-01 to 11-22.\n- \"The Velvet Signal\" drops 11-04, and the tightest follower window is 7 days, so it must be watched 11-04 to 11-11.\n- One period starting **11-04** (access through 12-03) covers both.\n- Cost: 1 × $8.99.\n\n**Northline (paid through 11-29)**\n- \"The Quiet Tide\" airs weekly from 12-05 to 02-20. Its only follower is Kofi, who has a 14-day window.\n- A period starting **12-19** covers 12-19 to 01-18. That catches the episode of 12-05 on its last allowed day, plus every episode through 01-16.\n- A period starting **02-06** covers 02-06 to 03-05. That catches the 01-23 episode on its last allowed day, plus every episode through 02-20.\n- Two periods are needed: the episode windows run from 12-05 to 03-06, which is more than two months, so one period cannot cover them.\n- Cost: 2 × $11.99.\n\n**Pebble Kids (paid through 11-19)**\n- \"The Glass Circuit\" airs weekly from 01-11 to 03-08. Its only follower is Ivy, who has a 7-day window.\n- A period starting **01-18** covers 01-18 to 02-17. That catches the 01-11 episode on its last allowed day, plus every episode through 02-15.\n- A period starting **03-01** covers 03-01 to 03-31. That catches the 02-22 episode on its last allowed day, plus the 03-01 and 03-08 episodes.\n- Cost: 2 × $7.99.\n\n**Lumen (paid through 11-03)**\n- Four shows release here: \"The Copper Tide\", \"The Copper Ferry\", \"The Hollow Atlas\" and \"The Glass Ferry\". Every one has a 7-day follower, so each episode must be caught within 7 days of release.\n- Releases run from 11-21 to 03-30.\n- Each period starts on the last allowed day of the earliest episode not yet covered:\n  - **11-28**: covers 11-28 to 12-27, so episodes released 11-21 through 12-26.\n  - **01-07**: covers 01-07 to 02-06, so episodes released 12-31 through 02-04.\n  - **02-16**: covers 02-16 to 03-15, so episodes released 02-09 through 03-09.\n  - **03-23**: covers 03-23 to 04-22, so episodes released 03-16 through 03-30.\n- Starting each period as late as possible is the standard approach that uses the fewest periods, so three would not be enough.\n- Cost: 4 × $15.49.\n\nAll periods start within the plan dates, and no service has overlapping access.\n\n```json\n{\"periods\": [{\"serviceId\": \"tidewell\", \"start\": \"2026-11-04\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-11-28\"}, {\"serviceId\": \"northline\", \"start\": \"2026-12-19\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-01-07\"}, {\"serviceId\": \"pebble\", \"start\": \"2027-01-18\"}, {\"serviceId\": \"northline\", \"start\": \"2027-02-06\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-02-16\"}, {\"serviceId\": \"pebble\", \"start\": \"2027-03-01\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-03-23\"}]}\n```"
+}

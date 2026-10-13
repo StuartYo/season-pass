@@ -1,0 +1,24 @@
+{
+  "household": "hh-41",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 30349,
+  "usage": {
+    "input_tokens": 2348,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3108,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2052
+    }
+  },
+  "costUsd": 0.071552,
+  "text": "I found a plan that misses no (episode, Rosa) pairs and uses six paid periods. Each paid service needs at least the number of periods listed, so I believe this is the lowest cost.\n\n**Already paid**\n- Northline is paid through 11-17, so Rosa has access 11-01 to 11-16. That covers the film *Distant Meridian* (window 11-01 to 11-25) and *The Northern Orchard* (released 11-14).\n- Tidewell is paid through 11-23. That covers *The Glass Lantern* episodes 1–3.\n- From 11-01 to 11-16, both of these are active, which already uses the 2-service limit. So Lumen can't start until 11-17.\n\n**Lumen: 1 period, starting 11-17 (to 12-16)**\n- The film *Northern Kingdom* leaves on 12-13, so Lumen must be active on some day before then.\n- From 11-17 to 11-22 only Tidewell's paid access is also active, so this stays within the limit.\n\n**Tidewell: 2 periods, starting 12-23 and 01-23**\n- The episodes still to cover run from 11-23 to 02-02, which is 71 days. One period covers releases from 30 days before its start until it ends, about 61 days. So 2 periods are needed.\n- The 12-23 to 01-22 period covers:\n  - *The Glass Lantern* episodes 4–12; episode 4's window ends exactly on 12-23.\n  - *The Northern Meridian* episodes 1–9.\n- The 01-23 to 02-22 period covers *The Northern Meridian* episodes 10 (01-26) and 11 (02-02).\n\n**Marquee: 2 periods, starting 02-21 and 04-02**\n- *The Paper Ferry* runs from 01-22 to 04-02, which is 70 days, so 2 periods are needed.\n- The 02-21 to 03-20 period covers episodes 1–9. Episode 1's window ends on 02-21, the start day.\n- The 04-02 period covers episodes 10 (03-26) and 11 (04-02).\n\n**Northline: 1 period, starting 03-01 (to 03-31)**\n- This covers *The Silver Meridian* episodes 1–7. Episode 1's window runs to 03-17, and episode 7 is released 03-29.\n- It also covers *The Salt Garden* (all released 03-22).\n\n**Two-service limit check**\n- Lumen ends 12-16, before the 12-23 Tidewell period starts.\n- Tidewell's second period ends 02-22, before Northline starts 03-01.\n- Northline ends 03-31, before Marquee's second period starts 04-02.\n- No day has more than 2 services active.\n\n{\"periods\": [{\"serviceId\": \"lumen\", \"start\": \"2026-11-17\"}, {\"serviceId\": \"tidewell\", \"start\": \"2026-12-23\"}, {\"serviceId\": \"tidewell\", \"start\": \"2027-01-23\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-02-21\"}, {\"serviceId\": \"northline\", \"start\": \"2027-03-01\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-04-02\"}]}"
+}

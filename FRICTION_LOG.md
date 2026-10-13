@@ -1,0 +1,11 @@
+# Friction log
+
+Real friction hit while building, in the order it happened. Severity: High (blocked), Medium (cost time), Low (annoyance).
+
+| # | Date | Task | What I expected | What happened | Severity | Workaround | Suggestion |
+|---|---|---|---|---|---|---|---|
+| 1 | 2026-10-13 | Test the add-on against Alexa+ | A simulator or CLI for Alexa+ MCP add-ons | The Alexa+ developer tools (MCP Toolkit, `@alexa-ai/cli`, Web Simulator) are limited to launch partners; the hackathon FAQ says to build your own web client | Medium | Built a web Echo Show style simulator that is a real MCP client | Publish a minimal public simulator, even text-only, so every entrant tests against the same host behaviour |
+| 2 | 2026-10-13 | Serve MCP 2025-11-25 statelessly on serverless | A stateless Streamable HTTP server just works with the official client | The client opens a GET stream after initialize; the stateless Web Standard transport answered 200 and closed it, so the client reconnected in a loop (dozens of GETs per minute) | Medium | Answer GET and DELETE with 405 in the route handler, as the spec allows | Make the stateless transport return 405 for GET by default, or document it next to the stateless example |
+| 3 | 2026-10-13 | Pin the protocol version | A server option to accept only 2025-11-25 | The SDK negotiates whatever supported version the client asks for; the rules require 2025-11-25 and newer SDKs may default to 2026-07-28 | Low | Startup check that the SDK's latest version is 2025-11-25, client asks for it explicitly, the simulator shows the negotiated version | State in the rules whether 2026-07-28 counts; add a server option for allowed versions |
+| 4 | 2026-10-13 | Know who is speaking | Add-on receives the recognised speaker from Alexa+ | No documented way for an add-on to learn which household member spoke | Medium | The simulator passes the speaker in a header, standing in for voice recognition | Document whether add-ons get a speaker or profile id |
+| 5 | 2026-10-13 | Install dependencies | `npm install` runs package install scripts | npm 11 skipped `esbuild`'s postinstall until approved (`allow-scripts`) | Low | Tests still ran with the prebuilt binary | None for Amazon; noted for reproducibility |

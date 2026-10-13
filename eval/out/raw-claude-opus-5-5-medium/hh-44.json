@@ -1,0 +1,24 @@
+{
+  "household": "hh-44",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 32141,
+  "usage": {
+    "input_tokens": 1773,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3300,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2285
+    }
+  },
+  "costUsd": 0.073092,
+  "text": "Plan: four paid periods, no missed episodes, total $56.45. This is the cheapest zero-miss plan. Orbit needs two periods, Lumen one and Kestrel one, and fewer would leave episodes uncovered.\n\n**What each service has to cover.** Northline and Tidewell carry no followed titles, so they are not used. Ines's 14-day window is always tighter than Dana's 30 days, so it sets every deadline.\n\n- **Lumen** (The Salt Garden on 2026-12-28, The Copper Lantern on 2027-01-04): Ines's Salt Garden window ends 2027-01-11. A single period with access on any day from Jan 4 to Jan 11 covers all 38 pairs.\n- **Kestrel+** (The Velvet Archive, weekly from Dec 30 to Feb 10): Ines must catch episode 1 by Jan 13, and episode 7 airs Feb 10. One period starting between Jan 11 and Jan 13 covers both.\n- **Orbit** (The Silver Meridian, weekly from Nov 14 to Jan 23): episode 1 must be caught by Nov 28, and episode 11 airs Jan 23. That span is longer than one month, so two periods are needed.\n  - **First period, start Nov 28** (access through Dec 27): covers episodes 1–7, with episode 7 airing Dec 26.\n  - **Second period, start Jan 16**: covers episodes 8–11, since Jan 16 is the last day of Ines's episode-8 window.\n\n**Fitting within the limit of 2 services at once.** Kestrel and Orbit must overlap from Jan 16 onward. So Lumen has to end by Jan 15, which forces it to start by Dec 16. Starting Lumen on Dec 16 gives access through Jan 15, which still covers both drops.\n\n| Dates | Services with access | Count |\n|---|---|---|\n| Nov 1–7 | Kestrel+, Lumen (already paid) | 2 |\n| Nov 8–9 | Lumen (already paid) | 1 |\n| Nov 28 – Dec 15 | Orbit | 1 |\n| Dec 16–27 | Orbit, Lumen | 2 |\n| Dec 28 – Jan 10 | Lumen | 1 |\n| Jan 11–15 | Lumen, Kestrel+ | 2 |\n| Jan 16 – Feb 10 | Kestrel+, Orbit | 2 |\n| Feb 11–15 | Orbit | 1 |\n\nThe limit is never exceeded.\n\n**Cost:** Orbit 2 × $10.99 + Lumen $15.49 + Kestrel+ $17.99 = $56.45.\n\n{\"periods\": [{\"serviceId\": \"orbit\", \"start\": \"2026-11-28\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-12-16\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-01-11\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-16\"}]}"
+}

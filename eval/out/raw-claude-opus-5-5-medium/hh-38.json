@@ -1,0 +1,24 @@
+{
+  "household": "hh-38",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 33664,
+  "usage": {
+    "input_tokens": 2326,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3790,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2704
+    }
+  },
+  "costUsd": 0.085104,
+  "text": "The approach is to give every (episode, follower) pair at least one day of access in its window, using as few paid months as possible. Each service is planned on its own, because `maxConcurrent` is null. This plan misses nothing and uses 9 periods.\n\n**Northline (already paid through Nov 22): 3 periods**\n- The existing access (Nov 1–21) covers Northern Harbor (window to Dec 3) and Hollow Meridian episode 1.\n- Hollow Meridian needs a day on or before Dec 10 for Dana's episode 2 (window Nov 26–Dec 10). It also needs a day on or after Jan 21 for episode 10 (window Jan 21–Feb 4). These two days are 42 days apart, so one month cannot cover both.\n- **Dec 10** gives access Dec 10–Jan 9, which covers episodes 2–8.\n- **Jan 21** gives access Jan 21–Feb 20. This covers episodes 9–10 and Amber Tide episode 1 (window Feb 18–Mar 4).\n- **Mar 11** gives access Mar 11–Apr 10, which covers Amber Tide episodes 2–6.\n- Wen's 30-day windows sit inside this coverage, so she misses nothing either.\n\n**Marquee (already paid through Nov 18): 1 period**\n- **Nov 25** covers The Paper Circuit for Dana (window Nov 25–Dec 9), which saves 8 pairs.\n\n**Orbit: 3 periods**\n- **Nov 1** covers Crooked Tide, which is leaving (window Nov 1–12), for both followers.\n- Glass Harbor needs access on Jan 24 for episode 1 and on Mar 7 for episode 9. These are 42 days apart, so it takes two periods.\n- **Jan 24** gives access Jan 24–Feb 23, which covers episodes 1–7.\n- **Mar 7** covers episodes 8–9.\n\n**Tidewell: 2 periods**\n- Amber Atlas episode 1 needs a day on or before Dec 11. Episode 11 needs a day on or after Jan 20. These cannot fit in one month.\n- **Dec 11** gives access Dec 11–Jan 10, which covers episodes 1–9.\n- **Jan 29** covers episodes 10–11 and The Salt Kingdom for Dana (window Jan 29–Feb 12).\n\n**Kestrel+**\n- Not needed, since no followed title is on it.\n\nNone of the periods overlap each other or the already-paid access, and all start within the plan dates.\n\n{\"periods\": [{\"serviceId\": \"northline\", \"start\": \"2026-12-10\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-21\"}, {\"serviceId\": \"northline\", \"start\": \"2027-03-11\"}, {\"serviceId\": \"marquee\", \"start\": \"2026-11-25\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-11-01\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-24\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-03-07\"}, {\"serviceId\": \"tidewell\", \"start\": \"2026-12-11\"}, {\"serviceId\": \"tidewell\", \"start\": \"2027-01-29\"}]}"
+}

@@ -1,0 +1,24 @@
+{
+  "household": "hh-14",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 25426,
+  "usage": {
+    "input_tokens": 2228,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2624,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 1658
+    }
+  },
+  "costUsd": 0.061392,
+  "text": "The best plan misses no (episode, follower) pairs and costs $69.88 (6,988 cents): four Orbit months, one Marquee month and one Lumen month.\n\n**Services needing no new periods**\n- **Pebble Kids** is required and renews automatically, so The Amber Tide and The Distant Lantern are covered and it is not listed.\n- **Northline** carries no followed titles, so it is never bought.\n\n**Orbit (4 periods, 4,396 cents)**\nThe already-paid access runs Nov 1–13.\n- That access covers Paper Signal for Tom (window Nov 1–15).\n- It also covers The Paper Meridian episode 1 for Nora (Nov 13).\n- Nora's other Paper Meridian episodes need access within 1 day of release, from Nov 20–21 to Jan 29–30. That is about 70 days, longer than two months, so three periods are needed:\n  - From Nov 21 (access to Dec 21): covers episodes released Nov 20, Nov 27, Dec 4, Dec 11 and Dec 18.\n  - From Dec 21 (access to Jan 21): covers Dec 25, Jan 1, Jan 8 and Jan 15.\n  - From Jan 23 (access to Feb 23): covers Jan 22 and Jan 29.\n- The Hollow Signal for Mara (30-day windows) has episodes from Feb 9 to Mar 23. Its last window opens Mar 23, which is after the Jan 23 period ends, so a fourth period is required:\n  - From Mar 9 (access to Apr 9): this one month touches all seven windows, from episode 1 (Feb 9–Mar 11) to episode 7 (Mar 23–Apr 22).\n- None of the periods overlap each other or the paid access, so 4 periods is the minimum for Orbit.\n\n**Marquee (1 period, 1,399 cents)**\n- The Copper Harbor for Mara has episodes from Jan 21 to Mar 18, each with a 30-day window.\n- One period from Feb 20 (access to Mar 20) covers them all. It includes Feb 20, the last day of episode 1's window, and Mar 18, the first day of episode 9's window.\n\n**Lumen (1 period, 1,549 cents)**\n- Glass Harbor is leaving, with a window of Nov 1–29.\n- One period starting Nov 1 covers it for Mara, Nora and Tom.\n\n{\"periods\": [{\"serviceId\": \"lumen\", \"start\": \"2026-11-01\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-11-21\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-12-21\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-23\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-02-20\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-03-09\"}]}"
+}

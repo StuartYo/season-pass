@@ -1,0 +1,24 @@
+{
+  "household": "hh-03",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 19724,
+  "usage": {
+    "input_tokens": 1620,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1903,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 1021
+    }
+  },
+  "costUsd": 0.04454,
+  "text": "Every (episode, follower) pair is watched in time with four paid periods, costing $77.95 (7795 cents).\n\n**Already-paid access in early November**\n- From Nov 1 to Nov 8, Marquee, Orbit and Northline are all already paid. That is 3 services, over the limit of 2, so no new period can give access on those days.\n- From Nov 9 onward, at most 2 services already have access. From Nov 17, none do.\n- Silver Kingdom (leaving, Nov 1–11) is covered by Marquee's paid access through Nov 12. No cost.\n\n**The Amber Ferry (Kestrel+, all episodes Nov 19)**\n- The window is Nov 19 – Dec 3 for both followers.\n- One period starting Nov 19 covers it and runs to Dec 18.\n- Cost: 1799.\n\n**The Quiet Circuit (Northline, Priya)**\n- Episode 1's window is Dec 11 – Dec 25, so the period must start by Dec 25.\n- Episode 7 releases Jan 22, so the period must still have access on Jan 22. That means starting on or after Dec 23.\n- A start of Dec 23 gives access through Jan 22 and catches all 7 episodes.\n- Cost: 1199.\n\n**The Glass Lantern (Marquee, both followers)**\n- Episode 1's window is Dec 12 – Dec 26, so a period must start by Dec 26.\n- Episode 9's window is Feb 6 – Feb 20.\n- One period cannot cover both, because reaching Feb 6 would need a start of Jan 7 or later. So two periods are needed.\n- First period, Dec 24 – Jan 23: covers episodes 1–5. Episode 5's window ends Jan 23.\n- Second period, Jan 24 – Feb 23: covers episodes 6–9. Episode 6's window ends Jan 30, and episode 9's starts Feb 6.\n- Cost: 2 × 1399 = 2798.\n\n**Limit check (at most 2 services at once)**\n- Kestrel+ ends before Northline starts on Dec 23.\n- After that, only Northline and Marquee overlap, which is 2.\n- No period overlaps another period of the same service or any already-paid access.\n\n**Total:** 1799 + 1199 + 2798 = 7795 cents.\n\n{\"periods\": [{\"serviceId\": \"kestrel\", \"start\": \"2026-11-19\"}, {\"serviceId\": \"northline\", \"start\": \"2026-12-23\"}, {\"serviceId\": \"marquee\", \"start\": \"2026-12-24\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-01-24\"}]}"
+}

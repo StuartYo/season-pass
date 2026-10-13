@@ -1,0 +1,24 @@
+{
+  "household": "hh-02",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 78490,
+  "usage": {
+    "input_tokens": 1626,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 7739,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 6485
+    }
+  },
+  "costUsd": 0.161284,
+  "text": "The plan below misses one of the 25 (episode, Dana) pairs, Lumen episode 5 of *The Hollow Tide*. That is the fewest possible. It costs $67.95 (6,795 cents), the lowest possible price for one miss.\n\n**What is already covered.** Orbit is already paid through Nov 9. That covers *Hollow Harbor* (watchable Nov 1 – Dec 7) at no cost. In November the already-paid services fill or exceed the limit of 2. No new period starts before 2027, so this causes no conflict.\n\n**Windows to cover.** Dana watches within 7 days, so each weekly window is the release day plus 7 days.\n- Marquee: episodes 1–7, release dates Feb 8 to Mar 22. The last window ends Mar 29.\n- Lumen: episodes 1–9, release dates Feb 6 to Apr 3. The last window ends Apr 10. Lumen also has the *Salt Tide* film, available Feb 2 – Mar 15.\n- Tidewell: all of *The Glass Lantern* drops Feb 19. A period must give access on some day from Feb 19 to Feb 26.\n\n**Why one miss is unavoidable.** Tidewell must start between Feb 19 and Feb 26, and it then holds one of the two slots for a full month. During that month, Lumen and Marquee share the other slot. A month-long period can only change over once in that time. So one of them is switched off for at least about 14 days. Any break of 14 days or more fully contains one weekly 8-day window, so at least one episode is missed.\n\n**Why this is the cheapest plan with one miss.**\n- Tidewell needs 1 period.\n- Lumen needs at least 2 periods, because its windows run from Feb 6 to Apr 10.\n- Marquee also needs at least 2. February is short, so one month cannot cover episodes 1–6 or episodes 2–7.\n- Total: 2 × 1399 + 2 × 1549 + 899 = 6,795 cents.\n\n**The schedule (end dates are the day access stops):**\n\n| Service | Access | Covers |\n|---|---|---|\n| Marquee | Jan 19 – Feb 19 | Marquee ep 1 (Feb 8 window) and ep 2 (Feb 15 window) |\n| Lumen | Feb 1 – Mar 1 | Lumen eps 1–4 and the *Salt Tide* film |\n| Tidewell | Feb 19 – Mar 19 | All of *The Glass Lantern* |\n| Marquee | Mar 1 – Apr 1 | Marquee eps 3–7 (the ep 3 window ends Mar 1) |\n| Lumen | Mar 19 – Apr 19 | Lumen eps 6–9 (the ep 6 window ends Mar 20) |\n\nLumen episode 5 (window Mar 6 – Mar 13) is the one miss.\n\n**Limit check.** At most 2 services are on at any time:\n- Jan 19 – Feb 18: Marquee, plus Lumen from Feb 1\n- Feb 19 – Feb 28: Tidewell and Lumen\n- Mar 1 – Mar 18: Tidewell and Marquee\n- Mar 19 – Mar 31: Marquee and Lumen\n- Apr 1 – Apr 18: Lumen only\n\n```json\n{\"periods\": [{\"serviceId\": \"marquee\", \"start\": \"2027-01-19\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-02-01\"}, {\"serviceId\": \"tidewell\", \"start\": \"2027-02-19\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-03-01\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-03-19\"}]}\n```"
+}

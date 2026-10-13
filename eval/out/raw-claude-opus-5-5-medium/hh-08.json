@@ -1,0 +1,24 @@
+{
+  "household": "hh-08",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 23304,
+  "usage": {
+    "input_tokens": 1668,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2397,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 1510
+    }
+  },
+  "costUsd": 0.054612,
+  "text": "Six paid periods cover every episode for every follower, so nothing is missed. The total is $95.40.\n\n**Lumen (The Copper Meridian, weekly Nov 18 – Jan 20; Ivy has 1 day, Eli has 3)**\n- Nov 1–7 already has three services on (Orbit, Tidewell, Lumen), which is over the limit of 2. Nov 8–18 has Orbit and Lumen, which is exactly 2. So no new period can start before Nov 19.\n- Episode 1 (Nov 18) is covered by Lumen's already-paid access, which runs through Nov 18.\n- A period starting **Nov 26** runs to Dec 25. It catches episode 2 (Ivy's window is Nov 25–26) and episodes 3–6 (Dec 2 – Dec 23).\n- On Nov 26–29 only Orbit and Lumen are on, so the limit holds.\n- A period starting **Dec 30** runs to Jan 29. It covers episodes 7–10 (Dec 30 – Jan 20; Ivy's last window is Jan 20–21).\n- Two periods are enough here, rather than three.\n\n**Northline (The Glass Garden, weekly Jan 24 – Mar 28; Leah has 1 day)**\n- Leah's 1-day window means Northline must be on from Jan 24 through Mar 29.\n- That is more than two months, so three periods are needed: **Jan 24**, **Feb 24** and **Mar 28**.\n\n**Orbit (Quiet Harbor, available Feb 1 – Mar 9; The Glass Atlas, released Feb 13 with Eli's window Feb 13–16)**\n- One period starting **Feb 13** (running to Mar 12) covers both titles.\n\n**Tidewell** isn't needed for any title, so it is left to turn off on Nov 8.\n\n**Limit check:** Lumen's last period ends Jan 29, before Orbit starts on Feb 13. That means no more than two services are on at once from Nov 8 onward.\n\n**Cost:** 2 × $15.49 (Lumen) + 3 × $11.99 (Northline) + $10.99 (Orbit) = $95.40.\n\n{\"periods\": [{\"serviceId\": \"lumen\", \"start\": \"2026-11-26\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-12-30\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-24\"}, {\"serviceId\": \"northline\", \"start\": \"2027-02-24\"}, {\"serviceId\": \"northline\", \"start\": \"2027-03-28\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-02-13\"}]}"
+}

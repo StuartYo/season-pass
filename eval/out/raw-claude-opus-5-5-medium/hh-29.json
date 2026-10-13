@@ -1,0 +1,24 @@
+{
+  "household": "hh-29",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 32754,
+  "usage": {
+    "input_tokens": 2551,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3478,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2167
+    }
+  },
+  "costUsd": 0.079764,
+  "text": "I found a plan that misses no (episode, follower) pairs and needs 9 paid periods. Kestrel+ has no followed titles, so it is left to lapse on 2026-11-30. There is no concurrency limit, so each service can be planned on its own.\n\n**Orbit: 3 periods (3 × $10.99).** The windows to cover run from 2026-12-18 to 2027-03-16.\n- **2026-12-20** gives access through 2027-01-19. It is the latest start that still catches Sami's 2-day window for The Paper Garden ep 1 (Dec 18–20). It covers Paper Garden eps 1–5 and Nora's 1-day windows for The Distant Ferry eps 1 (Jan 18–19).\n- **2027-01-24** gives access through 2027-02-23. It covers Paper Garden ep 6 (Sami's window ends Jan 24), eps 7–8, and Distant Ferry eps 2–6 for Nora.\n- **2027-03-02** gives access through 2027-04-01. It covers Distant Ferry eps 7–9 (Nora's windows Mar 1–2, Mar 8–9 and Mar 15–16).\n- The span from Dec 20 to Mar 15 is about 85 days, so two one-month periods cannot cover it.\n\n**Northline: 4 periods (4 × $11.99).** The prepaid access ends 2026-11-17, before anything releases. The windows run from 2026-11-28 to 2027-03-23.\n- **2026-11-30** gives access through 2026-12-29. It covers The Silver Atlas eps 1–5 for Sami (each window is release day plus 2).\n- **2027-01-04** gives access through 2027-02-03. It covers:\n  - Silver Atlas eps 6–8.\n  - The Amber Tide drop for Nora on Jan 13.\n  - The Quiet Harbor eps 1–2 for Nora.\n  - The Glass Meridian ep 1.\n- **2027-02-09** gives access through 2027-03-08. It covers Quiet Harbor eps 3–7 (Nora's last window is Mar 8–9) and Glass Meridian eps 2–5.\n- **2027-03-16** gives access through 2027-04-15. It covers Glass Meridian ep 6 (Theo's window ends Mar 16) and ep 7.\n- The span from Nov 30 to Mar 16 is about 106 days, so three periods cannot cover it.\n\n**Lumen: 2 periods (2 × $15.49).** The prepaid access ends 2026-11-02.\n- **2027-01-08** gives access through 2027-02-07. It covers:\n  - The Silver Harbor film before it leaves on Jan 17.\n  - The Copper Circuit eps 1–5 for Theo (ep 1's window ends Jan 8).\n  - The Northern Tide eps 1–3 for Nora.\n- **2027-02-12** gives access through 2027-03-11. It covers Copper Circuit eps 6–7 (ep 6's window ends Feb 12) and Northern Tide eps 4–7.\n\nTotal cost is 3 × $10.99 + 4 × $11.99 + 2 × $15.49 = $111.91.\n\n```json\n{\"periods\": [{\"serviceId\": \"orbit\", \"start\": \"2026-12-20\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-24\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-03-02\"}, {\"serviceId\": \"northline\", \"start\": \"2026-11-30\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-04\"}, {\"serviceId\": \"northline\", \"start\": \"2027-02-09\"}, {\"serviceId\": \"northline\", \"start\": \"2027-03-16\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-01-08\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-02-12\"}]}\n```"
+}

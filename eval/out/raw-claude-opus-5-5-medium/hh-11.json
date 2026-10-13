@@ -1,0 +1,24 @@
+{
+  "household": "hh-11",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 33090,
+  "usage": {
+    "input_tokens": 1790,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3231,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2309
+    }
+  },
+  "costUsd": 0.07178,
+  "text": "Every (episode, follower) pair is covered, so there are no misses. The plan uses four paid periods: 1549 + 1099 + 2 × 1399 = 5446 cents ($54.46).\n\n**Concurrency limit (3 services)**\n- From Nov 1 to Nov 12, already-paid access alone fills or exceeds the limit. Nov 1–7 has four services and Nov 8–12 has three. So no new period can give access before Nov 13.\n- From Nov 13 to Nov 24 only Marquee and Northline are on, so one more service fits. From Nov 29 nothing is already paid.\n\n**Velvet Lantern (Northline, leaving, Wen and Dana)**\n- Its window is Nov 1–13, and Northline is already paid until Nov 25. No purchase is needed.\n\n**The Velvet Orchard (Lumen, Dana, 30 days)**\n- Episode 1 (Nov 5) is covered by the existing access, which ends Nov 8.\n- Episodes 2–7 need access on some day in Nov 12–Dec 12 and some day in Dec 17–Jan 16.\n- Any single period starting between Nov 18 and Dec 12 does both. I chose **Lumen from Dec 1** (access Dec 1–Dec 31).\n\n**The Copper Orchard (Orbit, Dana)**\n- All episodes drop Dec 6, so Dana's window is Dec 6–Jan 5. **Orbit from Dec 6** covers it.\n\n**Marquee shows**\n- The Velvet Archive (Wen, 14 days) episodes 1–3 are covered by the existing access, which ends Nov 29. Episodes 4–7 need a period starting between Dec 18 and Dec 19.\n- The Amber Orchard (Dana, 30 days) has 12 weekly episodes from Jan 3 to Mar 21.\n- **Marquee from Dec 19** gives access Dec 19–Jan 18. That covers Velvet Archive episodes 4–7 and Amber Orchard episodes 1–3.\n- **Marquee from Feb 23** gives access Feb 23–Mar 22. That covers Amber Orchard episodes 4–12. Episode 4's window ends Feb 23, and episode 12 releases Mar 21.\n- So two Marquee periods cover both shows.\n\nAt most three services have access on any day: Lumen, Orbit and Marquee overlap in December.\n\n```json\n{\"periods\": [{\"serviceId\": \"lumen\", \"start\": \"2026-12-01\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-12-06\"}, {\"serviceId\": \"marquee\", \"start\": \"2026-12-19\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-02-23\"}]}\n```"
+}

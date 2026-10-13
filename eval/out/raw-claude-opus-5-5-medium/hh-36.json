@@ -1,0 +1,24 @@
+{
+  "household": "hh-36",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 34293,
+  "usage": {
+    "input_tokens": 2546,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3531,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2341
+    }
+  },
+  "costUsd": 0.080804,
+  "text": "Total cost is $135.79 (13,579 cents), and every follower sees every episode in time. Each subscribed service needs the minimum number of months to do that.\n\n**Services with no plan:** Northline and Lumen carry no followed titles, so they get no periods.\n\n**Tidewell (already paid until 2026-11-11):**\n- The Crooked Atlas drops all episodes on 2027-02-27.\n- Theo's window is 02-27 to 02-28, and Rosa's is 02-27 to 03-13.\n- One period starting **2027-02-27** covers both.\n\n**Kestrel+ (The Velvet Tide, weekly from 2026-12-17 to 2027-01-21):**\n- Theo has to watch within a day of each release.\n- The first and last episodes are more than a month apart, so two periods are needed.\n- A period starting **2026-12-17** runs to 2027-01-16 and covers the releases from 12-17 to 01-14.\n- A period starting **2027-01-21** covers the last episode.\n\n**Orbit (Hollow Atlas film, plus two weekly shows):**\n- The Hollow Atlas film window runs 2026-11-30 to 12-22.\n- The Crooked Meridian releases on Wednesdays from 12-23 to 03-03. The Silver Meridian releases on Thursdays from 12-24 to 03-04.\n- For Theo and Ivy, each Thursday falls inside the windows for both shows that week.\n- So Orbit needs one day by 12-22, then every Thursday from 12-24 through 03-04.\n- Two periods would leave late January and early February uncovered, so three are needed:\n  - **2026-12-22** covers through 2027-01-21 (the film on 12-22 and Thursdays 12-24 to 01-21).\n  - **2027-01-22** covers through 02-21 (Thursdays 01-28 to 02-18).\n  - **2027-02-22** covers through 03-21 (Thursdays 02-25 and 03-04).\n\n**Marquee (already paid until 2026-11-29):**\n- The existing access covers The Hollow Garden episodes 1 and 2.\n- Episode 3 must be seen by 12-02. The Glass Tide episode 8 airs 02-14, and its 1-day window cannot be met before that date.\n- That gap is 75 days, so three periods are needed:\n  - **2026-12-02** runs to 2027-01-01. It covers Hollow Garden Tuesdays and Glass Tide on 12-27.\n  - **2027-01-03** runs to 02-02. It covers both weekly shows through Hollow Garden's last episode on 02-02, and Copper Circuit (window 01-20 to 02-28).\n  - **2027-02-07** covers Glass Tide on 02-07 and 02-14.\n\nNo periods of the same service overlap, and all start within the plan dates.\n\n```json\n{\"periods\": [{\"serviceId\": \"tidewell\", \"start\": \"2027-02-27\"}, {\"serviceId\": \"kestrel\", \"start\": \"2026-12-17\"}, {\"serviceId\": \"kestrel\", \"start\": \"2027-01-21\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-12-22\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-22\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-02-22\"}, {\"serviceId\": \"marquee\", \"start\": \"2026-12-02\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-01-03\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-02-07\"}]}\n```"
+}

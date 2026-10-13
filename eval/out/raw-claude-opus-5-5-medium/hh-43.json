@@ -1,0 +1,24 @@
+{
+  "household": "hh-43",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 30283,
+  "usage": {
+    "input_tokens": 2296,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3362,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 2284
+    }
+  },
+  "costUsd": 0.076424,
+  "text": "Every (episode, follower) pair is covered, with 7 paid periods costing 8,893¢.\n\n**Constraints that shape the plan**\n- From Nov 1 to Nov 9 all four services already have paid access. That is more than the limit of 3, so no new period may give access on those days.\n- Salt Atlas (Orbit, available Nov 24 to Dec 7) is already covered by Orbit's paid access through Nov 26.\n\n**Northline** (The Northern Atlas, The Northern Ferry, The Quiet Signal) needs 2 periods.\n- Episode 1's window ends Dec 9, and episode 9's window opens Jan 20. That gap is longer than one month, so one period cannot cover both.\n- Period from Dec 9 (access Dec 9 to Jan 8):\n  - Northern Atlas episodes 1–7\n  - The Northern Ferry (window Dec 13 to Dec 27)\n  - The Quiet Signal (window Dec 19 to Jan 2)\n- Period from Jan 20 (access Jan 20 to Feb 19): Northern Atlas episodes 8 and 9.\n\n**Orbit** (The Distant Signal) needs 2 periods.\n- Period from Jan 6 (access Jan 6 to Feb 5): episodes 1–7. Episode 7's window opens Feb 3.\n- Period from Feb 24 (access Feb 24 to Mar 23): episodes 8–12.\n\n**Marquee** (The Hollow Kingdom, The Amber Harbor) needs 2 periods.\n- Period from Jan 9 (access Jan 9 to Feb 8):\n  - all of The Hollow Kingdom\n  - The Amber Harbor episodes 1–7\n- Period from Feb 27 (access Feb 27 to Mar 26): The Amber Harbor episodes 8–11.\n\n**Lumen** (Copper Tide, available Dec 17 to Dec 31) needs 1 period.\n- Starting Dec 17 gives access through Jan 16, so Lumen is off before Northline's second period starts on Jan 20.\n\n**Concurrency check**\n- Jan 6–8: Lumen, Northline and Orbit are on (3 services).\n- Jan 9–16: Lumen, Orbit and Marquee are on (3).\n- Jan 20 to Feb 5: Northline, Orbit and Marquee are on (3).\n- No day exceeds 3.\n\n**Cost**\n- The coverage windows force at least 2 periods each for Northline, Orbit and Marquee, and 1 for Lumen.\n- Total: 2×1199 + 2×1099 + 2×1399 + 1549 = 8,893¢.\n\n{\"periods\": [{\"serviceId\": \"northline\", \"start\": \"2026-12-09\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-20\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-12-17\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-01-06\"}, {\"serviceId\": \"orbit\", \"start\": \"2027-02-24\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-01-09\"}, {\"serviceId\": \"marquee\", \"start\": \"2027-02-27\"}]}"
+}

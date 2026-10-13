@@ -1,0 +1,24 @@
+{
+  "household": "hh-10",
+  "model": "claude-opus-5-5",
+  "effort": "medium",
+  "stop": "end_turn",
+  "ms": 20995,
+  "usage": {
+    "input_tokens": 1746,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2248,
+    "service_tier": "standard",
+    "inference_geo": "global",
+    "output_tokens_details": {
+      "thinking_tokens": 1264
+    }
+  },
+  "costUsd": 0.051944,
+  "text": "The plan below misses no episodes. It costs 2×$10.99 + 2×$15.49 + 3×$11.99 = **$88.93**, and each service has the fewest periods possible.\n\n**Starting state**\n- On 11-01 to 11-12, Lumen, Kestrel+, Northline and Orbit are all already paid. That is 4 services, which is over the limit of 3. So no new period may give access on those days.\n- No title is on Kestrel+, so it is left to switch off on 11-13.\n- From 11-13 on, at most 3 services (Lumen, Northline, Orbit) are ever active, so the concurrency limit is never broken.\n\n**Orbit – The Hollow Lantern (10 weekly episodes, 7-day windows)**\n- Episodes 1–2 are covered by the already-paid access, which runs through 11-12.\n- A period starting 11-17 gives access 11-17 to 12-16. That covers episodes 3–7; episode 7's window starts 12-15.\n- A period starting 12-29 gives access 12-29 to 01-28. That covers episode 8 (its window ends 12-29) and episodes 9–10.\n- One period cannot cover episodes 3–10, so 2 periods is the minimum.\n\n**Lumen – The Quiet Orchard and Quiet Harbor**\n- The Quiet Orchard's window is 11-26 to 12-03. A period starting 11-26 covers it and does not overlap the paid access, which ends 11-22.\n- Quiet Harbor's window is 02-23 to 03-29. A period starting 02-23 covers it.\n- The two windows are about three months apart, so 2 periods are needed.\n\n**Northline – The Northern Harbor (12 weekly episodes) and Copper Atlas**\n- A period starting 12-20 gives access 12-20 to 01-19. That covers episodes 1–6; episode 1's window ends 12-20.\n- A period starting 01-24 gives access 01-24 to 02-23. That covers episodes 7–11; episode 11's window ends 02-28.\n- A period starting 02-28 covers episode 12 and the Copper Atlas film, whose window is 02-22 to 04-02.\n- Episode 1 must be watched by 12-20 and episode 12 not before 02-28. Two months from 12-20 only reaches 02-19, so 3 periods are needed.\n\nNone of the periods for the same service overlap.\n\n```json\n{\"periods\": [{\"serviceId\": \"orbit\", \"start\": \"2026-11-17\"}, {\"serviceId\": \"orbit\", \"start\": \"2026-12-29\"}, {\"serviceId\": \"lumen\", \"start\": \"2026-11-26\"}, {\"serviceId\": \"lumen\", \"start\": \"2027-02-23\"}, {\"serviceId\": \"northline\", \"start\": \"2026-12-20\"}, {\"serviceId\": \"northline\", \"start\": \"2027-01-24\"}, {\"serviceId\": \"northline\", \"start\": \"2027-02-28\"}]}\n```"
+}
